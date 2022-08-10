@@ -113,7 +113,6 @@ async function downloadFigma(options: FigmaOptions & Options) {
 async function getConfig(options: Options & FigmaOptions) {
     try {
         const config = await resolveUserConfig();
-        console.log(config);
         logger("Resolving user config");
         return {
             output: options.output || config.output,
@@ -128,7 +127,7 @@ async function getConfig(options: Options & FigmaOptions) {
             },
         };
     } catch (e) {
-        console.error(`${c.red("Error:")} Resolving user config`);
+        logger(`${c.red("Error:")} Resolving user config`);
     }
     return {
         ...options,
@@ -146,7 +145,6 @@ async function generate(options: Options) {
         const { output, path, getComponentName, getFileName, framework } =
             await getConfig(options);
         logger("generating icons");
-        console.log(path);
         if (!path) {
             console.error("Couldn't resolve path");
             return;
