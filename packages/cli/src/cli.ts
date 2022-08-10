@@ -15,6 +15,11 @@ import inquirer from "inquirer";
 import { createConfig } from "./utils/createConfig";
 import { getDefaultNameFilter } from "./utils/getDefaultNameFilter";
 import rimraf from "rimraf";
+import debug from "debug";
+const downloader = debug("figus:downloader");
+const logger = debug("figus");
+logger.log = console.log.bind(console); // don't forget to bind to console!
+const generator = debug("figus:svg");
 
 async function worker({
     svgPath,
@@ -108,6 +113,7 @@ async function downloadFigma(options: FigmaOptions & Options) {
 async function getConfig(options: Options & FigmaOptions) {
     try {
         const config = await resolveUserConfig();
+        logger("Resolving user config");
         return {
             output: options.output || config.output,
             path: options.path || config.path,
@@ -120,7 +126,9 @@ async function getConfig(options: Options & FigmaOptions) {
                 pageName: options.pageName || config.figma.pageName,
             },
         };
-    } catch (e) {}
+    } catch (e) {
+        logger(`${c.red("Error:")} Resolving user config`);
+    }
     return {
         ...options,
         figma: {
@@ -136,7 +144,10 @@ async function generate(options: Options) {
     const { output, path, getComponentName, getFileName, framework } =
         await getConfig(options);
     try {
+        logger("generating icons");
+        console.log(path);
         if (!path) {
+            console.error("Couldn't resolve path");
             return;
         }
         // determine which framework (vue, react, angular)
@@ -151,7 +162,7 @@ async function generate(options: Options) {
         fs.rmSync("~/icons/temp", { recursive: true, force: true });
         process.exit();
     } catch (e) {
-        console.log(e);
+        console.error(e);
     }
 }
 
