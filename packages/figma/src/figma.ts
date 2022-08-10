@@ -37,7 +37,7 @@ export async function download({
         path: "~/icons/temp",
     });
     try {
-        spinner.start("determining files to download");
+        spinner.start("Determining files to download");
         const components = await api.getFileComponents(figma.fileKey);
         const files = components.meta?.components
             .filter((item) => item.containing_frame?.pageName === "Icon")

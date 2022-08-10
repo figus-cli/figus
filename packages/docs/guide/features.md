@@ -7,7 +7,7 @@ outline: deep
 
 ## Download and Generate
 ```bash
-npx figus --token="figma token"
+npx @figus/cli --token="figma token"
 ```
 Figus will download icons from Figma and will generate components automatically
 
@@ -15,14 +15,14 @@ Figus will download icons from Figma and will generate components automatically
 
 
 ```bash
-npx figus generate
+npx @figus/cli generate
 ```
 Figus can generate components from a pre-existing SVGs:
 
 ## Download mode
 
 ```bash
-npx figus download --token="figma token"
+npx @figus/cli download --token="figma token"
 ```
 
 Figus can download icons from Figma without generating components

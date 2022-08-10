@@ -83,13 +83,12 @@ export async function handler({
     spinner.succeed("Done!!");
 }
 
-async function downloadFigma({
-    pageName,
-    imageKey,
-    fileKey,
-    output,
-    token,
-}: FigmaOptions) {
+async function downloadFigma(options: FigmaOptions & Options) {
+    const {
+        output,
+        path,
+        figma: { pageName, imageKey, fileKey, token },
+    } = await getConfig(options);
     await clean();
     if (!token) {
         console.log(`Please provide a ${c.red("Figma")} token`);
@@ -97,7 +96,7 @@ async function downloadFigma({
     }
     await download({
         token,
-        path: output,
+        path: path || output,
         figma: {
             pageName,
             imageKey,
