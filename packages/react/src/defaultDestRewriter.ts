@@ -13,11 +13,7 @@
 import { ParsedPath } from "path";
 import { Options } from "@figus/types";
 
-export function defaultDestRewriter(
-    svgPathObj: ParsedPath,
-    innerPath: string,
-    options: Options & { svgDir: string }
-) {
+export function defaultDestRewriter(svgPathObj: ParsedPath, innerPath: string) {
     let fileName = svgPathObj.base;
     fileName = fileName.replace(".svg", ".tsx");
     fileName = fileName.replace(/(^.)|(_)(.)/g, (match, p1, p2, p3) => {
@@ -32,11 +28,4 @@ export function defaultDestRewriter(
     // Close.tsx -> Close16.tsx
     fileName = fileName.replace(".tsx", `${size}Icon.tsx`);
     return fileName;
-}
-
-function camelize(str) {
-    return str.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, function (match, index) {
-        if (+match === 0) return ""; // or if (/\s+/.test(match)) for white spaces
-        return index === 0 ? match.toUpperCase() : match.toUpperCase();
-    });
 }
