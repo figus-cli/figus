@@ -50,5 +50,3 @@ We also provided a official extension for Visual Studio Code to enhance your tes
 Learn more about [IDE Integrations](./ide.md)
 
 ## Examples
-
-[@@include](../../../examples/README.md)
