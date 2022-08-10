@@ -15,6 +15,18 @@
     "build": "rollup -c",
     "prepublishOnly": "pnpm build"
   },
+  "keywords": [
+    "figma",
+    "svgs",
+    "react",
+    "vue",
+    "angular",
+    "svg",
+    "download",
+    "components"
+  ],
+  "author": "omridevk",
+  "license": "MIT",
   "files": [
     "dist",
     "bin",

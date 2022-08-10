@@ -11,18 +11,16 @@
       "eslint --fix"
     ]
   },
-  "keywords": [
-    "figma",
-    "svgs",
-    "react",
-    "vue",
-    "angular",
-    "svg",
-    "download",
-    "components"
-  ],
-  "author": "omridevk",
-  "license": "MIT",
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "@algolia/client-search",
+        "@types/react",
+        "react",
+        "react-dom"
+      ]
+    }
+  },
   "workspaces": [
     "docs",
     "packages/*"
