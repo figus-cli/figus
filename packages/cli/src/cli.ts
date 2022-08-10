@@ -1,15 +1,13 @@
 import fse from "fs-extra";
-import rimraf from "rimraf";
 import Queue from "./waterfall/Queue";
-import { defaultDestRewriter } from "@figus/vue";
+import { template } from "@figus/vue";
 import { divider, spinner } from "@figus/utils";
-import { getSvgs, WorkerOptions, writeSvg, RenameFilter } from "@figus/svg";
+import { getSvgs, WorkerOptions, writeSvg } from "@figus/svg";
 import cac from "cac";
 import c from "picocolors";
 import { version } from "../../../package.json";
-import { Options, Frameworks } from "@figus/types";
+import { Frameworks, Options } from "@figus/types";
 import { clean, download, FigmaOptions } from "@figus/figma";
-import { template } from "@figus/vue";
 import { template as muiTemplate } from "@figus/react-mui";
 import fs from "fs";
 import { resolveUserConfig } from "./config";
