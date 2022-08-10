@@ -14,6 +14,7 @@ import { resolveUserConfig } from "./config";
 import inquirer from "inquirer";
 import { createConfig } from "./utils/createConfig";
 import { getDefaultNameFilter } from "./utils/getDefaultNameFilter";
+import rimraf from "rimraf";
 
 async function worker({
     svgPath,
@@ -52,7 +53,7 @@ export async function handler({
     getFileName,
     getComponentName,
 }: Options & { svgDir: string }) {
-    // rimraf.sync(`${output}/*.vue`); // Clean old files
+    rimraf.sync(`${output}/*`); // Clean old files
     if (!output) {
         throw Error("Please provide an output");
     }

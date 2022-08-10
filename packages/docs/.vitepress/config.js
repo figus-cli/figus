@@ -15,7 +15,6 @@ export default defineConfig({
         },
         nav: [
             { text: "Guide", link: "/guide/" },
-            { text: "API", link: "/api/" },
             { text: "Config", link: "/config/" },
         ],
         sidebar: {
@@ -23,10 +22,6 @@ export default defineConfig({
                 {
                     text: "Guide",
                     items: [
-                        {
-                            text: "Why Vitest",
-                            link: "/guide/why",
-                        },
                         {
                             text: "Getting Started",
                             link: "/guide/",
@@ -39,17 +34,14 @@ export default defineConfig({
                             text: "CLI",
                             link: "/guide/cli",
                         },
+                    ],
+                },
+                {
+                    text: "Config",
+                    items: [
                         {
-                            text: "Test Filtering",
-                            link: "/guide/filtering",
-                        },
-                        {
-                            text: "Coverage",
-                            link: "/guide/coverage",
-                        },
-                        {
-                            text: "Snapshot",
-                            link: "/guide/snapshot",
+                            text: "Config Reference",
+                            link: "/config/",
                         },
                     ],
                 },

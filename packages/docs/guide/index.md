@@ -30,15 +30,6 @@ Figus requires Node >=v14
 
 - Run `npx @figus/cli init`, and follow the interactive configuration.
 
-```ts
-import { defineConfig } from 'vitest/config'
-
-export default defineConfig({
-  test: {
-    // ...
-  },
-})
-```
 
 See the list of config options in the [Config Reference](../config/)
 
