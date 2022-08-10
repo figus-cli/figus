@@ -141,9 +141,9 @@ async function getConfig(options: Options & FigmaOptions) {
 }
 
 async function generate(options: Options) {
-    const { output, path, getComponentName, getFileName, framework } =
-        await getConfig(options);
     try {
+        const { output, path, getComponentName, getFileName, framework } =
+            await getConfig(options);
         logger("generating icons");
         console.log(path);
         if (!path) {
