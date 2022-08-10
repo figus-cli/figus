@@ -10,7 +10,7 @@
   "bugs": {
     "url": "https://github.com/figus-cli/figus/issues"
   },
-  "homepage": "https://github.com/figus-cli/figus#readme",
+  "homepage": "https://www.figus.dev/",
   "scripts": {
     "build": "rollup -c",
     "prepublishOnly": "pnpm build"
