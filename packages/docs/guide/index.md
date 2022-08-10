@@ -9,7 +9,7 @@ title: Getting Started | Guide
 Figus is a powerful that helps to create components from a Figma design page
 It supports React, React Material UI and Vue
 
-## Adding Vitest to your Project
+## Adding Figus to your Project
 
 ```bash
 # with npm
@@ -35,7 +35,7 @@ See the list of config options in the [Config Reference](../config/)
 
 ## Command Line Interface
 
-In a project where Figus is installed, you can use the `figus` binary in your npm scripts, or run it directly with `npx vitest`.
+In a project where Figus is installed, you can use the `figus` binary in your npm scripts, or run it directly with `npx @figus/cli`.
 
 To download and generate icons, just run: `figus`
 
