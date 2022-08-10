@@ -113,6 +113,7 @@ async function downloadFigma(options: FigmaOptions & Options) {
 async function getConfig(options: Options & FigmaOptions) {
     try {
         const config = await resolveUserConfig();
+        console.log(config);
         logger("Resolving user config");
         return {
             output: options.output || config.output,
@@ -127,7 +128,7 @@ async function getConfig(options: Options & FigmaOptions) {
             },
         };
     } catch (e) {
-        logger(`${c.red("Error:")} Resolving user config`);
+        console.error(`${c.red("Error:")} Resolving user config`);
     }
     return {
         ...options,

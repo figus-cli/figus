@@ -16,6 +16,7 @@ export async function resolveUserConfig(
     root: string = process.cwd()
 ): Promise<Config> {
     // load user config
+    console.log(root);
     let configPath;
     for (const ext of supportedConfigExtensions) {
         const p = resolve(root, `figus.config.${ext}`);
@@ -24,6 +25,7 @@ export async function resolveUserConfig(
             break;
         }
     }
+    console.log(configPath);
     if (!configPath) {
         throw new Error("missing config");
     }
@@ -31,6 +33,5 @@ export async function resolveUserConfig(
 }
 
 async function loadConfigFile(fileName: string): Promise<Config> {
-    const config = (await import(pathToFileURL(fileName).href)).default;
-    return config;
+    return (await import(pathToFileURL(fileName).href)).default;
 }
