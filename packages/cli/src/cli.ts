@@ -150,7 +150,7 @@ async function generate(options: CliOptions) {
             renameFilter: renameFilterDefault,
             framework: configFramework,
         });
-        fs.rmSync(path, { recursive: true, force: true });
+        fs.rmSync("~/icons/temp", { recursive: true, force: true });
         process.exit();
     } catch (e) {
         console.log(e);
@@ -193,7 +193,7 @@ async function start(
             renameFilter,
             framework: framework || configFramework,
         });
-        fs.rmSync(svgDir, { recursive: true, force: true });
+        fs.rmSync("~/icons/temp", { recursive: true, force: true });
         process.exit();
     } catch (e) {
         process.exitCode = 1;
