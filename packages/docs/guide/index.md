@@ -41,12 +41,4 @@ To download and generate icons, just run: `figus`
 
 Learn more about the [Command Line Interface](./cli.md)
 
-## IDE Integrations
-
-We also provided a official extension for Visual Studio Code to enhance your testing experience with Vitest.
-
-[Install from VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=ZixuanChen.vitest-explorer)
-
-Learn more about [IDE Integrations](./ide.md)
-
 ## Examples
