@@ -5,8 +5,12 @@
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/omridevk/ficus.git"
+    "url": "git+https://github.com/figus-cli/figus"
   },
+  "bugs": {
+    "url": "https://github.com/figus-cli/figus/issues"
+  },
+  "homepage": "https://github.com/figus-cli/figus#readme",
   "scripts": {
     "build": "rollup -c",
     "prepublishOnly": "pnpm build"

@@ -5,10 +5,6 @@
     "prepare": "(node -e \"if (require('fs').existsSync('./.git')){process.exit(1)} \") || husky install",
     "release": "bumpp package.json packages/*/package.json --commit --push --tag && pnpm -r publish --access=public"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/omridevk/ficus.git"
-  },
   "lint-staged": {
     "*.{js,ts,tsx,vue,md}": [
       "prettier --write --ignore-unknown",
@@ -27,10 +23,6 @@
   ],
   "author": "omridevk",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/omridevk/ficus/issues"
-  },
-  "homepage": "https://github.com/omridevk/ficus#readme",
   "workspaces": [
     "docs",
     "packages/*"
