@@ -1,5 +1,5 @@
 {
-  "version": "0.0.9-beta.1",
+  "version": "0.0.9-beta.2",
   "scripts": {
     "build": "pnpm -r --filter=./packages/** run build",
     "prepare": "(node -e \"if (require('fs').existsSync('./.git')){process.exit(1)} \") || husky install",
