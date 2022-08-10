@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "lib": [
+      "esnext",
+      "dom"
+    ],
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "resolveJsonModule": true,
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true,
+    "declaration": true,
+    "inlineSourceMap": true,
+    "paths": {
+      "@figus/cli": [
+        "./packages/cli/src/index.ts"
+      ],
+      "@figus/svg": [
+        "./packages/svg/src/index.ts"
+      ],
+      "@figus/types": [
+        "./packages/types/src/index.ts"
+      ],
+      "@figus/figma": [
+        "./packages/figma/src/index.ts"
+      ],
+      "@figus/vue": [
+        "./packages/vue/src/index.ts"
+      ],
+      "@figus/utils": [
+        "./packages/utils/src/index.ts"
+      ],
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "version": "0.0.9-beta.1",
+  "scripts": {
+    "build": "pnpm -r --filter=./packages/** run build",
+    "prepare": "(node -e \"if (require('fs').existsSync('./.git')){process.exit(1)} \") || husky install",
+    "release": "bumpp package.json packages/*/package.json --commit --push --tag && pnpm -r publish --access=public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omridevk/ficus.git"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx,vue,md}": [
+      "prettier --write --ignore-unknown",
+      "eslint --fix"
+    ]
+  },
+  "keywords": [
+    "figma",
+    "svgs",
+    "react",
+    "vue",
+    "angular",
+    "svg",
+    "download",
+    "components"
+  ],
+  "author": "omridevk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/omridevk/ficus/issues"
+  },
+  "homepage": "https://github.com/omridevk/ficus#readme",
+  "workspaces": [
+    "docs",
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@types/download": "^8.0.1",
+    "bumpp": "^8.2.1",
+    "eslint": "^8.21.0",
+    "prettier": "^2.7.1"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.33.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "husky": "^8.0.1",
+    "typescript": "^4.6.4"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "version": "0.0.9-beta.1",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "figma-api": "^1.10.1",
+    "nodejs-file-downloader": "^4.10.1",
+    "download": "^8.0.0"
+  }
+}

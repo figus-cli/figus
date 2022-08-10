@@ -1,0 +1,70 @@
+{
+  "name": "@figus/cli",
+  "version": "0.0.9-beta.1",
+  "description": "Easily download Figma and create SVGs components for Vue, React, Angular and more to come",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omridevk/ficus.git"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "prepublishOnly": "pnpm build"
+  },
+  "files": [
+    "dist",
+    "bin",
+    "*.d.ts",
+    "*.mjs",
+    "*.cjs"
+  ],
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./*": "./*",
+    ".": {
+      "require": "./dist/index.mjs",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "bin": {
+    "figus": "./figus.mjs"
+  },
+  "dependencies": {
+    "cac": "^6.7.12",
+    "change-case": "^4.1.2",
+    "debug": "^4.3.4",
+    "fast-glob": "^3.2.11",
+    "fs-extra": "^10.1.0",
+    "inquirer": "^9.1.0",
+    "mustache": "^4.2.0",
+    "ora": "^6.1.2",
+    "pathe": "^0.3.3",
+    "prettier": "^2.7.1",
+    "rimraf": "^3.0.2",
+    "svgo": "^2.8.0",
+    "vfile": "^5.3.4",
+    "yargs": "^17.5.1"
+  },
+  "devDependencies": {
+    "@rollup/plugin-alias": "^3.1.9",
+    "@rollup/plugin-commonjs": "^22.0.2",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@rollup/plugin-typescript": "^8.3.4",
+    "@types/debug": "^4.1.7",
+    "@types/fs-extra": "^9.0.13",
+    "@types/inquirer": "^9.0.0",
+    "@types/mustache": "^4.2.1",
+    "@types/rimraf": "^3.0.2",
+    "@types/svgo": "^2.6.3",
+    "@types/yargs": "^17.0.11",
+    "esbuild": "^0.14.54",
+    "rollup": "^2.77.2",
+    "rollup-plugin-dts": "^4.2.2",
+    "rollup-plugin-esbuild": "^4.9.1",
+    "tsup": "^6.2.1",
+    "typescript": "^4.6.4"
+  }
+}
