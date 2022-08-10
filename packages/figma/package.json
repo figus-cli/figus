@@ -1,5 +1,5 @@
 {
-  "version": "0.0.10-beta.2",
+  "version": "0.0.10-beta.3",
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
