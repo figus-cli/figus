@@ -1,12 +1,19 @@
 import { FigmaOptions } from "@figus/figma";
 import { RenameFilter } from "@figus/svg";
+import { Frameworks } from "./frameworks";
 
-export interface CliOptions {
+export interface Options {
     /**
      * a transformer function to generate component names
      * @param fileName
      */
     getFileName?: RenameFilter;
+    /**
+     * transform component name
+     * can use change-case for example to change the name casing from kebab case
+     * @param name
+     */
+    getComponentName?: (name: string) => string;
     /**
      * where to save the output to
      */
@@ -14,7 +21,7 @@ export interface CliOptions {
     /**
      * Which framework to generate components for
      */
-    framework: "vue" | "react";
+    framework: Frameworks;
     /**
      * Figma config
      */

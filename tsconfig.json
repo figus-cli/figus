@@ -31,6 +31,12 @@
       "@figus/vue": [
         "./packages/vue/src/index.ts"
       ],
+      "@figus/react": [
+        "./packages/react/src/index.ts"
+      ],
+      "@figus/react-mui": [
+        "./packages/react-mui/src/index.ts"
+      ],
       "@figus/utils": [
         "./packages/utils/src/index.ts"
       ],

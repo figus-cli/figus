@@ -1,2 +1,2 @@
 export * from "./frameworks";
-export * from "./cliOptions";
+export * from "./options";

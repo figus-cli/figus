@@ -1,1 +1,1 @@
-export type Frameworks = "react" | "vue";
+export type Frameworks = "react" | "vue" | "react-mui";

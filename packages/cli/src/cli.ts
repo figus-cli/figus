@@ -1,25 +1,27 @@
 import fse from "fs-extra";
 import rimraf from "rimraf";
 import Queue from "./waterfall/Queue";
-import renameFilterDefault from "./rename-filters";
+import { defaultDestRewriter } from "@figus/vue";
 import { divider, spinner } from "@figus/utils";
-import { getSvgs, WorkerOptions, writeSvg } from "@figus/svg";
+import { getSvgs, WorkerOptions, writeSvg, RenameFilter } from "@figus/svg";
 import cac from "cac";
 import c from "picocolors";
 import { version } from "../../../package.json";
-import { CliOptions, Frameworks } from "@figus/types";
+import { Options, Frameworks } from "@figus/types";
 import { clean, download, FigmaOptions } from "@figus/figma";
 import { template } from "@figus/vue";
+import { template as muiTemplate } from "@figus/react-mui";
 import fs from "fs";
 import { resolveUserConfig } from "./config";
 import inquirer from "inquirer";
-import { RenameFilter } from "../../svg/src";
 import { createConfig } from "./utils/createConfig";
+import { getDefaultNameFilter } from "./utils/getDefaultNameFilter";
 
 async function worker({
     svgPath,
     svgDir,
     output,
+    getComponentNameConfig,
     renameFilter,
     framework,
     template,
@@ -28,6 +30,7 @@ async function worker({
     await writeSvg({
         svgPath,
         svgDir,
+        getComponentNameConfig,
         output,
         renameFilter,
         template,
@@ -39,6 +42,9 @@ async function getTemplate({ framework }: { framework: Frameworks }) {
     if (framework === "vue") {
         return template();
     }
+    if (framework === "react-mui") {
+        return muiTemplate();
+    }
 }
 
 export async function handler({
@@ -46,15 +52,13 @@ export async function handler({
     framework,
     svgDir,
     getFileName,
-    renameFilter,
-}: CliOptions & { renameFilter: RenameFilter; svgDir: string }) {
-    rimraf.sync(`${output}/*.vue`); // Clean old files
-    if (typeof renameFilter !== "function") {
-        throw Error("renameFilter must be a function");
-    }
+    getComponentName,
+}: Options & { svgDir: string }) {
+    // rimraf.sync(`${output}/*.vue`); // Clean old files
     if (!output) {
         throw Error("Please provide an output");
     }
+    const renameFilter = getDefaultNameFilter(framework);
     await fse.ensureDir(output);
     const template = await getTemplate({ framework });
     const svgPaths = await getSvgs({ svgDir });
@@ -64,6 +68,7 @@ export async function handler({
     const queue = new Queue(
         (svgPath: string) =>
             worker({
+                getComponentNameConfig: getComponentName,
                 svgPath,
                 svgDir,
                 framework,
@@ -102,7 +107,7 @@ async function downloadFigma({
     });
 }
 
-async function getConfig(options: CliOptions & FigmaOptions) {
+async function getConfig(options: Options & FigmaOptions) {
     try {
         const config = await resolveUserConfig();
         return {
@@ -129,26 +134,21 @@ async function getConfig(options: CliOptions & FigmaOptions) {
     };
 }
 
-async function generate(options: CliOptions) {
-    const {
-        output,
-        path,
-        getFileName,
-        framework: configFramework,
-    } = await getConfig(options);
+async function generate(options: Options) {
+    const { output, path, getComponentName, getFileName, framework } =
+        await getConfig(options);
     try {
         if (!path) {
             return;
         }
-
         // determine which framework (vue, react, angular)
         // use assets to create components
         await handler({
             svgDir: path,
             output,
             getFileName,
-            renameFilter: renameFilterDefault,
-            framework: configFramework,
+            getComponentName,
+            framework: framework,
         });
         fs.rmSync("~/icons/temp", { recursive: true, force: true });
         process.exit();
@@ -157,14 +157,12 @@ async function generate(options: CliOptions) {
     }
 }
 
-async function start(
-    framework: Frameworks,
-    options: CliOptions & FigmaOptions
-) {
+async function start(framework: Frameworks, options: Options & FigmaOptions) {
     clean();
     const {
         output,
         path,
+        getComponentName,
         framework: configFramework,
         figma: { token, imageKey, fileKey, pageName },
     } = await getConfig(options);
@@ -183,14 +181,11 @@ async function start(
             console.error("error downloading from figma");
             process.exit();
         }
-        // download from figma
-        const renameFilter = renameFilterDefault;
-        // determine which framework (vue, react, angular)
-        // use assets to create components
+
         await handler({
             svgDir,
             output,
-            renameFilter,
+            getComponentName,
             framework: framework || configFramework,
         });
         fs.rmSync("~/icons/temp", { recursive: true, force: true });
@@ -212,7 +207,7 @@ async function init() {
                 type: "list",
                 message: "Select framework",
                 name: "framework",
-                choices: ["React", "Vue"],
+                choices: ["React", "React Mui", "Vue"],
             },
             {
                 type: "input",

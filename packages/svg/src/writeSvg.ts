@@ -2,14 +2,15 @@ import path, { ParsedPath } from "path";
 import fse from "fs-extra";
 import Mustache from "mustache";
 import { cleanPaths } from "./cleanPaths";
-import { CliOptions, Frameworks } from "@figus/types";
+import { Options, Frameworks } from "@figus/types";
 import { formatFile } from "@figus/utils";
-import { getComponentName } from "@figus/vue";
+import { getComponentName as getComponentNameVue } from "@figus/vue";
+import { getComponentName as getComponentNameReact } from "@figus/react";
 
 export type RenameFilter = (
     svgPathObj: ParsedPath,
     innerPath: string,
-    options: CliOptions & { svgDir: string }
+    options: Options & { svgDir: string }
 ) => string;
 
 export interface WorkerOptions {
@@ -18,6 +19,7 @@ export interface WorkerOptions {
     framework: Frameworks;
     output: string;
     renameFilter: RenameFilter;
+    getComponentNameConfig?: (name: string) => string;
     template: string;
     progress?: () => void;
 }
@@ -26,6 +28,7 @@ export async function writeSvg({
     svgPath,
     svgDir,
     output,
+    getComponentNameConfig,
     renameFilter,
     framework,
     template,
@@ -46,8 +49,10 @@ export async function writeSvg({
     try {
         const data = await fse.readFile(svgPath, { encoding: "utf8" });
         const paths = cleanPaths({ svgPath, data });
-        const componentName = getComponentName(destPath);
-
+        let componentName = getComponentName(framework)(destPath);
+        if (getComponentNameConfig) {
+            componentName = getComponentNameConfig(componentName);
+        }
         const fileString = Mustache.render(template, {
             paths,
             componentName,
@@ -59,4 +64,14 @@ export async function writeSvg({
     } catch (e) {
         return null;
     }
+}
+
+function getComponentName(framework: Frameworks) {
+    if (framework.startsWith("react")) {
+        return getComponentNameReact;
+    }
+    if (framework === "vue") {
+        return getComponentNameVue;
+    }
+    throw Error("Unsupported framework: " + framework);
 }

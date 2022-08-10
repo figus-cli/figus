@@ -1,14 +1,14 @@
-import { CliOptions } from "@figus/types";
+import { Options } from "@figus/types";
 import { FigmaOptions } from "@figus/figma";
 import { resolve } from "pathe";
 import fs from "fs-extra";
 import { pathToFileURL } from "url";
 
-export function defineConfig(config: CliOptions) {
+export function defineConfig(config: Options) {
     return config;
 }
 
-type Config = CliOptions & { figma: FigmaOptions };
+type Config = Options & { figma: FigmaOptions };
 
 const supportedConfigExtensions = ["js", "ts", "mjs", "mts"];
 

@@ -1,9 +1,9 @@
-import { CliOptions } from "@figus/types";
+import { Options } from "@figus/types";
 import { formatFile } from "@figus/utils";
 import fse from "fs-extra";
 import * as path from "path";
 
-export async function createConfig({ output, figma, framework }: CliOptions) {
+export async function createConfig({ output, figma, framework }: Options) {
     const outputPath = path.resolve(process.cwd(), "figus.config.js");
     const config = `
 import {defineConfig} from '@figus/cli';
