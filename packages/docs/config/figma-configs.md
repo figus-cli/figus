@@ -1,67 +1,58 @@
-# App Configs
+# Figma Configs
 
-App configs are where you can define the global settings for Figus. App configs define fundamental settings that are not only limited to the figma settings such as configuration for "output path", or the "framework" to generate components for.
+Figma configs are where you can define figma settings for Figus. Figma configs define fundamental settings that are required in order to integrate with Figma's REST API
 
 ```ts
 export default {
-  // These are app level configs.
-    output: "test",
-    framework: "vue",
-    path: "./src/assets",
-  ...
+    // These are figma level configs.
+    ...,
+    figma: {
+        pageName: "Icon",
+        fileKey: "fileKey",
+        token: "figma token"
+    },
+    ...
 }
 ```
 
-## output
+## pageName
 
 - Type: `string`
 - Required: `true`
 
-Where to save the components to
+The page name where the icons library sits in Figma. [See how to](../guide/figma.md) find that information in Figma
 
 ```ts
 export default {
-  output: "icons/components"
+  figma: {
+      pageName: "Icons"
+  }
 }
 ```
 
-## framework
-
-- Type: `vue | react | react-mui`
-- Required: `true`
-
-The framework which we want to generate components for, i.e Vue, React, or React-Mui
-
-```ts
-export default {
-  framework: 'react-mui'
-}
-```
-
-## path
+## fileKey
 
 - Type: `string`
 - Required: `true`
 
-Used by `figus generate` when we only want to generate components, without downloading from figma. the path will indicate where the svgs are located
+The file key name where the icons library sits in Figma. [See how to](../guide/figma.md) find that information in Figma
 
 ```ts
 export default {
-  path: 'src/assets/svg'
+  fileKey: 'ddk2DXkqwyZ'
 }
 ```
 
-## getComponentName
+## token
 
-- Type: `(svgObject: ParsedPath, innerPath: string, options: Options) => string`
-- Required: `false`
+- Type: `string`
+- Required: `true`
 
-The function should return the component name (`string`) to allow customizing the output components name
+We must have a Figma token to integrate with the API, to get a new token, follow [these instructions](https://www.figma.com/developers/api)
+Login to Figma, then you can click on `Get personal access token`
 
 ```ts
 export default {
-    getComponentName: (svgObject, innerPath, options) => {
-        return camelCase(svgObject.base)
-    }
+  token: 'figd_5zdkzZdv9evo00akdUGxapz90rJdf_HmZ1AiMVTt'
 }
 ```

@@ -1,12 +1,18 @@
 # Introduction
 
 Place your configuration file at the root `figus.config.js`.
-
 ```
 .
 ├─ figus.config.js
 └─ package.json
 ```
+
+You can also use `npx @figus/cli init` to initialize a config using our interactive UI
+All options can also be passed as CLI options:
+```shell
+npx @figus/cli --figma.token="token" figma.fileKey="zz" --figma.pageName="Icons" --output="src/components" 
+```
+
 
 Figus have one config object [App Configs](./app-configs). 
 
