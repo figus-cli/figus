@@ -255,16 +255,14 @@ const cli = cac("figus");
 
 cli.version(version)
     .option("-s, --svg-dir <svgDir>", "Output of downloaded files")
-    .option("-fk, --file-key <fileKey>", "figma file key")
-    .option("-ik, --image-key <imageKey>", "figma image key")
-    .option("-p, --page-name <pageName>", "figma page name")
-    .option("-t, --token <token>", "Figma token");
+    .option("-f, --figma <fileKey>", "figma file key");
 
 cli.command(
     "[framework]",
     "Generate components from figma for a specific framework"
 )
     .option("-o, --output <string>", "output path")
+    .example("--figma.fileKey yyy --figma.token xxx --figma.pageName zzz")
     .action(start);
 
 cli.command("generate", "generate components from svg files")
