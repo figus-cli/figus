@@ -10,6 +10,7 @@ export interface Options {
     getFileName?: RenameFilter;
     /**
      * the template to be used when generating component
+     *
      */
     templateFile?: string;
     /**
