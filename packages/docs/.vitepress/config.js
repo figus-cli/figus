@@ -15,7 +15,11 @@ export default defineConfig({
         },
         nav: [
             { text: "Guide", link: "/guide/" },
-            { text: "Config", link: "/config/" },
+            {
+                text: "Configs",
+                link: "/config/introduction",
+                activeMatch: "/config/",
+            },
         ],
         sidebar: {
             "/": [
@@ -31,17 +35,19 @@ export default defineConfig({
                             link: "/guide/features",
                         },
                         {
-                            text: "CLI",
-                            link: "/guide/cli",
+                            text: "Figma",
+                            link: "/guide/figma",
                         },
                     ],
                 },
                 {
                     text: "Config",
                     items: [
+                        { text: "Introduction", link: "/config/introduction" },
+                        { text: "App Configs", link: "/config/app-configs" },
                         {
-                            text: "Config Reference",
-                            link: "/config/",
+                            text: "Figma Configs",
+                            link: "/config/figma-configs",
                         },
                     ],
                 },

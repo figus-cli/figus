@@ -30,8 +30,9 @@ Figus requires Node >=v14
 
 - Run `npx @figus/cli init`, and follow the interactive configuration.
 
+Learn more about how to get Figma information [Figma how to](./figma.md)
 
-See the list of config options in the [Config Reference](../config/)
+See the list of config options in the [Config Reference](../config/app-configs.md)
 
 ## Command Line Interface
 
@@ -39,6 +40,5 @@ In a project where Figus is installed, you can use the `figus` binary in your np
 
 To download and generate icons, just run: `figus`
 
-Learn more about the [Command Line Interface](./cli.md)
 
 ## Examples

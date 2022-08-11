@@ -19,8 +19,8 @@ hero:
 features:
   - title: "Figus CLI: The DX that can't be beat"
     details: Download icons directly from Figma
-  - title: Customizable 
-    details: Powerful API to generate all your icons needs with one command
+  - title: SVGO Optimized 
+    details: All icons will be optimized using SVGO
   - title: React/MUI
     details: Full support generating React and Material UI components with single command line  
   - title: Vue

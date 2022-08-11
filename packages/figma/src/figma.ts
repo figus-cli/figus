@@ -6,7 +6,6 @@ import { spinner } from "@figus/utils";
 
 export interface FigmaOptions {
     fileKey?: string;
-    imageKey?: string;
     token?: string;
     output?: string;
     pageName?: string;
@@ -26,7 +25,7 @@ export async function download({
     path?: string;
 }) {
     await clean();
-    if (!token || !figma.fileKey || !figma.imageKey || !figma.pageName) {
+    if (!token || !figma.fileKey || !figma.pageName) {
         return;
     }
     const api = new Figma.Api({
@@ -40,7 +39,9 @@ export async function download({
         spinner.start("Determining files to download");
         const components = await api.getFileComponents(figma.fileKey);
         const files = components.meta?.components
-            .filter((item) => item.containing_frame?.pageName === "Icon")
+            .filter(
+                (item) => item.containing_frame?.pageName === figma.pageName
+            )
             .map((item) => {
                 return {
                     node_id: item.node_id,
@@ -50,7 +51,7 @@ export async function download({
         if (!files?.length) {
             return;
         }
-        const { images } = await api.getImage(figma.imageKey, {
+        const { images } = await api.getImage(figma.fileKey, {
             ids: files.map((item) => item.node_id).join(","),
             scale: 1,
             format: "svg",

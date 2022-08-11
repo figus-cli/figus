@@ -92,7 +92,7 @@ async function downloadFigma(options: FigmaOptions & Options) {
     const {
         output,
         path,
-        figma: { pageName, imageKey, fileKey, token },
+        figma: { pageName, fileKey, token },
     } = await getConfig(options);
     await clean();
     if (!token) {
@@ -104,7 +104,6 @@ async function downloadFigma(options: FigmaOptions & Options) {
         path: path || output,
         figma: {
             pageName,
-            imageKey,
             fileKey,
         },
     });
@@ -121,7 +120,6 @@ async function getConfig(options: Options & FigmaOptions) {
             getFileName: config.getFileName,
             figma: {
                 token: options.token || config.figma.token,
-                imageKey: options.imageKey || config.figma.imageKey,
                 fileKey: options.fileKey || config.figma.fileKey,
                 pageName: options.pageName || config.figma.pageName,
             },
@@ -133,7 +131,6 @@ async function getConfig(options: Options & FigmaOptions) {
         ...options,
         figma: {
             token: options.token,
-            imageKey: options.imageKey,
             fileKey: options.fileKey,
             pageName: options.pageName,
         },
@@ -172,7 +169,7 @@ async function start(framework: Frameworks, options: Options & FigmaOptions) {
         path,
         getComponentName,
         framework: configFramework,
-        figma: { token, imageKey, fileKey, pageName },
+        figma: { token, fileKey, pageName },
     } = await getConfig(options);
     try {
         const svgDir =
@@ -181,7 +178,6 @@ async function start(framework: Frameworks, options: Options & FigmaOptions) {
                 token,
                 figma: {
                     pageName,
-                    imageKey,
                     fileKey,
                 },
             }));
@@ -241,7 +237,7 @@ async function init() {
         .then(async ({ output, pageName, imageKey, fileKey, framework }) => {
             await createConfig({
                 output,
-                figma: { pageName, imageKey, fileKey },
+                figma: { pageName, fileKey },
                 framework,
             });
             // Use user feedback for... whatever!!
