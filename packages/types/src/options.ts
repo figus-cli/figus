@@ -8,7 +8,6 @@ export interface Options {
      * @param fileName
      */
     getFileName?: RenameFilter;
-
     /**
      * the template to be used when generating component
      */
