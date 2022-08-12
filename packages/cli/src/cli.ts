@@ -16,10 +16,9 @@ import { createConfig } from "./utils/createConfig";
 import { getDefaultNameFilter } from "./utils/getDefaultNameFilter";
 import rimraf from "rimraf";
 import debug from "debug";
-const downloader = debug("figus:downloader");
+import * as process from "process";
 const logger = debug("figus");
 logger.log = console.log.bind(console); // don't forget to bind to console!
-const generator = debug("figus:svg");
 
 async function worker({
     svgPath,
@@ -31,6 +30,11 @@ async function worker({
     template,
 }: WorkerOptions) {
     spinner.text = "Generating icons";
+    logger(`starting to generate icons for ${framework}`, {
+        svgPath,
+        svgDir,
+        output,
+    });
     await writeSvg({
         svgPath,
         svgDir,
@@ -49,9 +53,10 @@ async function getTemplate({
     framework: Frameworks;
     templateFile?: string;
 }) {
-    if (templateFile) {
+    if (templateFile && fse.existsSync(templateFile)) {
         return fse.readFileSync(templateFile, "utf-8");
     }
+    logger(`Getting template for ${framework}`);
     if (framework === "vue") {
         return template();
     }
@@ -161,10 +166,11 @@ async function generate(options: Options) {
         } = await getConfig(options);
         logger("generating icons");
         if (!path) {
+            logger("couldn't resolve path");
             console.error("Couldn't resolve path");
             return;
         }
-        rimraf.sync("~/icons/temp/*");
+        clean();
         await handler({
             svgDir: path,
             template,
@@ -211,10 +217,10 @@ async function start(framework: Frameworks, options: Options & FigmaOptions) {
             getComponentName,
             framework: framework || configFramework,
         });
-        fs.rmSync("~/icons/temp", { recursive: true, force: true });
-        process.exit();
+        clean();
+        process.exit(0);
     } catch (e) {
-        process.exitCode = 1;
+        process.exit(1);
         console.error(
             `\n${c.red(divider(c.bold(c.inverse(" Unhandled Error "))))}`
         );
