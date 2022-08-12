@@ -1,6 +1,6 @@
 {
   "name": "@figus/cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Easily download Figma and create SVGs components for Vue, React, Angular and more to come",
   "type": "module",
   "repository": {
