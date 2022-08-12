@@ -38,6 +38,7 @@ importers:
       '@types/fs-extra': ^9.0.13
       '@types/inquirer': ^9.0.0
       '@types/mustache': ^4.2.1
+      '@types/ramda': ^0.28.15
       '@types/rimraf': ^3.0.2
       '@types/svgo': ^2.6.3
       '@types/yargs': ^17.0.11
@@ -52,6 +53,7 @@ importers:
       ora: ^6.1.2
       pathe: ^0.3.3
       prettier: ^2.7.1
+      ramda: ^0.28.0
       rimraf: ^3.0.2
       rollup: ^2.77.2
       rollup-plugin-dts: ^4.2.2
@@ -86,10 +88,12 @@ importers:
       '@types/fs-extra': 9.0.13
       '@types/inquirer': 9.0.0
       '@types/mustache': 4.2.1
+      '@types/ramda': 0.28.15
       '@types/rimraf': 3.0.2
       '@types/svgo': 2.6.3
       '@types/yargs': 17.0.11
       esbuild: 0.14.54
+      ramda: 0.28.0
       rollup: 2.77.2
       rollup-plugin-dts: 4.2.2_oo3i3f3qmqiztdz5qgxrrjmd5e
       rollup-plugin-esbuild: 4.9.1_axviaedfcx2tizy6rzan5phlym
@@ -106,13 +110,17 @@ importers:
 
   packages/figma:
     specifiers:
+      '@types/ramda': ^0.28.15
       download: ^8.0.0
       figma-api: ^1.10.1
       nodejs-file-downloader: ^4.10.1
+      ramda: ^0.28.0
     devDependencies:
+      '@types/ramda': 0.28.15
       download: 8.0.0
       figma-api: 1.10.1
       nodejs-file-downloader: 4.10.1
+      ramda: 0.28.0
 
 packages:
 
@@ -766,6 +774,12 @@ packages:
 
   /@types/parse-json/4.0.0:
     resolution: {integrity: sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==}
+    dev: true
+
+  /@types/ramda/0.28.15:
+    resolution: {integrity: sha512-FCaLNVZry65jW8x/FDnKgjgkCNQxgc5AYMQwdNn6yW5M+62R+0nt2Y36U43dTNora9hcquemfrY5gxhE5pcilQ==}
+    dependencies:
+      ts-toolbelt: 6.15.5
     dev: true
 
   /@types/resolve/1.17.1:
@@ -3476,6 +3490,10 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
+  /ramda/0.28.0:
+    resolution: {integrity: sha512-9QnLuG/kPVgWvMQ4aODhsBUFKOUmnbUnsSXACv+NCQZcHbeb+v8Lodp8OVxtRULN1/xOyYLLaL6npE6dMq5QTA==}
+    dev: true
+
   /read-pkg-up/7.0.1:
     resolution: {integrity: sha512-zK0TB7Xd6JpCLmlLmufqykGE+/TlOePD6qKClNW7hHDKFh/J7/7gCWGR7joEQEW1bKq3a3yUZSObOoWLFQ4ohg==}
     engines: {node: '>=8'}
@@ -4058,6 +4076,10 @@ packages:
       typescript: 4.7.4
       v8-compile-cache-lib: 3.0.1
       yn: 3.1.1
+    dev: true
+
+  /ts-toolbelt/6.15.5:
+    resolution: {integrity: sha512-FZIXf1ksVyLcfr7M317jbB67XFJhOO1YqdTcuGaq9q5jLUoTikukZ+98TPjKiP2jC5CgmYdWWYs0s2nLSU0/1A==}
     dev: true
 
   /tslib/1.14.1:

@@ -8,8 +8,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/ramda": "^0.28.15",
+    "download": "^8.0.0",
     "figma-api": "^1.10.1",
     "nodejs-file-downloader": "^4.10.1",
-    "download": "^8.0.0"
+    "ramda": "^0.28.0"
   }
 }

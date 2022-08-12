@@ -12,7 +12,7 @@ export interface Options {
      * the template to be used when generating component
      *
      */
-    templateFile?: string;
+    template?: string;
     /**
      * transform component name
      * can use change-case for example to change the name casing from kebab case

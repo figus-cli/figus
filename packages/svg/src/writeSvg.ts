@@ -21,7 +21,6 @@ export interface WorkerOptions {
     renameFilter: RenameFilter;
     getComponentNameConfig?: (name: string) => string;
     template: string;
-    progress?: () => void;
 }
 
 export async function writeSvg({

@@ -3,6 +3,7 @@ import Downloader from "nodejs-file-downloader";
 import { VFile } from "vfile";
 import * as fs from "fs";
 import { spinner } from "@figus/utils";
+import { flatten, mergeAll, splitEvery } from "ramda";
 
 export interface FigmaOptions {
     fileKey?: string;
@@ -14,6 +15,8 @@ export interface FigmaOptions {
 export async function clean() {
     fs.rmSync("~/icons/temp", { recursive: true, force: true });
 }
+
+const PAGE_SIZE = 200;
 
 export async function download({
     token,
@@ -37,31 +40,36 @@ export async function download({
     });
     try {
         spinner.start("Determining files to download");
-        const components = await api.getFileComponents(figma.fileKey);
-        const files = components.meta?.components
-            .filter(
-                (item) => item.containing_frame?.pageName === figma.pageName
-            )
-            .map((item) => {
-                return {
-                    node_id: item.node_id,
-                    name: item.name.replace(/(\w.*\/)/, "").trim(),
-                };
-            });
+        const { components } = await api.getFile(figma.fileKey);
+        const files = Object.keys(components).map((item) => {
+            return {
+                node_id: item,
+                name: components[item].name.replace(/(\w.*\/)/, "").trim(),
+            };
+        });
         if (!files?.length) {
             return;
         }
-        const { images } = await api.getImage(figma.fileKey, {
-            ids: files.map((item) => item.node_id).join(","),
-            scale: 1,
-            format: "svg",
-        });
+        const pages = splitEvery(PAGE_SIZE, files);
+
+        const [...imagePages] = await Promise.all(
+            pages.map((page) => {
+                return api.getImage(figma.fileKey!, {
+                    ids: page.map((item) => item.node_id).join(","),
+                    scale: 1,
+                    format: "svg",
+                });
+            })
+        );
+        const images = mergeAll(imagePages.map((item) => item.images));
+
         const imagesWithNames = Object.keys(images).map((key) => {
             return {
                 url: images[key],
                 name: files.find((item) => item.node_id === key)?.name,
             };
         });
+
         spinner.text = "Downloading " + imagesWithNames.length + " Images";
 
         await Promise.all(
@@ -80,6 +88,7 @@ export async function download({
         spinner.stop();
         return file.dirname;
     } catch (e) {
+        console.error(e);
         spinner.stop();
         if (!file.dirname) {
             return;

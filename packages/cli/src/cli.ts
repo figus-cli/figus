@@ -42,7 +42,16 @@ async function worker({
     });
 }
 
-async function getTemplate({ framework }: { framework: Frameworks }) {
+async function getTemplate({
+    framework,
+    templateFile,
+}: {
+    framework: Frameworks;
+    templateFile?: string;
+}) {
+    if (templateFile) {
+        return fse.readFileSync(templateFile, "utf-8");
+    }
     if (framework === "vue") {
         return template();
     }
@@ -54,6 +63,7 @@ async function getTemplate({ framework }: { framework: Frameworks }) {
 export async function handler({
     output,
     framework,
+    template: templateFile,
     svgDir,
     getFileName,
     getComponentName,
@@ -64,7 +74,7 @@ export async function handler({
     }
     const renameFilter = getDefaultNameFilter(framework);
     await fse.ensureDir(output);
-    const template = await getTemplate({ framework });
+    const template = await getTemplate({ framework, templateFile });
     const svgPaths = await getSvgs({ svgDir });
     if (!template) {
         return;
@@ -92,7 +102,7 @@ async function downloadFigma(options: FigmaOptions & Options) {
     const {
         output,
         path,
-        figma: { pageName, fileKey, token },
+        figma: { pageName, fileKey, token } = {},
     } = await getConfig(options);
     await clean();
     if (!token) {
@@ -107,9 +117,10 @@ async function downloadFigma(options: FigmaOptions & Options) {
             fileKey,
         },
     });
+    spinner.succeed("Done");
 }
 
-async function getConfig(options: Options & FigmaOptions) {
+async function getConfig(options: Options & FigmaOptions): Promise<Options> {
     try {
         const config = await resolveUserConfig();
         logger("Resolving user config");
@@ -118,6 +129,7 @@ async function getConfig(options: Options & FigmaOptions) {
             path: options.path || config.path,
             framework: config.framework,
             getFileName: config.getFileName,
+            template: options.template || config.template,
             figma: {
                 token: options.token || config.figma.token,
                 fileKey: options.fileKey || config.figma.fileKey,
@@ -139,23 +151,28 @@ async function getConfig(options: Options & FigmaOptions) {
 
 async function generate(options: Options) {
     try {
-        const { output, path, getComponentName, getFileName, framework } =
-            await getConfig(options);
+        const {
+            output,
+            path,
+            getComponentName,
+            getFileName,
+            framework,
+            template,
+        } = await getConfig(options);
         logger("generating icons");
         if (!path) {
             console.error("Couldn't resolve path");
             return;
         }
-        // determine which framework (vue, react, angular)
-        // use assets to create components
+        rimraf.sync("~/icons/temp/*");
         await handler({
             svgDir: path,
+            template,
             output,
             getFileName,
             getComponentName,
             framework: framework,
         });
-        fs.rmSync("~/icons/temp", { recursive: true, force: true });
         process.exit();
     } catch (e) {
         console.error(e);
@@ -168,8 +185,9 @@ async function start(framework: Frameworks, options: Options & FigmaOptions) {
         output,
         path,
         getComponentName,
+        template,
         framework: configFramework,
-        figma: { token, fileKey, pageName },
+        figma: { token, fileKey, pageName } = {},
     } = await getConfig(options);
     try {
         const svgDir =
@@ -189,6 +207,7 @@ async function start(framework: Frameworks, options: Options & FigmaOptions) {
         await handler({
             svgDir,
             output,
+            template,
             getComponentName,
             framework: framework || configFramework,
         });
@@ -220,11 +239,6 @@ async function init() {
             },
             {
                 type: "input",
-                name: "imageKey",
-                message: "Figma image key",
-            },
-            {
-                type: "input",
                 name: "pageName",
                 message: "Figma page name that contains the icons",
             },
@@ -234,7 +248,7 @@ async function init() {
                 message: "Output path to save the components in",
             },
         ])
-        .then(async ({ output, pageName, imageKey, fileKey, framework }) => {
+        .then(async ({ output, pageName, fileKey, framework }) => {
             await createConfig({
                 output,
                 figma: { pageName, fileKey },
@@ -255,14 +269,17 @@ const cli = cac("figus");
 
 cli.version(version)
     .option("-s, --svg-dir <svgDir>", "Output of downloaded files")
-    .option("-f, --figma <fileKey>", "figma file key");
+    .option("-f, --file-key <fileKey>", "figma file key")
+    .option("-t --template <template>", "Mustache template file")
+    .option("-p, --page-name <pageName>", "figma page name")
+    .option("-t, --token <token>", "Figma token");
 
 cli.command(
     "[framework]",
     "Generate components from figma for a specific framework"
 )
     .option("-o, --output <string>", "output path")
-    .example("--figma.fileKey yyy --figma.token xxx --figma.pageName zzz")
+    .example("--fileKey yyy --token xxx --pageName zzz")
     .action(start);
 
 cli.command("generate", "generate components from svg files")
