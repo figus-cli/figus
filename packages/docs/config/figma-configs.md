@@ -18,9 +18,11 @@ export default {
 ## pageName
 
 - Type: `string`
-- Required: `true`
+- Required: `false`
 
 The page name where the icons library sits in Figma. [See how to](../guide/figma.md) find that information in Figma
+Optional as some of Figma pages have only icons, so no need to filter by page name
+Try first without page name and if there are too many icons or no icons at all, add the page name.
 
 ```ts
 export default {

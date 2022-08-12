@@ -51,6 +51,34 @@ export default {
 }
 ```
 
+## template
+
+- Type: `string`
+- Required: `false` (only required when React framework is used)
+
+Provide a mustache template file, will be used to generate components in either of the supported frameworks.
+
+
+```ts
+export default {
+  template: 'src/templates/icon.mustache'
+}
+```
+
+example of mustache file:
+
+```js
+const {{{componentName}}} = () => {
+    return <>
+        {{{paths}}}
+    </>
+}
+
+```
+
+available Mustache variables:
+- `componentName` - the component name, will default to the icon name, or if component name function is in the config, the result will be used.
+- `paths` - the SVG paths, includes the `<svg>` element
 ## getComponentName
 
 - Type: `(svgObject: ParsedPath, innerPath: string, options: Options) => string`
