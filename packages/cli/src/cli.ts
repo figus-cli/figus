@@ -1,6 +1,7 @@
 import fse from "fs-extra";
 import Queue from "./waterfall/Queue";
 import { template } from "@figus/vue";
+import { template as reactTemplate } from "@figus/react";
 import { divider, spinner } from "@figus/utils";
 import { getSvgs, WorkerOptions, writeSvg } from "@figus/svg";
 import cac from "cac";
@@ -62,6 +63,9 @@ async function getTemplate({
     }
     if (framework === "react-mui") {
         return muiTemplate();
+    }
+    if (framework === "react") {
+        return reactTemplate();
     }
 }
 
@@ -132,7 +136,7 @@ async function getConfig(options: Options & FigmaOptions): Promise<Options> {
         return {
             output: options.output || config.output,
             path: options.path || config.path,
-            framework: config.framework,
+            framework: options.framework || config.framework,
             getFileName: config.getFileName,
             template: options.template || config.template,
             figma: {
@@ -154,17 +158,20 @@ async function getConfig(options: Options & FigmaOptions): Promise<Options> {
     };
 }
 
-async function generate(options: Options) {
+async function generate(framework: Frameworks, options: Options) {
     try {
         const {
             output,
             path,
             getComponentName,
             getFileName,
-            framework,
+            framework: configFramework,
             template,
-        } = await getConfig(options);
-        logger("generating icons");
+        } = await getConfig({
+            ...options,
+            framework,
+        });
+        logger("generating icons", { options });
         if (!path) {
             logger("couldn't resolve path");
             console.error("Couldn't resolve path");
@@ -177,7 +184,7 @@ async function generate(options: Options) {
             output,
             getFileName,
             getComponentName,
-            framework: framework,
+            framework: configFramework,
         });
         process.exit();
     } catch (e) {
@@ -288,7 +295,7 @@ cli.command(
     .example("--fileKey yyy --token xxx --pageName zzz")
     .action(start);
 
-cli.command("generate", "generate components from svg files")
+cli.command("generate [framework]", "generate components from svg files")
     .option("-o, --output <output>", "Download path")
     .option("-p, --path <path>", "Directory containing the svg files")
     .action(generate);

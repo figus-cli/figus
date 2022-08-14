@@ -1,6 +1,6 @@
 import * as svgo from "svgo";
-import path from "path";
 import { OptimizedSvg } from "svgo";
+import path from "path";
 
 export function cleanPaths({
     svgPath,
@@ -61,6 +61,18 @@ export function cleanPaths({
             { name: "sortAttrs" },
             { name: "removeDimensions" },
             {
+                name: "addAttributesToSVGElement",
+                params: {
+                    attributes: [
+                        {
+                            width: "1em",
+                            height: "1em",
+                            fill: "currentColor",
+                        },
+                    ],
+                },
+            },
+            {
                 name: "removeAttrs",
                 params: {
                     attrs: "stroke-linecap",
@@ -102,3 +114,10 @@ export function cleanPaths({
 
     return paths;
 }
+
+const detachNodeFromParent = (node: any, parentNode: any) => {
+    // avoid splice to not break for loops
+    parentNode.children = parentNode.children.filter(
+        (child: any) => child !== node
+    );
+};
