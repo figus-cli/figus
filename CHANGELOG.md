@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0-beta.16](https://github.com/figus-cli/figus/compare/v0.1.0-beta.16...v0.2.0-beta.16) (2022-08-14)
+
+
+### Features
+
+* add react template ([6eea0d7](https://github.com/figus-cli/figus/commit/6eea0d7d6ae8f17f1d5022a149b8110dc6f0fb87))
+
 ## [0.1.0-beta.16](https://github.com/figus-cli/figus/compare/v0.0.11-beta.16...v0.1.0-beta.16) (2022-08-12)
 
 
