@@ -7,11 +7,11 @@ export async function generateIndex({ output }: { output: Options["output"] }) {
     if (!output) {
         return;
     }
-    const files = await globAsync(path.join(output, "**/*.vue"));
+    const files = await globAsync(path.join(output, "**/*.tsx"));
     const index = files
         .map((file) => {
-            const typename = path.basename(file).replace(".vue", "");
-            return `export { default as ${typename} } from './${typename}.vue';\n`;
+            const typename = path.basename(file).replace(".tsx", "");
+            return `export { default as ${typename} } from './${typename}';\n`;
         })
         .join("");
 

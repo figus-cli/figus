@@ -10,7 +10,6 @@ import { version } from "../../../package.json";
 import { Frameworks, Options } from "@figus/types";
 import { clean, download, FigmaOptions } from "@figus/figma";
 import { template as muiTemplate } from "@figus/react-mui";
-import fs from "fs";
 import { resolveUserConfig } from "./config";
 import inquirer from "inquirer";
 import { createConfig } from "./utils/createConfig";
@@ -18,6 +17,9 @@ import { getDefaultNameFilter } from "./utils/getDefaultNameFilter";
 import rimraf from "rimraf";
 import debug from "debug";
 import * as process from "process";
+import { generateIndex as generateIndexVue } from "@figus/vue";
+import { generateIndex as generateIndexReact } from "@figus/react";
+
 const logger = debug("figus");
 logger.log = console.log.bind(console); // don't forget to bind to console!
 
@@ -104,7 +106,18 @@ export async function handler({
 
     queue.push(svgPaths);
     await queue.wait({ empty: true });
+    await generateIndex({ output, framework });
     spinner.succeed("Done!!");
+}
+
+async function generateIndex({ output, framework = "vue" }: Partial<Options>) {
+    if (framework.startsWith("react")) {
+        return await generateIndexReact({ output });
+    }
+    if (framework === "vue") {
+        return await generateIndexVue({ output });
+    }
+    console.error("Unsupported framework!");
 }
 
 async function downloadFigma(options: FigmaOptions & Options) {
@@ -178,6 +191,9 @@ async function generate(framework: Frameworks, options: Options) {
             return;
         }
         clean();
+        spinner.isSpinning
+            ? (spinner.text = "Generating icons")
+            : spinner.start("Generating icons");
         await handler({
             svgDir: path,
             template,
