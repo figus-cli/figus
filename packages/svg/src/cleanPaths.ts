@@ -1,5 +1,5 @@
 import * as svgo from "svgo";
-import { OptimizedSvg } from "svgo";
+import { OptimizedSvg, XastElement } from "svgo";
 import path from "path";
 
 export function cleanPaths({
@@ -9,13 +9,7 @@ export function cleanPaths({
     svgPath: string;
     data: string;
 }) {
-    // Remove hardcoded color fill before optimizing so that empty groups are removed
-    const input = data
-        .replace(/<rect fill="none" width="24" height="24"\/>/g, "")
-
-        .replace(/<rect id="SVGID_1_" width="24" height="24"\/>/g, "");
-
-    const result = svgo.optimize(input, {
+    const result = svgo.optimize(data, {
         floatPrecision: 4,
         multipass: true,
         plugins: [
@@ -82,6 +76,26 @@ export function cleanPaths({
             { name: "removeStyleElement" },
             { name: "removeScriptElement" },
             { name: "removeEmptyContainers" },
+            {
+                name: "customPluginName",
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                type: "visitor", // 'perItem', 'perItemReverse' or 'full'
+                fn: () => {
+                    return {
+                        element: {
+                            enter: (
+                                node: XastElement,
+                                parentNode: XastElement
+                            ) => {
+                                if (node.name === "svg") {
+                                    detachNodeFromParent(node, parentNode);
+                                }
+                            },
+                        },
+                    };
+                },
+            },
         ],
     });
     if (result.error) {
@@ -115,8 +129,9 @@ export function cleanPaths({
     return paths;
 }
 
-const detachNodeFromParent = (node: any, parentNode: any) => {
+const detachNodeFromParent = (node: XastElement, parentNode: XastElement) => {
     // avoid splice to not break for loops
+    parentNode.children = node.children;
     parentNode.children = parentNode.children.filter(
         (child: any) => child !== node
     );
