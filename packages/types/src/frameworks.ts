@@ -1,1 +1,1 @@
-export type Frameworks = "react" | "vue" | "react-mui";
+export type Frameworks = "react" | "vue" | "react-mui" | "iconify";

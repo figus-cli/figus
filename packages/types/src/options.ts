@@ -35,4 +35,9 @@ export interface Options {
      * Path to svg if we only generate
      */
     path?: string;
+
+    /**
+     * Whether to generate in Iconify format
+     */
+    iconify: boolean;
 }

@@ -19,6 +19,9 @@
       "@figus/cli": [
         "./packages/cli/src/index.ts"
       ],
+      "@figus/iconify": [
+        "./packages/iconify/src/index.ts"
+      ],
       "@figus/svg": [
         "./packages/svg/src/index.ts"
       ],

@@ -38,6 +38,10 @@ export default defineConfig({
                             text: "Figma",
                             link: "/guide/figma",
                         },
+                        {
+                            text: "Figma",
+                            link: "/guide/cli",
+                        },
                     ],
                 },
                 {

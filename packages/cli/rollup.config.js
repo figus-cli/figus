@@ -7,6 +7,7 @@ import esbuild from "rollup-plugin-esbuild";
 import json from "@rollup/plugin-json";
 import alias from "@rollup/plugin-alias";
 import dts from "rollup-plugin-dts";
+import { fileURLToPath } from "url";
 
 const entries = ["src/index.ts"];
 const dtsEntries = ["src/index.ts"];
@@ -18,11 +19,18 @@ const external = [
     "inspector",
 ];
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const aliasPlugin = alias({
     entries: [
         {
             find: "@figus/utils",
             replacement: path.resolve(__dirname, "../utils/src/index.ts"),
+        },
+        {
+            find: "@figus/iconify",
+            replacement: path.resolve(__dirname, "../iconify/src/index.ts"),
         },
         {
             find: "@figus/svg",

@@ -6,6 +6,7 @@ import { Options, Frameworks } from "@figus/types";
 import { formatFile } from "@figus/utils";
 import { getComponentName as getComponentNameVue } from "@figus/vue";
 import { getComponentName as getComponentNameReact } from "@figus/react";
+import { getComponentName as getComponentNameIconify } from "@figus/iconify";
 
 export type RenameFilter = (
     svgPathObj: ParsedPath,
@@ -15,17 +16,19 @@ export type RenameFilter = (
 
 export interface WorkerOptions {
     svgPath: string;
+    iconify: boolean;
     svgDir: string;
     framework: Frameworks;
     output: string;
     renameFilter: RenameFilter;
     getComponentNameConfig?: (name: string) => string;
-    template: string;
+    template?: string;
 }
 
 export async function writeSvg({
     svgPath,
     svgDir,
+    iconify,
     output,
     getComponentNameConfig,
     renameFilter,
@@ -41,6 +44,7 @@ export async function writeSvg({
     const destPath = renameFilter(svgPathObj, innerPath, {
         svgDir,
         output,
+        iconify,
         framework,
     });
     const outputFileDir = path.dirname(path.join(output, destPath));
@@ -48,9 +52,15 @@ export async function writeSvg({
     try {
         const data = await fse.readFile(svgPath, { encoding: "utf8" });
         const paths = cleanPaths({ svgPath, data });
-        let componentName = getComponentName(framework)(destPath);
+        let componentName = getComponentName(framework, iconify)(destPath);
+        if (iconify) {
+            return { paths, componentName };
+        }
         if (getComponentNameConfig) {
             componentName = getComponentNameConfig(componentName);
+        }
+        if (!template) {
+            return {};
         }
         const fileString = Mustache.render(template, {
             paths,
@@ -60,17 +70,22 @@ export async function writeSvg({
         const absDestPath = path.join(output, destPath);
         await fse.writeFile(absDestPath, fileString);
         await formatFile(absDestPath);
+        return { paths, componentName };
     } catch (e) {
-        return null;
+        return {};
     }
 }
 
-function getComponentName(framework: Frameworks) {
+function getComponentName(framework: Frameworks, iconify: boolean) {
+    if (iconify) {
+        return getComponentNameIconify;
+    }
     if (framework.startsWith("react")) {
         return getComponentNameReact;
     }
     if (framework === "vue") {
         return getComponentNameVue;
     }
+
     throw Error("Unsupported framework: " + framework);
 }

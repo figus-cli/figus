@@ -51,6 +51,20 @@ export default {
 }
 ```
 
+## Iconify
+
+- Type: `boolean`
+- Required: `false`
+
+When provided, the generator will create iconify icon collection, can directly be used with iconfiy
+More info [here](https://docs.iconify.design/icon-components/bundles/wrapper.html)
+
+```ts
+export default {
+    iconify: true
+}
+```
+
 ## template
 
 - Type: `string`
@@ -93,3 +107,5 @@ export default {
     }
 }
 ```
+
+

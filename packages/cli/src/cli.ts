@@ -19,34 +19,38 @@ import debug from "debug";
 import * as process from "process";
 import { generateIndex as generateIndexVue } from "@figus/vue";
 import { generateIndex as generateIndexReact } from "@figus/react";
+import { generateIndex as generateIndexIconify } from "@figus/iconify";
 
 const logger = debug("figus");
 logger.log = console.log.bind(console); // don't forget to bind to console!
+const components: { componentName?: string; paths?: string }[] = [];
 
 async function worker({
     svgPath,
     svgDir,
     output,
+    iconify,
     getComponentNameConfig,
     renameFilter,
     framework,
     template,
 }: WorkerOptions) {
-    spinner.text = "Generating icons";
     logger(`starting to generate icons for ${framework}`, {
         svgPath,
         svgDir,
         output,
     });
-    await writeSvg({
+    const { paths, componentName } = await writeSvg({
         svgPath,
         svgDir,
+        iconify,
         getComponentNameConfig,
         output,
         renameFilter,
         template,
         framework,
     });
+    components.push({ componentName, paths });
 }
 
 async function getTemplate({
@@ -76,6 +80,7 @@ export async function handler({
     framework,
     template: templateFile,
     svgDir,
+    iconify,
     getFileName,
     getComponentName,
 }: Options & { svgDir: string }) {
@@ -83,13 +88,10 @@ export async function handler({
     if (!output) {
         throw Error("Please provide an output");
     }
-    const renameFilter = getDefaultNameFilter(framework);
+    const renameFilter = getDefaultNameFilter(framework, iconify);
     await fse.ensureDir(output);
     const template = await getTemplate({ framework, templateFile });
     const svgPaths = await getSvgs({ svgDir });
-    if (!template) {
-        return;
-    }
     const queue = new Queue(
         (svgPath: string) =>
             worker({
@@ -98,6 +100,7 @@ export async function handler({
                 svgDir,
                 framework,
                 output,
+                iconify,
                 renameFilter: getFileName || renameFilter,
                 template,
             }),
@@ -106,18 +109,27 @@ export async function handler({
 
     queue.push(svgPaths);
     await queue.wait({ empty: true });
-    await generateIndex({ output, framework });
+    await generateIndex({ output, framework, components, iconify });
     spinner.succeed("Done!!");
 }
 
-async function generateIndex({ output, framework = "vue" }: Partial<Options>) {
+async function generateIndex({
+    output,
+    framework = "vue",
+    iconify,
+    components,
+}: Partial<Options> & {
+    components?: { componentName?: string; paths?: string }[];
+}) {
+    if (components && iconify) {
+        return await generateIndexIconify({ output, components, framework });
+    }
     if (framework.startsWith("react")) {
         return await generateIndexReact({ output });
     }
     if (framework === "vue") {
         return await generateIndexVue({ output });
     }
-    console.error("Unsupported framework!");
 }
 
 async function downloadFigma(options: FigmaOptions & Options) {
@@ -147,6 +159,7 @@ async function getConfig(options: Options & FigmaOptions): Promise<Options> {
         const config = await resolveUserConfig();
         logger("Resolving user config");
         return {
+            iconify: options.iconify || config.iconify,
             output: options.output || config.output,
             path: options.path || config.path,
             framework: options.framework || config.framework,
@@ -178,6 +191,7 @@ async function generate(framework: Frameworks, options: Options) {
             path,
             getComponentName,
             getFileName,
+            iconify,
             framework: configFramework,
             template,
         } = await getConfig({
@@ -196,6 +210,7 @@ async function generate(framework: Frameworks, options: Options) {
             : spinner.start("Generating icons");
         await handler({
             svgDir: path,
+            iconify,
             template,
             output,
             getFileName,
@@ -215,6 +230,7 @@ async function start(framework: Frameworks, options: Options & FigmaOptions) {
         path,
         getComponentName,
         template,
+        iconify,
         framework: configFramework,
         figma: { token, fileKey, pageName } = {},
     } = await getConfig(options);
@@ -236,6 +252,7 @@ async function start(framework: Frameworks, options: Options & FigmaOptions) {
         await handler({
             svgDir,
             output,
+            iconify,
             template,
             getComponentName,
             framework: framework || configFramework,
@@ -280,6 +297,7 @@ async function init() {
         .then(async ({ output, pageName, fileKey, framework }) => {
             await createConfig({
                 output,
+                iconify: false,
                 figma: { pageName, fileKey },
                 framework,
             });
@@ -301,7 +319,8 @@ cli.version(version)
     .option("-f, --file-key <fileKey>", "figma file key")
     .option("-t --template <template>", "Mustache template file")
     .option("-p, --page-name <pageName>", "figma page name")
-    .option("-t, --token <token>", "Figma token");
+    .option("-t, --token <token>", "Figma token")
+    .option("-i, --iconify [iconify]", "Generate in Iconify format");
 
 cli.command(
     "[framework]",

@@ -28,3 +28,10 @@ npx @figus/cli download --token="figma token"
 Figus can download icons from Figma without generating components
 This can be useful in case of caching where you do not want to download from Figma each time
 
+## Iconify Generation
+```bash
+npx @figus/cli generate --iconify
+```
+
+Generate a iconify custom set of icons for the configured framework.
+More info [here](https://docs.iconify.design/icon-components/bundles/wrapper.html)
