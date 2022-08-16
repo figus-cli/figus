@@ -1,11 +1,15 @@
 {
   "version": "1.0.6",
   "description": "",
+  "type": "commonjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "devDependencies": {
-    "@types/prettier": "^2.7.0"
+    "open": "^8.4.0",
+    "@types/cross-spawn": "^6.0.2",
+    "@types/prettier": "^2.7.0",
+    "cross-spawn": "^7.0.3"
   }
 }

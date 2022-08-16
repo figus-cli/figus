@@ -22,6 +22,9 @@
       "@figus/iconify": [
         "./packages/iconify/src/index.ts"
       ],
+      "@figus/explorer": [
+        "./packages/explorer/src/index.ts"
+      ],
       "@figus/svg": [
         "./packages/svg/src/index.ts"
       ],

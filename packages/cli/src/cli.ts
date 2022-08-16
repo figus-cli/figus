@@ -1,7 +1,10 @@
-import fse from "fs-extra";
+import fse, { readFile } from "fs-extra";
 import Queue from "./waterfall/Queue";
-import { template } from "@figus/vue";
-import { template as reactTemplate } from "@figus/react";
+import { generateIndex as generateIndexVue, template } from "@figus/vue";
+import {
+    generateIndex as generateIndexReact,
+    template as reactTemplate,
+} from "@figus/react";
 import { divider, spinner } from "@figus/utils";
 import { getSvgs, WorkerOptions, writeSvg } from "@figus/svg";
 import cac from "cac";
@@ -17,9 +20,11 @@ import { getDefaultNameFilter } from "./utils/getDefaultNameFilter";
 import rimraf from "rimraf";
 import debug from "debug";
 import * as process from "process";
-import { generateIndex as generateIndexVue } from "@figus/vue";
-import { generateIndex as generateIndexReact } from "@figus/react";
 import { generateIndex as generateIndexIconify } from "@figus/iconify";
+import globAsync from "fast-glob";
+import { serve } from "@figus/explorer";
+import path from "path";
+import { cleanPaths, getComponentName } from "@figus/svg";
 
 const logger = debug("figus");
 logger.log = console.log.bind(console); // don't forget to bind to console!
@@ -217,7 +222,6 @@ async function generate(framework: Frameworks, options: Options) {
             getComponentName,
             framework: configFramework,
         });
-        process.exit();
     } catch (e) {
         console.error(e);
     }
@@ -312,6 +316,28 @@ async function init() {
         });
 }
 
+async function startServer(options: Options) {
+    const { path: pathOutput, framework, iconify } = await getConfig(options);
+    if (!pathOutput) {
+        return;
+    }
+    const result = await globAsync(path.join(pathOutput, "**/*.svg"));
+    const icons = result.map((item) => {
+        return {
+            body: cleanPaths({
+                data: fse.readFileSync(item, "utf-8"),
+                svgPath: item,
+            }),
+            name: getComponentName(
+                framework,
+                iconify
+            )(path.basename(item).replace(".svg", "")),
+            filename: item,
+        };
+    });
+    await serve({ icons, path: pathOutput });
+}
+
 const cli = cac("figus");
 
 cli.version(version)
@@ -334,6 +360,8 @@ cli.command("generate [framework]", "generate components from svg files")
     .option("-o, --output <output>", "Download path")
     .option("-p, --path <path>", "Directory containing the svg files")
     .action(generate);
+
+cli.command("explorer", "Explorer all icons available").action(startServer);
 
 cli.command(
     "download",

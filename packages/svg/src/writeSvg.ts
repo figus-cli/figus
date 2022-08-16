@@ -76,7 +76,7 @@ export async function writeSvg({
     }
 }
 
-function getComponentName(framework: Frameworks, iconify: boolean) {
+export function getComponentName(framework: Frameworks, iconify: boolean) {
     if (iconify) {
         return getComponentNameIconify;
     }

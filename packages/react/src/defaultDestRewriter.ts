@@ -13,19 +13,17 @@
 import { ParsedPath } from "path";
 import { Options } from "@figus/types";
 
-export function defaultDestRewriter(svgPathObj: ParsedPath, innerPath: string) {
+export function defaultDestRewriter(svgPathObj: ParsedPath) {
     let fileName = svgPathObj.base;
     fileName = fileName.replace(".svg", ".tsx");
     fileName = fileName.replace(/(^.)|(_)(.)/g, (match, p1, p2, p3) => {
         return (p1 || p3).toUpperCase();
     });
-    const size = innerPath.replace(/\//g, "");
     // remove any @ in the file name
     fileName = fileName.replace(/@.*\./g, ".");
     // remove any spaces in the file name
     fileName = fileName.replace(/\s+/g, "");
     // add Size to end of the File, example:
     // Close.tsx -> Close16.tsx
-    fileName = fileName.replace(".tsx", `${size}Icon.tsx`);
     return fileName;
 }

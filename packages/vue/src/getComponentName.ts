@@ -1,4 +1,5 @@
 import path from "path";
+import { camelCase } from "change-case";
 
 /**
  * Return Pascal-Cased component name.
@@ -10,7 +11,7 @@ export function getComponentName(destPath: string) {
     destPath = destPath.replace("-", " ");
     const [nameOrSuffix, name] = destPath.replace(".vue", "").split(splitregex);
     if (name) {
-        return name;
+        return camelCase(name);
     }
-    return nameOrSuffix;
+    return camelCase(nameOrSuffix);
 }

@@ -1,0 +1,99 @@
+#root {
+    width: 100%;
+    display: flex;
+}
+
+.root {
+    width: 100%;
+    margin-left: auto;
+    box-sizing: border-box;
+    margin-right: auto;
+    display: block;
+    padding-left: 16px;
+    padding-right: 16px;
+    max-width: 100ch;
+    position: relative;
+}
+
+
+.App {
+    display: flex;
+    position: relative;
+    outline: 0;
+    margin: auto;
+    margin-top: 60px;
+    padding: 16px 24px 24px;
+    background-color: #eee;
+    box-sizing: border-box;
+    flex-flow: column wrap;
+    width: 100%;
+    min-height: 600px;
+}
+.input {
+    width: 100%;
+    background-color: rgb(18, 18, 18);
+}
+.total {
+    width: 100%;
+}
+.search {
+    display: flex;
+    flex-direction: column;
+    color: rgb(255, 255, 255);
+    transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    border-radius: 4px;
+    padding: 2px 4px;
+    align-items: center;
+    margin-bottom: 16px;
+    width: 100%;
+}
+.icons {
+    max-height: 400px;
+    width: 100%;
+    overflow: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.svg {
+    user-select: none;
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    fill: currentcolor;
+    flex-shrink: 0;
+    font-size: 2.1875rem;
+    box-sizing: content-box;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    border-radius: 4px;
+    transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    padding: 16px;
+    margin: 4px 0px;
+}
+
+.icon {
+    color: white;
+    display: inline-flex;
+    flex-direction: column;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0px 4px;
+}
+.icon-name-wrapper {
+    display: flex;
+}
+.icon-name {
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    font-size: 0.6rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    width: 0px;
+}
+
+svg {
+    width: 1em;
+    height: 1em;
+}
