@@ -39,7 +39,7 @@ export default defineConfig({
                             link: "/guide/figma",
                         },
                         {
-                            text: "Figma",
+                            text: "CLI",
                             link: "/guide/cli",
                         },
                     ],

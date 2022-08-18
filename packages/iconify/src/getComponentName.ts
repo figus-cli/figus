@@ -1,5 +1,5 @@
 import path from "path";
-import { paramCase } from "change-case";
+import { paramCase } from "param-case";
 
 /**
  * Return Pascal-Cased component name.

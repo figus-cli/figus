@@ -2,7 +2,7 @@ import { Options } from "@figus/types";
 import { FigmaOptions } from "@figus/figma";
 import { resolve } from "pathe";
 import fs from "fs-extra";
-import { pathToFileURL } from "url";
+import { pathToFileURL } from "node:url";
 
 export function defineConfig(config: Options) {
     return config;
