@@ -35,3 +35,10 @@ npx @figus/cli generate --iconify
 
 Generate a iconify custom set of icons for the configured framework.
 More info [here](https://docs.iconify.design/icon-components/bundles/wrapper.html)
+
+## Icon Explorer
+```bash
+npx @figus/cli explorer
+```
+
+Will open a pre-built site to explore all the available icons (svg need to be downloaded from figma first, i.e `npx @figus/cli download`)
