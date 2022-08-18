@@ -14,5 +14,6 @@
     "param-case": "^3.0.4",
     "fs-extra": "^10.1.0",
     "@types/fs-extra": "^9.0.13"
-  }
+  },
+  "version": "2.0.0"
 }
