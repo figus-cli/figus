@@ -19,7 +19,7 @@ import { createConfig } from "./utils/createConfig";
 import { getDefaultNameFilter } from "./utils/getDefaultNameFilter";
 import rimraf from "rimraf";
 import debug from "debug";
-import * as process from "process";
+import * as process from "node:process";
 import { generateIndex as generateIndexIconify } from "@figus/iconify";
 import globAsync from "fast-glob";
 import { serve } from "@figus/explorer";
@@ -318,6 +318,7 @@ async function init() {
 
 async function startServer(options: Options) {
     const { path: pathOutput, framework, iconify } = await getConfig(options);
+    console.log(pathOutput);
     if (!pathOutput) {
         return;
     }

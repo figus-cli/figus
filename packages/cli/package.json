@@ -53,6 +53,7 @@
     "debug": "^4.3.4",
     "fast-glob": "^3.2.11",
     "fs-extra": "^10.1.0",
+    "picocolors": "^1.0.0",
     "inquirer": "^9.1.0",
     "mustache": "^4.2.0",
     "ora": "^6.1.2",

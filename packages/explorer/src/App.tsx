@@ -4,6 +4,7 @@ import "./App.css";
 import axios from "axios";
 import {
     Box,
+    Button,
     Dialog,
     DialogActions,
     DialogContent,
@@ -63,7 +64,6 @@ const StyledIcon = styled("span")(({ theme }) => ({
 const StyledSvgIcon = styled(SvgIcon)(({ theme }) => ({
     boxSizing: "content-box",
     cursor: "pointer",
-    color: theme.palette.text.primary,
     border: "1px solid transparent",
     borderRadius: theme.shape.borderRadius,
     transition: theme.transitions.create(["background-color", "box-shadow"], {
@@ -99,80 +99,89 @@ export default function App() {
         });
     }, []);
 
+    const onDownload = async () => {
+        // axios.get("http://localhost:3000/download").then((response) => {
+        //     setIcons(response.data.icons);
+        // });
+    };
     const [selectedIcon, setSelectIcon] = useState<Icon | null>(null);
 
     return (
-        <div className={"root"}>
-            <MuiPaper className="App">
-                <div className={"search"}>
-                    <Paper>
-                        <IconButton
-                            sx={{ padding: "10px" }}
-                            aria-label="search"
-                        >
-                            <SearchIcon />
-                        </IconButton>
-                        <Input
-                            autoFocus
-                            value={query}
-                            onChange={(event) => setQuery(event.target.value)}
-                            placeholder="Search icons…"
-                            inputProps={{ "aria-label": "search icons" }}
-                        />
-                    </Paper>
-                    <div className={"total"}>
-                        {results.length} matching result
-                    </div>
-                </div>
-                <div className={"icons"}>
-                    {results.map((item) => (
-                        <div className={"icon"} key={item.name}>
-                            <StyledButton
-                                style={{ display: "flex" }}
-                                onClick={() => setSelectIcon(item)}
+        <Grid container className={"root"}>
+            <Grid item xs={12}>
+                <MuiPaper className="App">
+                    <div className={"search"}>
+                        <Paper>
+                            <IconButton
+                                sx={{ padding: "10px" }}
+                                aria-label="search"
                             >
-                                <StyledIcon>
-                                    <StyledSvgIcon
-                                        fontSize="large"
-                                        tabIndex={-1}
-                                    >
-                                        <svg
-                                            viewBox="0 0 24 24"
-                                            dangerouslySetInnerHTML={{
-                                                __html: item.body,
-                                            }}
-                                        />
-                                    </StyledSvgIcon>
-                                    <div>
-                                        <div>{item.name}</div>
-                                    </div>
-                                </StyledIcon>
-                            </StyledButton>
-                        </div>
-                    ))}
-                </div>
-            </MuiPaper>
-            <Dialog
-                fullWidth
-                maxWidth="sm"
-                open={!!selectedIcon}
-                onClose={() => setSelectIcon(null)}
-            >
-                <DialogTitle>{selectedIcon?.name}</DialogTitle>
-                <DialogContent>
-                    <Grid container justifyContent="center">
-                        <CanvasComponent>
-                            <svg
-                                viewBox="0 0 24 24"
-                                dangerouslySetInnerHTML={{
-                                    __html: selectedIcon?.body || "",
-                                }}
+                                <SearchIcon />
+                            </IconButton>
+                            <Input
+                                autoFocus
+                                value={query}
+                                onChange={(event) =>
+                                    setQuery(event.target.value)
+                                }
+                                placeholder="Search icons…"
+                                inputProps={{ "aria-label": "search icons" }}
                             />
-                        </CanvasComponent>
-                    </Grid>
-                </DialogContent>
-                <DialogActions />
-            </Dialog>
-        </div>
+                        </Paper>
+                        <div className={"total"}>
+                            {results.length} matching result
+                        </div>
+                    </div>
+                    <div className={"icons"}>
+                        {results.map((item) => (
+                            <div className={"icon"} key={item.name}>
+                                <StyledButton
+                                    style={{ display: "flex" }}
+                                    onClick={() => setSelectIcon(item)}
+                                >
+                                    <StyledIcon>
+                                        <StyledSvgIcon
+                                            fontSize="large"
+                                            tabIndex={-1}
+                                        >
+                                            <svg
+                                                viewBox="0 0 24 24"
+                                                dangerouslySetInnerHTML={{
+                                                    __html: item.body,
+                                                }}
+                                            />
+                                        </StyledSvgIcon>
+                                        <div>
+                                            <div>{item.name}</div>
+                                        </div>
+                                    </StyledIcon>
+                                </StyledButton>
+                            </div>
+                        ))}
+                    </div>
+                </MuiPaper>
+                <Dialog
+                    fullWidth
+                    maxWidth="sm"
+                    open={!!selectedIcon}
+                    onClose={() => setSelectIcon(null)}
+                >
+                    <DialogTitle>{selectedIcon?.name}</DialogTitle>
+                    <DialogContent>
+                        <Grid container justifyContent="center">
+                            <CanvasComponent>
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    dangerouslySetInnerHTML={{
+                                        __html: selectedIcon?.body || "",
+                                    }}
+                                />
+                            </CanvasComponent>
+                        </Grid>
+                    </DialogContent>
+                    <DialogActions />
+                </Dialog>
+            </Grid>
+        </Grid>
     );
 }

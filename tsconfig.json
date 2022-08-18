@@ -6,6 +6,9 @@
       "esnext",
       "dom"
     ],
+    "types": [
+      "node"
+    ],
     "moduleResolution": "node",
     "esModuleInterop": true,
     "strict": true,
@@ -45,7 +48,7 @@
       ],
       "@figus/utils": [
         "./packages/utils/src/index.ts"
-      ],
+      ]
     }
   }
 }

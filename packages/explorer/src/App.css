@@ -27,7 +27,6 @@
     box-sizing: border-box;
     flex-flow: column wrap;
     width: 100%;
-    min-height: 600px;
 }
 .input {
     width: 100%;
@@ -48,12 +47,11 @@
     width: 100%;
 }
 .icons {
-    max-height: 400px;
+    height: 500px;
     width: 100%;
     overflow: scroll;
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
 }
 
 .svg {

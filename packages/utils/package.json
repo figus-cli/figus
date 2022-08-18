@@ -8,6 +8,7 @@
   "keywords": [],
   "devDependencies": {
     "open": "^8.4.0",
+    "strip-ansi": "^7.0.1",
     "@types/cross-spawn": "^6.0.2",
     "@types/prettier": "^2.7.0",
     "cross-spawn": "^7.0.3"

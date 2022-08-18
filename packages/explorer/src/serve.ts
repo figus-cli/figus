@@ -38,11 +38,16 @@ export async function serve({
     await fse.copy(path.resolve(outputPath), path.join(assetsPath, "assets"), {
         recursive: true,
     });
+    console.log("here");
 
     app.get("/", (req, res) => {
         res.send({
             icons,
         });
+    });
+
+    app.get("/download", (req, res) => {
+        console.log(req, res);
     });
 
     app.use(express.static(assetsPath));

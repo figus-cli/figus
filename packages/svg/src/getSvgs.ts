@@ -1,5 +1,4 @@
 import path from "path";
-import fse from "fs-extra";
 import globAsync from "fast-glob";
 import { fileURLToPath } from "url";
 

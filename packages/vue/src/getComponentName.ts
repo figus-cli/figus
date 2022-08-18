@@ -1,5 +1,5 @@
 import path from "path";
-import { camelCase } from "change-case";
+import { camelCase } from "camel-case";
 
 /**
  * Return Pascal-Cased component name.

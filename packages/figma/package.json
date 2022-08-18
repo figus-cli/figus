@@ -9,7 +9,10 @@
   "license": "ISC",
   "devDependencies": {
     "@types/ramda": "^0.28.15",
+    "@types/debug": "^4.1.7",
     "download": "^8.0.0",
+    "vfile": "^5.3.4",
+    "debug": "^4.3.4",
     "figma-api": "^1.10.1",
     "nodejs-file-downloader": "^4.10.1",
     "ramda": "^0.28.0"
