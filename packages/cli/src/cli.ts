@@ -318,7 +318,6 @@ async function init() {
 
 async function startServer(options: Options) {
     const { path: pathOutput, framework, iconify } = await getConfig(options);
-    console.log(pathOutput);
     if (!pathOutput) {
         return;
     }

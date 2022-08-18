@@ -81,6 +81,7 @@ export default [
             json(),
             commonjs(),
             esbuild({
+                minify: true,
                 target: "node14",
             }),
         ],
