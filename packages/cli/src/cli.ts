@@ -109,6 +109,7 @@ export async function handler(
         throw Error("Please provide an output");
     }
     const renameFilter = getDefaultNameFilter(framework, iconify);
+    await fse.ensureDir(path);
     await fse.ensureDir(output);
     const template = await getTemplate({ framework, templateFile });
     const svgPaths = await getSvgs({ svgDir: path });
@@ -117,7 +118,7 @@ export async function handler(
             worker({
                 getComponentNameConfig: getComponentName,
                 svgPath,
-                svgDir: output,
+                svgDir: path,
                 framework,
                 output,
                 iconify,
@@ -167,19 +168,20 @@ async function generateIndex({
 }
 
 async function downloadFigma(options: FigmaOptions & Options) {
-    const {
-        output,
-        path,
-        figma: { pageName, fileKey, token } = {},
-    } = await getConfig(options);
+    const { path, figma: { pageName, fileKey, token } = {} } = await getConfig(
+        options
+    );
     await clean();
     if (!token) {
         console.log(`Please provide a ${c.red("Figma")} token`);
         return;
     }
+    if (!path) {
+        console.log(`Please provide a ${c.red("path")} to download`);
+    }
     await download({
         token,
-        path: path || output,
+        path: path,
         figma: {
             pageName,
             fileKey,
@@ -291,7 +293,8 @@ async function init() {
             {
                 type: "input",
                 name: "fontName",
-                message: "whether to generate web-font icon kits from SVG file",
+                message:
+                    "Font name to give the web icon fonts, if none provided web fonts won't be generated",
             },
             {
                 type: "input",
@@ -300,20 +303,34 @@ async function init() {
             },
             {
                 type: "input",
+                name: "path",
+                message: "Output path to save the svgs",
+            },
+            {
+                type: "input",
                 name: "output",
-                message: "Output path to save the components in",
+                message: "Output path to save the components",
             },
         ])
-        .then(async ({ output, pageName, fileKey, framework, fontName }) => {
-            await createConfig({
+        .then(
+            async ({
                 output,
-                fontName,
-                iconify: false,
-                figma: { pageName, fileKey },
+                pageName,
+                fileKey,
                 framework,
-            });
-            // Use user feedback for... whatever!!
-        })
+                fontName,
+                path,
+            }) => {
+                await createConfig({
+                    output,
+                    fontName,
+                    path,
+                    iconify: false,
+                    figma: { pageName, fileKey },
+                    framework,
+                });
+            }
+        )
         .catch((error) => {
             if (error.isTtyError) {
                 // Prompt couldn't be rendered in the current environment

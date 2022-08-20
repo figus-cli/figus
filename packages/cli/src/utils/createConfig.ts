@@ -1,23 +1,25 @@
 import { Options } from "@figus/types";
 import { formatFile } from "@figus/utils";
 import fse from "fs-extra";
-import * as path from "path";
+import path from "path";
 
 export async function createConfig({
     output,
     figma,
     framework,
-    font,
+    path: svgPath,
+    fontName,
 }: Options) {
     const outputPath = path.resolve(process.cwd(), "figus.config.js");
     const config = `
 import {defineConfig} from '@figus/cli';
 export default defineConfig({
     output: "${output}",
+    path: "${svgPath}",
     framework: "${framework.toLowerCase()}",
-    ${font || "font: true"},
+    ${fontName && "font:" + fontName + ","}
     figma: {
-        pageName: "${figma?.pageName}",
+        ${figma?.pageName && "pageName: " + figma.pageName + ","}
         fileKey: "${figma?.fileKey}",
     }
 }) 
