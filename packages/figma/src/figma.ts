@@ -5,6 +5,7 @@ import * as fs from "fs";
 import { spinner } from "@figus/utils";
 import { mergeAll, splitEvery } from "ramda";
 import debug from "debug";
+
 const figmaLogger = debug("figus:figma");
 
 export interface FigmaOptions {

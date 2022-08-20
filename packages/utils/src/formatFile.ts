@@ -1,6 +1,5 @@
 import fse from "fs-extra";
-import { format } from "prettier";
-import prettier from "prettier";
+import prettier, { format } from "prettier";
 
 export async function formatFile(file: string) {
     let options = {

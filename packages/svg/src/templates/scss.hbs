@@ -1,0 +1,37 @@
+${{ fontName }}-font: "{{ fontName }}";
+
+@font-face {
+font-family: ${{ fontName }}-font;
+src: {{{ fontSrc }}};
+}
+
+{{# if selector }}
+    {{ selector }}:before {
+{{ else }}
+    {{ tag }}[class^="{{prefix}}-"]:before, {{ tag }}[class*=" {{prefix}}-"]:before {
+{{/ if }}
+font-family: {{ name }} !important;
+font-style: normal;
+font-weight: normal !important;
+font-variant: normal;
+text-transform: none;
+line-height: 1;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+
+${{ fontName }}-map: (
+{{# each glyphData }}
+    "{{ this.name }}": "\\{{ this.codepointHexa }}",
+{{/ each }}
+);
+
+{{# each glyphData }}
+    {{# if ../selector }}
+        {{ ../selector }}.{{ ../prefix }}-{{ this.codepointHexa }}:before {
+    {{ else }}
+        {{ tag }}.{{ ../prefix }}-{{ this.name }}:before {
+    {{/ if }}
+    content: map-get(${{ ../fontName }}-map, "{{ this.name }}");
+    }
+{{/ each }}

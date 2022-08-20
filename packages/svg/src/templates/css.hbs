@@ -1,0 +1,29 @@
+@font-face {
+font-family: "{{ fontName }}";
+src: {{{ fontSrc }}};
+}
+
+{{# if selector }}
+    {{ selector }}:before {
+{{ else }}
+    {{ tag }}[class^="{{prefix}}-"]:before, {{ tag }}[class*=" {{prefix}}-"]:before {
+{{/ if }}
+font-family: {{ fontName }} !important;
+font-style: normal;
+font-weight: normal !important;
+font-variant: normal;
+text-transform: none;
+line-height: 1;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+
+{{# each glyphData }}
+    {{# if ../selector }}
+        {{ ../selector }}.{{ ../prefix }}-{{ this.name }}:before {
+    {{ else }}
+        {{ tag }}.{{ ../prefix }}-{{ this.name }}:before {
+    {{/ if }}
+    content: "\\{{ this.codepointHexa }}";
+    }
+{{/ each }}

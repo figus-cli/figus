@@ -33,6 +33,7 @@
     "@types/download": "^8.0.1",
     "@types/node": "^18.7.6",
     "bumpp": "^8.2.1",
+    "handlebars": "^4.7.7",
     "eslint": "^8.21.0",
     "prettier": "^2.7.1"
   },

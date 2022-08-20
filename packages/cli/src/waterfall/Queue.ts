@@ -1,61 +1,62 @@
-import waitUntil from './waitUntil';
+import waitUntil from "./waitUntil";
 
 class Queue {
-  pendingEntries = [];
+    pendingEntries = [];
 
-  inFlight = 0;
+    inFlight = 0;
 
-  err = null;
+    err = null;
 
-  constructor(worker, options = {}) {
-    this.worker = worker;
-    this.concurrency = options.concurrency || 1;
-  }
+    constructor(worker, options = {}) {
+        this.worker = worker;
+        this.concurrency = options.concurrency || 1;
+    }
 
-  push = (entries) => {
-    this.pendingEntries = this.pendingEntries.concat(entries);
-    this.process();
-  };
-
-  process = () => {
-    const scheduled = this.pendingEntries.splice(
-      0,
-      this.concurrency - this.inFlight
-    );
-    this.inFlight += scheduled.length;
-    scheduled.forEach(async (task) => {
-      try {
-        await this.worker(task);
-      } catch (err) {
-        this.err = err;
-      } finally {
-        this.inFlight -= 1;
-      }
-
-      if (this.pendingEntries.length > 0) {
+    push = (entries) => {
+        this.pendingEntries = this.pendingEntries.concat(entries);
         this.process();
-      }
-    });
-  };
+    };
 
-  wait = (options = {}) =>
-    waitUntil(
-      () => {
-        if (this.err) {
-          this.pendingEntries = [];
-          throw this.err;
-        }
+    process = () => {
+        const scheduled = this.pendingEntries.splice(
+            0,
+            this.concurrency - this.inFlight
+        );
+        this.inFlight += scheduled.length;
+        scheduled.forEach(async (task) => {
+            try {
+                await this.worker(task);
+            } catch (err) {
+                this.err = err;
+            } finally {
+                this.inFlight -= 1;
+            }
 
-        return {
-          predicate: options.empty
-            ? this.inFlight === 0 && this.pendingEntries.length === 0
-            : this.concurrency > this.pendingEntries.length,
-        };
-      },
-      {
-        delay: 50,
-      }
-    );
+            if (this.pendingEntries.length > 0) {
+                this.process();
+            }
+        });
+    };
+
+    wait = (options = {}) =>
+        waitUntil(
+            () => {
+                if (this.err) {
+                    this.pendingEntries = [];
+                    throw this.err;
+                }
+
+                return {
+                    predicate: options.empty
+                        ? this.inFlight === 0 &&
+                          this.pendingEntries.length === 0
+                        : this.concurrency > this.pendingEntries.length,
+                };
+            },
+            {
+                delay: 50,
+            }
+        );
 }
 
 export default Queue;

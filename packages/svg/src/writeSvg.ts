@@ -2,7 +2,7 @@ import path, { ParsedPath } from "path";
 import fse from "fs-extra";
 import Mustache from "mustache";
 import { cleanPaths } from "./cleanPaths";
-import { Options, Frameworks } from "@figus/types";
+import { Frameworks, Options } from "@figus/types";
 import { formatFile } from "@figus/utils";
 import { getComponentName as getComponentNameVue } from "@figus/vue";
 import { getComponentName as getComponentNameReact } from "@figus/react";

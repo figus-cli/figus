@@ -5,7 +5,10 @@ import path from "path";
 import commonjs from "@rollup/plugin-commonjs";
 import esbuild from "rollup-plugin-esbuild";
 import json from "@rollup/plugin-json";
+import copy from "rollup-plugin-copy";
+
 import alias from "@rollup/plugin-alias";
+
 import dts from "rollup-plugin-dts";
 import { fileURLToPath } from "url";
 
@@ -49,6 +52,10 @@ const aliasPlugin = alias({
             replacement: path.resolve(__dirname, "../react/src/index.ts"),
         },
         {
+            find: "@figus/commonjs",
+            replacement: path.resolve(__dirname, "../commonjs/src/index.js"),
+        },
+        {
             find: "@figus/react-mui",
             replacement: path.resolve(__dirname, "../react-mui/src/index.ts"),
         },
@@ -74,14 +81,22 @@ export default [
         },
         external,
         plugins: [
+            commonjs(),
             nodeResolve({
                 preferBuiltins: true,
             }),
+            copy({
+                targets: [
+                    {
+                        src: path.resolve(__dirname, "../svg/src/templates/*"),
+                        dest: "dist/templates",
+                    },
+                ],
+            }),
             aliasPlugin,
             json(),
-            commonjs(),
             esbuild({
-                minify: true,
+                // minify: true,
                 target: "node14",
             }),
         ],

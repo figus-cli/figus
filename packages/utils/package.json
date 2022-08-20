@@ -9,6 +9,9 @@
   "devDependencies": {
     "open": "^8.4.0",
     "strip-ansi": "^7.0.1",
+    "fs-extra": "^10.1.0",
+    "@types/fs-extra": "^9.0.13",
+    "handlebars": "^4.7.7",
     "@types/cross-spawn": "^6.0.2",
     "@types/prettier": "^2.7.0",
     "cross-spawn": "^7.0.3"

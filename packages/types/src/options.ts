@@ -13,6 +13,11 @@ export interface Options {
      *
      */
     template?: string;
+
+    /**
+     * if provided will generate web-font icon kits from the svgs
+     */
+    fontName?: string;
     /**
      * transform component name
      * can use change-case for example to change the name casing from kebab case

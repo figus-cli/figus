@@ -17,10 +17,7 @@ export function defaultDestRewriter(svgPathObj, innerPath, options) {
     } else {
         fileName = fileName.replace(".svg", ".vue");
     }
-    fileName = fileName.replace(/(^.)|(_)(.)/g, (match, p1, p2, p3) => {
-        return (p1 || p3).toUpperCase();
-    });
-    const size = innerPath.replace(/\//g, "");
+
     // remove any @ in the file name
     fileName = fileName.replace(/@.*\./g, ".");
     fileName = fileName.replace("-", " ");
@@ -30,7 +27,6 @@ export function defaultDestRewriter(svgPathObj, innerPath, options) {
     fileName = fileName.replace(/\s+/g, "");
     // add Size to end of the File, example:
     // Close.tsx -> Close16.tsx
-    fileName = fileName.replace(".vue", `${size}.vue`);
     return fileName;
 }
 

@@ -1,4 +1,4 @@
-import fse, { readFile } from "fs-extra";
+import fse from "fs-extra";
 import Queue from "./waterfall/Queue";
 import { generateIndex as generateIndexVue, template } from "@figus/vue";
 import {
@@ -6,7 +6,14 @@ import {
     template as reactTemplate,
 } from "@figus/react";
 import { divider, spinner } from "@figus/utils";
-import { getSvgs, WorkerOptions, writeSvg } from "@figus/svg";
+import {
+    cleanPaths,
+    generateFonts,
+    getComponentName,
+    getSvgs,
+    WorkerOptions,
+    writeSvg,
+} from "@figus/svg";
 import cac from "cac";
 import c from "picocolors";
 import { version } from "../../../package.json";
@@ -24,7 +31,7 @@ import { generateIndex as generateIndexIconify } from "@figus/iconify";
 import globAsync from "fast-glob";
 import { serve } from "@figus/explorer";
 import path from "path";
-import { cleanPaths, getComponentName } from "@figus/svg";
+import { getLogger } from "./logger";
 
 const logger = debug("figus");
 logger.log = console.log.bind(console); // don't forget to bind to console!
@@ -80,15 +87,23 @@ async function getTemplate({
     }
 }
 
-export async function handler({
-    output,
-    framework,
-    template: templateFile,
-    svgDir,
-    iconify,
-    getFileName,
-    getComponentName,
-}: Options & { svgDir: string }) {
+export async function handler(
+    framework: Frameworks,
+    options: Options & { svgDir?: string }
+) {
+    const {
+        output,
+        getComponentName,
+        getFileName,
+        iconify,
+        path,
+        fontName,
+        template: templateFile,
+    } = await getConfig(options);
+    if (!path) {
+        console.error("Couldn't resolve path");
+        return;
+    }
     rimraf.sync(`${output}/*`); // Clean old files
     if (!output) {
         throw Error("Please provide an output");
@@ -96,13 +111,13 @@ export async function handler({
     const renameFilter = getDefaultNameFilter(framework, iconify);
     await fse.ensureDir(output);
     const template = await getTemplate({ framework, templateFile });
-    const svgPaths = await getSvgs({ svgDir });
+    const svgPaths = await getSvgs({ svgDir: path });
     const queue = new Queue(
         (svgPath: string) =>
             worker({
                 getComponentNameConfig: getComponentName,
                 svgPath,
-                svgDir,
+                svgDir: output,
                 framework,
                 output,
                 iconify,
@@ -113,9 +128,23 @@ export async function handler({
     );
 
     queue.push(svgPaths);
+    const logger = getLogger();
     await queue.wait({ empty: true });
     await generateIndex({ output, framework, components, iconify });
-    spinner.succeed("Done!!");
+    spinner.succeed("✔ Done");
+    if (fontName) {
+        spinner.stop();
+        const { svgs, fontFiles } = await generateFonts({
+            input: path,
+            fontName,
+            output,
+        });
+        logger.results({
+            assetsIn: svgs,
+            writeResults: fontFiles,
+            inputDir: output,
+        });
+    }
 }
 
 async function generateIndex({
@@ -169,6 +198,7 @@ async function getConfig(options: Options & FigmaOptions): Promise<Options> {
             path: options.path || config.path,
             framework: options.framework || config.framework,
             getFileName: config.getFileName,
+            fontName: options.fontName || config.fontName,
             template: options.template || config.template,
             figma: {
                 token: options.token || config.figma.token,
@@ -191,36 +221,15 @@ async function getConfig(options: Options & FigmaOptions): Promise<Options> {
 
 async function generate(framework: Frameworks, options: Options) {
     try {
-        const {
-            output,
-            path,
-            getComponentName,
-            getFileName,
-            iconify,
-            framework: configFramework,
-            template,
-        } = await getConfig({
-            ...options,
-            framework,
-        });
+        const { framework: resolvedFramework } = await getConfig(options);
         logger("generating icons", { options });
-        if (!path) {
-            logger("couldn't resolve path");
-            console.error("Couldn't resolve path");
-            return;
-        }
         clean();
         spinner.isSpinning
             ? (spinner.text = "Generating icons")
             : spinner.start("Generating icons");
-        await handler({
-            svgDir: path,
-            iconify,
-            template,
-            output,
-            getFileName,
-            getComponentName,
-            framework: configFramework,
+        await handler(framework || resolvedFramework, {
+            ...options,
+            svgDir: options.path,
         });
     } catch (e) {
         console.error(e);
@@ -230,11 +239,7 @@ async function generate(framework: Frameworks, options: Options) {
 async function start(framework: Frameworks, options: Options & FigmaOptions) {
     clean();
     const {
-        output,
         path,
-        getComponentName,
-        template,
-        iconify,
         framework: configFramework,
         figma: { token, fileKey, pageName } = {},
     } = await getConfig(options);
@@ -253,13 +258,9 @@ async function start(framework: Frameworks, options: Options & FigmaOptions) {
             process.exit();
         }
 
-        await handler({
+        await handler(framework || configFramework, {
+            ...options,
             svgDir,
-            output,
-            iconify,
-            template,
-            getComponentName,
-            framework: framework || configFramework,
         });
         clean();
         process.exit(0);
@@ -289,6 +290,11 @@ async function init() {
             },
             {
                 type: "input",
+                name: "fontName",
+                message: "whether to generate web-font icon kits from SVG file",
+            },
+            {
+                type: "input",
                 name: "pageName",
                 message: "Figma page name that contains the icons",
             },
@@ -298,9 +304,10 @@ async function init() {
                 message: "Output path to save the components in",
             },
         ])
-        .then(async ({ output, pageName, fileKey, framework }) => {
+        .then(async ({ output, pageName, fileKey, framework, fontName }) => {
             await createConfig({
                 output,
+                fontName,
                 iconify: false,
                 figma: { pageName, fileKey },
                 framework,
@@ -342,9 +349,13 @@ const cli = cac("figus");
 
 cli.version(version)
     .option("-s, --svg-dir <svgDir>", "Output of downloaded files")
-    .option("-f, --file-key <fileKey>", "figma file key")
+    .option("-fk, --file-key <fileKey>", "figma file key")
     .option("-t --template <template>", "Mustache template file")
     .option("-p, --page-name <pageName>", "figma page name")
+    .option(
+        "-f --font-name <font>",
+        "font name, if provided will generate fonts from the svg"
+    )
     .option("-t, --token <token>", "Figma token")
     .option("-i, --iconify [iconify]", "Generate in Iconify format");
 

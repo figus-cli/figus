@@ -25,6 +25,9 @@
       "@figus/iconify": [
         "./packages/iconify/src/index.ts"
       ],
+      "@figus/commonjs": [
+        "./packages/commonjs/src/index.js"
+      ],
       "@figus/explorer": [
         "./packages/explorer/src/index.ts"
       ],
