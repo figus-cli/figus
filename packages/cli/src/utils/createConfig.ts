@@ -10,7 +10,7 @@ export async function createConfig({
     path: svgPath,
     fontName,
 }: Options) {
-    const outputPath = path.resolve(process.cwd(), "figus.config.js");
+    const outputPath = path.resolve(process.cwd(), "figus.config.mjs");
     const config = `
 import {defineConfig} from '@figus/cli';
 export default defineConfig({

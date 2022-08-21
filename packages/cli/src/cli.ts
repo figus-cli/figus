@@ -16,6 +16,7 @@ import {
 } from "@figus/svg";
 import cac from "cac";
 import c from "picocolors";
+import color from "picocolors";
 import { version } from "../../../package.json";
 import { Frameworks, Options } from "@figus/types";
 import { clean, download, FigmaOptions } from "@figus/figma";
@@ -31,7 +32,7 @@ import { generateIndex as generateIndexIconify } from "@figus/iconify";
 import globAsync from "fast-glob";
 import { serve } from "@figus/explorer";
 import path from "path";
-import { getLogger } from "./logger";
+import { getLogger, pluralize } from "./logger";
 
 const logger = debug("figus");
 logger.log = console.log.bind(console); // don't forget to bind to console!
@@ -62,6 +63,7 @@ async function worker({
         template,
         framework,
     });
+
     components.push({ componentName, paths });
 }
 
@@ -132,7 +134,7 @@ export async function handler(
     const logger = getLogger();
     await queue.wait({ empty: true });
     await generateIndex({ output, framework, components, iconify });
-    spinner.succeed("✔ Done");
+    spinner.stop();
     if (fontName) {
         spinner.stop();
         const { svgs, fontFiles } = await generateFonts({
@@ -168,9 +170,11 @@ async function generateIndex({
 }
 
 async function downloadFigma(options: FigmaOptions & Options) {
-    const { path, figma: { pageName, fileKey, token } = {} } = await getConfig(
-        options
-    );
+    const {
+        path,
+        framework,
+        figma: { pageName, fileKey, token } = {},
+    } = await getConfig(options);
     await clean();
     if (!token) {
         console.log(`Please provide a ${c.red("Figma")} token`);
@@ -182,11 +186,13 @@ async function downloadFigma(options: FigmaOptions & Options) {
     await download({
         token,
         path: path,
+        framework,
         figma: {
             pageName,
             fileKey,
         },
     });
+
     spinner.succeed("Done");
 }
 
@@ -198,6 +204,7 @@ async function getConfig(options: Options & FigmaOptions): Promise<Options> {
             iconify: options.iconify || config.iconify,
             output: options.output || config.output,
             path: options.path || config.path,
+            download: options.download || config.download,
             framework: options.framework || config.framework,
             getFileName: config.getFileName,
             fontName: options.fontName || config.fontName,
@@ -221,59 +228,57 @@ async function getConfig(options: Options & FigmaOptions): Promise<Options> {
     };
 }
 
-async function generate(framework: Frameworks, options: Options) {
-    try {
-        const { framework: resolvedFramework } = await getConfig(options);
-        logger("generating icons", { options });
+function start(isDefaultCommand = false) {
+    return async (framework: Frameworks, options: Options & FigmaOptions) => {
         clean();
-        spinner.isSpinning
-            ? (spinner.text = "Generating icons")
-            : spinner.start("Generating icons");
-        await handler(framework || resolvedFramework, {
-            ...options,
-            svgDir: options.path,
-        });
-    } catch (e) {
-        console.error(e);
-    }
-}
-
-async function start(framework: Frameworks, options: Options & FigmaOptions) {
-    clean();
-    const {
-        path,
-        framework: configFramework,
-        figma: { token, fileKey, pageName } = {},
-    } = await getConfig(options);
-    try {
-        const svgDir =
-            path ||
-            (await download({
-                token,
-                figma: {
-                    pageName,
-                    fileKey,
-                },
-            }));
-        if (!svgDir) {
-            console.error("error downloading from figma");
-            process.exit();
+        const {
+            path: svgPath,
+            framework: configFramework,
+            download: doDownload,
+            figma: { token, fileKey, pageName } = {},
+        } = await getConfig(options);
+        try {
+            const svgDir =
+                doDownload && isDefaultCommand
+                    ? await download({
+                          token,
+                          path: svgPath,
+                          framework: configFramework,
+                          figma: {
+                              pageName,
+                              fileKey,
+                          },
+                      })
+                    : svgPath;
+            if (!svgDir) {
+                console.error("error downloading from figma");
+                process.exit();
+            }
+            const result = await globAsync(path.join(svgDir, "**/*.svg"));
+            spinner.start("Generating components");
+            await handler(framework || configFramework, {
+                ...options,
+                svgDir,
+            });
+            spinner.succeed(
+                color.blue(
+                    `Created ${color.green(
+                        color.bold(result.length)
+                    )} ${pluralize("component", result.length)}`
+                )
+            );
+            // console.log();
+            clean();
+            process.exit(0);
+        } catch (e) {
+            process.exit(1);
+            console.error(
+                `\n${c.red(divider(c.bold(c.inverse(" Unhandled Error "))))}`
+            );
+            console.error(e);
+            console.error("\n\n");
         }
-
-        await handler(framework || configFramework, {
-            ...options,
-            svgDir,
-        });
-        clean();
-        process.exit(0);
-    } catch (e) {
-        process.exit(1);
-        console.error(
-            `\n${c.red(divider(c.bold(c.inverse(" Unhandled Error "))))}`
-        );
-        console.error(e);
-        console.error("\n\n");
-    }
+    };
 }
 
 async function init() {
@@ -341,7 +346,12 @@ async function init() {
 }
 
 async function startServer(options: Options) {
-    const { path: pathOutput, framework, iconify } = await getConfig(options);
+    const {
+        path: pathOutput,
+        framework,
+        iconify,
+        fontName,
+    } = await getConfig(options);
     if (!pathOutput) {
         return;
     }
@@ -349,6 +359,7 @@ async function startServer(options: Options) {
     const icons = result.map((item) => {
         return {
             body: cleanPaths({
+                framework,
                 data: fse.readFileSync(item, "utf-8"),
                 svgPath: item,
             }),
@@ -359,7 +370,7 @@ async function startServer(options: Options) {
             filename: item,
         };
     });
-    await serve({ icons, path: pathOutput });
+    await serve({ icons, path: pathOutput, fontName });
 }
 
 const cli = cac("figus");
@@ -381,13 +392,14 @@ cli.command(
     "Generate components from figma for a specific framework"
 )
     .option("-o, --output <string>", "output path")
+    .option("-d, --download [download]", "Download icons from figma")
     .example("--fileKey yyy --token xxx --pageName zzz")
-    .action(start);
+    .action(start(true));
 
 cli.command("generate [framework]", "generate components from svg files")
     .option("-o, --output <output>", "Download path")
     .option("-p, --path <path>", "Directory containing the svg files")
-    .action(generate);
+    .action(start(false));
 
 cli.command("explorer", "Explorer all icons available").action(startServer);
 

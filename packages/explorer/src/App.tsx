@@ -4,6 +4,7 @@ import "./App.css";
 import axios from "axios";
 import {
     Box,
+    Button,
     Dialog,
     DialogActions,
     DialogContent,
@@ -88,6 +89,7 @@ export default function App() {
     const [icons, setIcons] = useState<Icon[]>([]);
     const [results, setResults] = useState<Icon[]>([]);
     const [query, setQuery] = useState("");
+    const [fontName, setFontName] = useState();
     useEffect(() => {
         const res = matchSorter(icons, query, { keys: ["name"] });
         setResults(res);
@@ -95,13 +97,26 @@ export default function App() {
     useEffect(() => {
         axios.get("http://localhost:3000/").then((response) => {
             setIcons(response.data.icons);
+            setFontName(response.data.fontName);
         });
     }, []);
 
     const onDownload = async () => {
-        // axios.get("http://localhost:3000/download").then((response) => {
-        //     setIcons(response.data.icons);
-        // });
+        const result = await window.SvgPacker({
+            fontName,
+            fileName: fontName,
+            cssPrefix: "icon",
+            icons: icons.map((item) => ({
+                svg: item.body,
+                ...item,
+            })),
+        });
+        const url = URL.createObjectURL(result.zip.blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = fontName;
+        a.click();
+        a.remove();
     };
     const [selectedIcon, setSelectIcon] = useState<Icon | null>(null);
 
@@ -109,6 +124,7 @@ export default function App() {
         <Grid container className={"root"}>
             <Grid item xs={12}>
                 <MuiPaper className="App">
+                    <Button onClick={onDownload}>Download</Button>
                     <div className={"search"}>
                         <Paper>
                             <IconButton

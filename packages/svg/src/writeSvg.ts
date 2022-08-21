@@ -7,6 +7,7 @@ import { formatFile } from "@figus/utils";
 import { getComponentName as getComponentNameVue } from "@figus/vue";
 import { getComponentName as getComponentNameReact } from "@figus/react";
 import { getComponentName as getComponentNameIconify } from "@figus/iconify";
+import { transform } from "@svgr/core";
 
 export type RenameFilter = (
     svgPathObj: ParsedPath,
@@ -51,7 +52,12 @@ export async function writeSvg({
     await fse.ensureDir(outputFileDir);
     try {
         const data = await fse.readFile(svgPath, { encoding: "utf8" });
-        const paths = cleanPaths({ svgPath, data });
+        const paths = cleanPaths({
+            svgPath,
+            data,
+            removeSvgNode: false,
+            framework,
+        });
         let componentName = getComponentName(framework, iconify)(destPath);
         if (iconify) {
             return { paths, componentName };
@@ -62,7 +68,9 @@ export async function writeSvg({
         if (!template) {
             return {};
         }
-        const fileString = Mustache.render(template, {
+        let fileString;
+
+        fileString = Mustache.render(template, {
             paths,
             componentName,
         });

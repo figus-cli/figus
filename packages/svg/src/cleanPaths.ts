@@ -1,17 +1,23 @@
 import * as svgo from "svgo";
 import { OptimizedSvg, XastElement } from "svgo";
 import path from "path";
+import { mappings } from "./mappings";
+import { Frameworks } from "@figus/types";
 
 export function cleanPaths({
     svgPath,
     data,
+    framework,
+    removeSvgNode = true,
 }: {
+    removeSvgNode?: boolean;
+    framework: Frameworks;
     svgPath: string;
     data: string;
 }) {
-    const result = svgo.optimize(data, {
+    const jsxResult = svgo.optimize(data, {
         floatPrecision: 4,
-        multipass: true,
+        multipass: false,
         plugins: [
             { name: "cleanupAttrs" },
             { name: "removeDoctype" },
@@ -82,6 +88,9 @@ export function cleanPaths({
                 // @ts-ignore
                 type: "visitor", // 'perItem', 'perItemReverse' or 'full'
                 fn: () => {
+                    if (!removeSvgNode) {
+                        return;
+                    }
                     return {
                         element: {
                             enter: (
@@ -96,13 +105,40 @@ export function cleanPaths({
                     };
                 },
             },
+            {
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                type: "visitor",
+                name: "svgo-jsx-target",
+                fn: () => {
+                    if (framework !== "react") {
+                        return;
+                    }
+                    return {
+                        element: {
+                            enter: (node: XastElement) => {
+                                const newAttributes: Record<string, string> =
+                                    {};
+                                // preserve an order of attributes
+                                for (const [name, value] of Object.entries(
+                                    node.attributes
+                                )) {
+                                    newAttributes[mappings[name] || name] =
+                                        value;
+                                }
+                                node.attributes = newAttributes;
+                            },
+                        },
+                    };
+                },
+            },
         ],
     });
-    if (result.error) {
+    if (jsxResult.error) {
         throw Error("error parsing svg " + svgPath);
     }
 
-    const jsxResult = svgo.optimize((result as OptimizedSvg).data);
+    // const jsxResult = svgo.optimize((result as OptimizedSvg).data);
     // Extract the paths from the svg string
     // Clean xml paths
     let paths = (jsxResult as OptimizedSvg).data

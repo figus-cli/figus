@@ -23,7 +23,6 @@ export const generateSVGFont = (
 ): Promise<{ fileCreated: string; buffer: Buffer }> => {
     const fontStream = new SVGIcons2SVGFontStream({
         fontName,
-        fontHeight: 1000,
         normalize: true,
     });
 

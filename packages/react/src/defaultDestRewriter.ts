@@ -11,17 +11,18 @@
  * @returns {string} output file dest relative to outputDir
  */
 import { ParsedPath } from "path";
+import { pascalCase } from "change-case";
 
 export function defaultDestRewriter(svgPathObj: ParsedPath) {
     let fileName = svgPathObj.base;
-    fileName = fileName.replace(".svg", ".tsx");
-    fileName = fileName.replace(/(^.)|(_)(.)/g, (match, p1, p2, p3) => {
-        return (p1 || p3).toUpperCase();
-    });
+    fileName = fileName.replace(".svg", "");
+
     // remove any @ in the file name
     fileName = fileName.replace(/@.*\./g, ".");
     // remove any spaces in the file name
     fileName = fileName.replace(/\s+/g, "");
+
+    fileName = pascalCase(fileName).concat(".tsx");
     // add Size to end of the File, example:
     // Close.tsx -> Close16.tsx
     return fileName;

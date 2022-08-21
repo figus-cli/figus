@@ -1,4 +1,5 @@
 import path from "path";
+import { pascalCase } from "change-case";
 
 /**
  * Return Pascal-Cased component name.
@@ -6,11 +7,6 @@ import path from "path";
  * @returns {string} class name
  */
 export function getComponentName(destPath: string) {
-    const splitregex = new RegExp(`[\\${path.sep}-]+`);
-    destPath = destPath.replace("-", " ");
-    const [nameOrSuffix, name] = destPath.replace(".tsx", "").split(splitregex);
-    if (name) {
-        return name;
-    }
-    return nameOrSuffix;
+    destPath = destPath.replace(".tsx", "");
+    return pascalCase(destPath);
 }

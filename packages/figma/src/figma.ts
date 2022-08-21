@@ -4,7 +4,13 @@ import { VFile } from "vfile";
 import * as fs from "fs";
 import { spinner } from "@figus/utils";
 import { mergeAll, splitEvery } from "ramda";
+import { cleanPaths } from "@figus/svg";
+import globAsync from "fast-glob";
 import debug from "debug";
+import color from "picocolors";
+import fse from "fs-extra";
+import path from "path";
+import { Frameworks } from "@figus/types";
 
 const figmaLogger = debug("figus:figma");
 
@@ -27,10 +33,12 @@ const PAGE_SIZE = 200;
 export async function download({
     token,
     figma,
+    framework,
     path,
 }: {
     token?: string;
     figma: FigmaOptions;
+    framework: Frameworks;
     path?: string;
 }) {
     await clean();
@@ -66,12 +74,16 @@ export async function download({
         );
         const images = mergeAll(imagePages.map((item) => item.images));
 
-        const imagesWithNames = Object.keys(images).map((key) => {
-            return {
-                url: images[key],
-                name: files.find((item) => item.node_id === key)?.name,
-            };
-        });
+        const imagesWithNames = Object.keys(images)
+            .map((key) => {
+                return {
+                    url: images[key],
+                    name: files
+                        .find((item) => item.node_id === key)
+                        ?.name.replace("_", "-"),
+                };
+            })
+            .filter((item) => !/^\d/.test(item.name!));
 
         spinner.text = "Downloading " + imagesWithNames.length + " icons";
         figmaLogger(`Downloading ${imagesWithNames.length} icons`);
@@ -90,7 +102,16 @@ export async function download({
                 }).download();
             })
         );
+
         spinner.stop();
+        console.log(
+            color.blue(
+                `${color.green("✔")} Downloaded ${color.green(
+                    color.bold(imagesWithNames.length)
+                )} assets`
+            )
+        );
+        await optimizeAssets(framework, path || file.dirname);
         return file.dirname;
     } catch (e) {
         console.error(e);
@@ -100,6 +121,25 @@ export async function download({
         }
         clean();
     }
+}
+
+async function optimizeAssets(framework: Frameworks, dir?: string) {
+    if (!dir) {
+        return;
+    }
+    const result = await globAsync(path.join(dir, "**/*.svg"));
+    await Promise.all(
+        result.map(async (item) => {
+            const data = await fse.readFile(item, { encoding: "utf8" });
+            const paths = cleanPaths({
+                framework,
+                svgPath: item,
+                data,
+                removeSvgNode: true,
+            });
+            return await fse.writeFile(item, paths);
+        })
+    );
 }
 
 async function getFiles({
@@ -142,6 +182,9 @@ async function getComponents({
                 .toLowerCase()
                 .includes(figma.pageName!.toLowerCase())
         )
+        .filter((item) => {
+            return item.containing_frame?.name === "ironSource UI";
+        })
         .map((item) => {
             return {
                 node_id: item.node_id,

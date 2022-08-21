@@ -1,9 +1,10 @@
 import express from "express";
 import * as path from "path";
 import { fileURLToPath } from "url";
-import fse from "fs-extra";
+import fse, { ensureDir } from "fs-extra";
 import { Logger } from "vite";
 import colors from "picocolors";
+import { generateFonts } from "@figus/svg";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -27,9 +28,11 @@ export function printServerUrls(
 
 export async function serve({
     path: outputPath,
+    fontName,
     icons,
 }: {
     path: string;
+    fontName?: string;
     icons: { body: string; filename: string; name: string }[];
 }) {
     const app = express();
@@ -38,16 +41,36 @@ export async function serve({
     await fse.copy(path.resolve(outputPath), path.join(assetsPath, "assets"), {
         recursive: true,
     });
-    console.log("here");
 
     app.get("/", (req, res) => {
         res.send({
             icons,
+            fontName,
         });
     });
 
-    app.get("/download", (req, res) => {
-        console.log(req, res);
+    app.get("/download", async (req, res) => {
+        if (!fontName) {
+            return res.send({ failure: true });
+        }
+
+        await ensureDir(path.join(__dirname, "temp"));
+        await generateFonts({
+            fontName,
+            input: path.resolve(outputPath),
+            output: path.join(__dirname, "temp"),
+        });
+        return res.download(path.join(__dirname, "temp"));
+    });
+
+    app.get("/svgs", async (req, res) => {
+        res.send({
+            fontName,
+            icons: icons.map((item) => ({
+                name: item.name,
+                svg: item.body,
+            })),
+        });
     });
 
     app.use(express.static(assetsPath));
