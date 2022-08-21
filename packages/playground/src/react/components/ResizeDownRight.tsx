@@ -9,8 +9,18 @@ export function ResizeDownRight(props: SVGProps<SVGSVGElement>) {
             height="1em"
             {...props}
         >
-            <path fill="currentColor" stroke="currentColor" d="M10 20h10V10" />
-            <path fill="currentColor" stroke="currentColor" d="M12 17h5v-5" />
+            <path
+                fill="currentColor"
+                stroke="currentColor"
+                d="M10 20h10V10"
+                strokeWidth="2"
+            />
+            <path
+                fill="currentColor"
+                stroke="currentColor"
+                d="M12 17h5v-5"
+                strokeWidth="2"
+            />
         </svg>
     );
 }

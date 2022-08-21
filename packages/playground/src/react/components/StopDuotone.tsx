@@ -16,7 +16,9 @@ export function StopDuotone(props: SVGProps<SVGSVGElement>) {
                 y="5"
                 fill="currentColor"
                 stroke="currentColor"
+                fillOpacity=".24"
                 rx="1"
+                strokeWidth="1.2"
             />
             <rect
                 width="4"
@@ -25,7 +27,9 @@ export function StopDuotone(props: SVGProps<SVGSVGElement>) {
                 y="5"
                 fill="currentColor"
                 stroke="currentColor"
+                fillOpacity=".24"
                 rx="1"
+                strokeWidth="1.2"
             />
         </svg>
     );

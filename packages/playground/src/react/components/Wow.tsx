@@ -9,13 +9,20 @@ export function Wow(props: SVGProps<SVGSVGElement>) {
             height="1em"
             {...props}
         >
-            <circle cx="12" cy="12" r="10" stroke="currentColor" />
+            <circle
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                strokeWidth="2"
+            />
             <circle
                 cx="9"
                 cy="9"
                 r="1.25"
                 fill="currentColor"
                 stroke="currentColor"
+                strokeWidth=".5"
             />
             <circle
                 cx="15"
@@ -23,6 +30,7 @@ export function Wow(props: SVGProps<SVGSVGElement>) {
                 r="1.25"
                 fill="currentColor"
                 stroke="currentColor"
+                strokeWidth=".5"
             />
             <path
                 fill="currentColor"

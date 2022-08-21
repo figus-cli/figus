@@ -12,6 +12,9 @@ export function TemperatureDuotone(props: SVGProps<SVGSVGElement>) {
             <path
                 fill="currentColor"
                 d="M9 6c0-1.6569 1.3431-3 3-3s3 1.3431 3 3v5.5001c0 .3145.1524.606.3839.8189C16.3774 13.2328 17 14.5437 17 16c0 2.7614-2.2386 5-5 5s-5-2.2386-5-5c0-1.4563.6226-2.7672 1.6161-3.681.2315-.2129.3839-.5044.3839-.8189V6Zm3 12c1.1046 0 2-.8954 2-2s-.8954-2-2-2-2 .8954-2 2 .8954 2 2 2Z"
+                clipRule="evenodd"
+                fillOpacity=".24"
+                fillRule="evenodd"
             />
             <path
                 fill="currentColor"

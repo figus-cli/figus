@@ -16,10 +16,12 @@ export function HhourglassMoveLight(props: SVGProps<SVGSVGElement>) {
             <path
                 stroke="currentColor"
                 d="m9.5 20.5 2.2682-2.7219A.9996.9996 0 0 0 12 17.138V12"
+                strokeLinejoin="round"
             />
             <path
                 stroke="currentColor"
                 d="m14.5 20.5-2.2682-2.7219A.9996.9996 0 0 1 12 17.138V12"
+                strokeLinejoin="round"
             />
             <path fill="currentColor" d="M17 8H7v1h10V8Z" />
         </svg>

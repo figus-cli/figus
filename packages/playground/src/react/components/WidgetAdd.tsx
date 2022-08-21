@@ -16,6 +16,7 @@ export function WidgetAdd(props: SVGProps<SVGSVGElement>) {
                 y="3"
                 stroke="currentColor"
                 rx="1"
+                strokeWidth="2"
             />
             <rect
                 width="7"
@@ -24,6 +25,7 @@ export function WidgetAdd(props: SVGProps<SVGSVGElement>) {
                 y="14"
                 stroke="currentColor"
                 rx="1"
+                strokeWidth="2"
             />
             <rect
                 width="7"
@@ -32,11 +34,13 @@ export function WidgetAdd(props: SVGProps<SVGSVGElement>) {
                 y="3"
                 stroke="currentColor"
                 rx="1"
+                strokeWidth="2"
             />
             <path
                 fill="currentColor"
                 stroke="currentColor"
                 d="M17.5 14.0002v7.0002m3.5001-3.5003H14"
+                strokeWidth="2"
             />
         </svg>
     );

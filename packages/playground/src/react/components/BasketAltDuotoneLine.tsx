@@ -18,6 +18,7 @@ export function BasketAltDuotoneLine(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 stroke="currentColor"
                 d="m10.5 15.5-1-3.5m4 3.5 1-3.5"
+                strokeOpacity=".24"
             />
             <path
                 fill="currentColor"

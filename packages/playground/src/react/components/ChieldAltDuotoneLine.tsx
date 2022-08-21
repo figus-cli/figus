@@ -13,6 +13,8 @@ export function ChieldAltDuotoneLine(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 stroke="currentColor"
                 d="M16.8 16.4 15 17.75c-1.7778 1.3333-4.2222 1.3333-6 0L7.2 16.4A7.9999 7.9999 0 0 1 4 10V6c0-1.1046.8954-2 2-2h12c1.1046 0 2 .8954 2 2v4a8 8 0 0 1-3.2 6.4Z"
+                fillOpacity=".24"
+                strokeWidth="1.2"
             />
             <circle cx="12" cy="10" r="1" fill="currentColor" />
             <circle cx="9" cy="10" r="1" fill="currentColor" />

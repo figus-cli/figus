@@ -12,6 +12,7 @@ export function SignOutCircle(props: SVGProps<SVGSVGElement>) {
             <path
                 stroke="currentColor"
                 d="M8 18.9282a8.0005 8.0005 0 0 0 8 0A8.0006 8.0006 0 0 0 18.9282 8 7.9993 7.9993 0 0 0 12 4a8 8 0 0 0-4 1.0718"
+                strokeWidth="2"
             />
             <path
                 fill="currentColor"

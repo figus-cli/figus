@@ -16,9 +16,15 @@ export function OrderDuotoneLine(props: SVGProps<SVGSVGElement>) {
                 y="4"
                 fill="currentColor"
                 stroke="currentColor"
+                fillOpacity=".24"
                 rx="2"
+                strokeWidth="1.2"
             />
-            <path stroke="currentColor" d="M9 9h6m-6 4h6m-6 4h4" />
+            <path
+                stroke="currentColor"
+                d="M9 9h6m-6 4h6m-6 4h4"
+                strokeWidth="1.2"
+            />
         </svg>
     );
 }

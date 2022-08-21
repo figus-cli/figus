@@ -12,6 +12,7 @@ export function ArhiveLoadDuotone(props: SVGProps<SVGSVGElement>) {
             <path
                 fill="currentColor"
                 d="M3 12c0-2.8284 0-4.2426.8787-5.1213C4.7574 6 6.1716 6 9 6h6c2.8284 0 4.2426 0 5.1213.8787C21 7.7574 21 9.1716 21 12v3c0 2.8284 0 4.2426-.8787 5.1213C19.2426 21 17.8284 21 15 21H9c-2.8284 0-4.2426 0-5.1213-.8787C3 19.2426 3 17.8284 3 15v-3Z"
+                fillOpacity=".24"
             />
             <path
                 fill="currentColor"

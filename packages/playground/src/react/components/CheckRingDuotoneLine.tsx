@@ -15,8 +15,10 @@ export function CheckRingDuotoneLine(props: SVGProps<SVGSVGElement>) {
                 r="9"
                 fill="currentColor"
                 stroke="currentColor"
+                fillOpacity=".24"
+                strokeWidth="1.2"
             />
-            <path stroke="currentColor" d="m8 12 3 3 5-6" />
+            <path stroke="currentColor" d="m8 12 3 3 5-6" strokeWidth="1.2" />
         </svg>
     );
 }

@@ -20,8 +20,9 @@ export function Server(props: SVGProps<SVGSVGElement>) {
                 y="11"
                 stroke="currentColor"
                 rx="2"
+                strokeWidth="2"
             />
-            <path stroke="currentColor" d="M11.5 16h1" />
+            <path stroke="currentColor" d="M11.5 16h1" strokeWidth="2" />
         </svg>
     );
 }

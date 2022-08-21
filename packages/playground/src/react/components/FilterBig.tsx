@@ -13,6 +13,7 @@ export function FilterBig(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 stroke="currentColor"
                 d="M11 8h9M4 16h10"
+                strokeWidth="2"
             />
             <ellipse
                 cx="7"
@@ -20,6 +21,7 @@ export function FilterBig(props: SVGProps<SVGSVGElement>) {
                 stroke="currentColor"
                 rx="3"
                 ry="3"
+                strokeWidth="2"
                 transform="rotate(90 7 8)"
             />
             <ellipse
@@ -28,6 +30,7 @@ export function FilterBig(props: SVGProps<SVGSVGElement>) {
                 stroke="currentColor"
                 rx="3"
                 ry="3"
+                strokeWidth="2"
                 transform="rotate(90 17 16)"
             />
         </svg>

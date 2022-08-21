@@ -16,6 +16,8 @@ export function ExportFill(props: SVGProps<SVGSVGElement>) {
             <path
                 fill="currentColor"
                 d="M11 13v3.5c0 .5523.4477 1 1 1s1-.4477 1-1V13h5c1.1046 0 2 .8954 2 2v4c0 1.1046-.8954 2-2 2H6c-1.1046 0-2-.8954-2-2v-4c0-1.1046.8954-2 2-2h5Z"
+                clipRule="evenodd"
+                fillRule="evenodd"
             />
         </svg>
     );

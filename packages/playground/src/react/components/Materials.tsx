@@ -13,11 +13,15 @@ export function Materials(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 stroke="currentColor"
                 d="m3 7 7-4 11 4M3 7v5l11 4 7-4V7M3 7l11 4 7-4"
+                strokeLinejoin="round"
+                strokeWidth="2"
             />
             <path
                 fill="currentColor"
                 stroke="currentColor"
                 d="M3 12v5l11 4 7-4v-5"
+                strokeLinejoin="round"
+                strokeWidth="2"
             />
         </svg>
     );

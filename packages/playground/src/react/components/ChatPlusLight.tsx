@@ -18,6 +18,7 @@ export function ChatPlusLight(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 stroke="currentColor"
                 d="M9 11h6M5 8V2M2 5h6m4 10h3"
+                strokeLinejoin="round"
             />
         </svg>
     );

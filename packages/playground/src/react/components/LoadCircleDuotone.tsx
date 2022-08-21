@@ -11,6 +11,7 @@ export function LoadCircleDuotone(props: SVGProps<SVGSVGElement>) {
         >
             <ellipse
                 fill="currentColor"
+                fillOpacity=".24"
                 rx="6"
                 ry="6"
                 transform="matrix(0 -1 -1 0 12 14)"

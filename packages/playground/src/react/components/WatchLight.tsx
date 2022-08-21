@@ -13,6 +13,7 @@ export function WatchLight(props: SVGProps<SVGSVGElement>) {
             <path
                 stroke="currentColor"
                 d="m8.5 7.5.407-3.2554A.85.85 0 0 1 9.7503 3.5h4.4992a.85.85 0 0 1 .8435.7446L15.5 7.5m-7 9 .407 3.2554a.85.85 0 0 0 .8434.7446h4.4992a.85.85 0 0 0 .8435-.7446L15.5 16.5"
+                strokeLinejoin="round"
             />
             <path
                 fill="currentColor"

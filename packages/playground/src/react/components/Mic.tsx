@@ -16,11 +16,15 @@ export function Mic(props: SVGProps<SVGSVGElement>) {
                 y="3"
                 stroke="currentColor"
                 rx="3"
+                strokeLinejoin="round"
+                strokeWidth="2"
             />
             <path
                 fill="currentColor"
                 stroke="currentColor"
                 d="M5 11a6.9998 6.9998 0 0 0 11.9497 4.9497A6.9997 6.9997 0 0 0 19 11m-7 10v-2"
+                strokeLinejoin="round"
+                strokeWidth="2"
             />
         </svg>
     );

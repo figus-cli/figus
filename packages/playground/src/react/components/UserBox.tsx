@@ -13,8 +13,15 @@ export function UserBox(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 stroke="currentColor"
                 d="M17.7956 20.7059c-.3419-1.0632-1.0952-2.0026-2.143-2.6727C14.6047 17.3632 13.3208 17 12 17c-1.3208 0-2.6047.3632-3.6526 1.0332-1.0478.6701-1.8011 1.6095-2.143 2.6727"
+                strokeWidth="2"
             />
-            <circle cx="12" cy="10" r="3" stroke="currentColor" />
+            <circle
+                cx="12"
+                cy="10"
+                r="3"
+                stroke="currentColor"
+                strokeWidth="2"
+            />
             <rect
                 width="18"
                 height="18"
@@ -22,6 +29,7 @@ export function UserBox(props: SVGProps<SVGSVGElement>) {
                 y="3"
                 stroke="currentColor"
                 rx="3"
+                strokeWidth="2"
             />
         </svg>
     );

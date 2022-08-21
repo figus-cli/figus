@@ -9,7 +9,12 @@ export function Navigate(props: SVGProps<SVGSVGElement>) {
             height="1em"
             {...props}
         >
-            <path stroke="currentColor" d="m5 20 7-16 7 16-7-2-7 2Z" />
+            <path
+                stroke="currentColor"
+                d="m5 20 7-16 7 16-7-2-7 2Z"
+                strokeLinejoin="round"
+                strokeWidth="2"
+            />
             <path
                 fill="currentColor"
                 d="m12 13-.5812.8137a.9997.9997 0 0 0 1.1624 0L12 13Zm-4.0812-1.6863 3.5 2.5 1.1624-1.6274-3.5-2.5-1.1624 1.6274Zm4.6624 2.5 3.5-2.5-1.1624-1.6274-3.5 2.5 1.1624 1.6274Z"

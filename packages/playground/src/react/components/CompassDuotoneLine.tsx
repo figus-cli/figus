@@ -12,6 +12,9 @@ export function CompassDuotoneLine(props: SVGProps<SVGSVGElement>) {
             <path
                 fill="currentColor"
                 d="M12 21c4.9706 0 9-4.0294 9-9s-4.0294-9-9-9-9 4.0294-9 9 4.0294 9 9 9Zm1.7321-10c-.4368-.7564-2.346-2.092-3.4451-2.8208a.4734.4734 0 0 0-.7394.427c.0816 1.3161.2836 3.6374.7203 4.3938.4368.7564 2.346 2.092 3.4451 2.8208a.4734.4734 0 0 0 .7394-.4269c-.0816-1.3162-.2836-3.6375-.7203-4.3939Z"
+                clipRule="evenodd"
+                fillOpacity=".24"
+                fillRule="evenodd"
             />
             <path
                 fill="currentColor"

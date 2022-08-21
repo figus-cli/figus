@@ -12,6 +12,8 @@ export function AddRingFill(props: SVGProps<SVGSVGElement>) {
             <path
                 fill="currentColor"
                 d="M21 12c0 4.9706-4.0294 9-9 9s-9-4.0294-9-9 4.0294-9 9-9 9 4.0294 9 9Zm-8 1v4h-2v-4H7v-2h4V7h2v4h4v2h-4Z"
+                clipRule="evenodd"
+                fillRule="evenodd"
             />
         </svg>
     );

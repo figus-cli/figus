@@ -9,8 +9,19 @@ export function CheckRing(props: SVGProps<SVGSVGElement>) {
             height="1em"
             {...props}
         >
-            <circle cx="12" cy="12" r="9" stroke="currentColor" />
-            <path fill="currentColor" stroke="currentColor" d="m8 12 3 3 5-6" />
+            <circle
+                cx="12"
+                cy="12"
+                r="9"
+                stroke="currentColor"
+                strokeWidth="2"
+            />
+            <path
+                fill="currentColor"
+                stroke="currentColor"
+                d="m8 12 3 3 5-6"
+                strokeWidth="2"
+            />
         </svg>
     );
 }

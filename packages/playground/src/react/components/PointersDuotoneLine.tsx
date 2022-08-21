@@ -13,6 +13,7 @@ export function PointersDuotoneLine(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 stroke="currentColor"
                 d="M12 2.5v2m0 5v2m0 5v5"
+                strokeOpacity=".24"
             />
             <path
                 fill="currentColor"

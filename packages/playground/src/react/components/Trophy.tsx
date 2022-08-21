@@ -9,7 +9,7 @@ export function Trophy(props: SVGProps<SVGSVGElement>) {
             height="1em"
             {...props}
         >
-            <path stroke="currentColor" d="M16.5 20.5h-9" />
+            <path stroke="currentColor" d="M16.5 20.5h-9" strokeWidth="2" />
             <path
                 fill="currentColor"
                 d="M13 18.5c0 .5523-.4477 1-1 1s-1-.4477-1-1h2Zm-2 0V16h2v2.5h-2Z"
@@ -17,6 +17,7 @@ export function Trophy(props: SVGProps<SVGSVGElement>) {
             <path
                 stroke="currentColor"
                 d="M10.5 9.5h3m-8 5s-2-1.5-2-4V8.4994C3.5 7.395 4.3954 6.5 5.5 6.5s2 .8954 2 2v1m11 5s2-1.5 2-4V8.4994c0-1.1045-.8954-1.9994-2-1.9994s-2 .8954-2 2v1"
+                strokeWidth="2"
             />
             <path
                 fill="currentColor"

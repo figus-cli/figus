@@ -9,7 +9,12 @@ export function Candlestick(props: SVGProps<SVGSVGElement>) {
             height="1em"
             {...props}
         >
-            <path fill="currentColor" stroke="currentColor" d="M8 3v3m0 8v3" />
+            <path
+                fill="currentColor"
+                stroke="currentColor"
+                d="M8 3v3m0 8v3"
+                strokeWidth="2"
+            />
             <rect
                 width="4"
                 height="8"
@@ -17,8 +22,14 @@ export function Candlestick(props: SVGProps<SVGSVGElement>) {
                 y="6"
                 stroke="currentColor"
                 rx=".8"
+                strokeWidth="2"
             />
-            <path fill="currentColor" stroke="currentColor" d="M16 7v5m0 5v3" />
+            <path
+                fill="currentColor"
+                stroke="currentColor"
+                d="M16 7v5m0 5v3"
+                strokeWidth="2"
+            />
             <rect
                 width="4"
                 height="5"
@@ -26,6 +37,7 @@ export function Candlestick(props: SVGProps<SVGSVGElement>) {
                 y="12"
                 stroke="currentColor"
                 rx=".8"
+                strokeWidth="2"
             />
         </svg>
     );

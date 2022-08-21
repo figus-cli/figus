@@ -16,8 +16,14 @@ export function Tablet(props: SVGProps<SVGSVGElement>) {
                 y="3"
                 stroke="currentColor"
                 rx="2"
+                strokeWidth="2"
             />
-            <path fill="currentColor" stroke="currentColor" d="M15 17H9" />
+            <path
+                fill="currentColor"
+                stroke="currentColor"
+                d="M15 17H9"
+                strokeWidth="2"
+            />
         </svg>
     );
 }

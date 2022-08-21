@@ -9,7 +9,13 @@ export function ImgFill(props: SVGProps<SVGSVGElement>) {
             height="1em"
             {...props}
         >
-            <circle cx="18" cy="7" r="1" stroke="currentColor" />
+            <circle
+                cx="18"
+                cy="7"
+                r="1"
+                stroke="currentColor"
+                strokeWidth="2"
+            />
             <path
                 fill="currentColor"
                 d="M5.186 18h9.628c.9469 0 1.5208-1.0454 1.0124-1.8443l-4.814-7.5648c-.4716-.741-1.5533-.741-2.0248 0l-4.814 7.5648C3.6652 16.9546 4.2391 18 5.186 18Z"

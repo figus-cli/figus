@@ -29,6 +29,7 @@ export function GroupAddLight(props: SVGProps<SVGSVGElement>) {
                 y="5.25"
                 stroke="currentColor"
                 rx=".25"
+                strokeWidth=".5"
             />
             <rect
                 width="4.5"
@@ -37,6 +38,7 @@ export function GroupAddLight(props: SVGProps<SVGSVGElement>) {
                 y="3.25"
                 stroke="currentColor"
                 rx=".25"
+                strokeWidth=".5"
                 transform="rotate(90 18.75 3.25)"
             />
         </svg>

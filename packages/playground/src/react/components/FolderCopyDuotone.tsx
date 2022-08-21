@@ -12,6 +12,8 @@ export function FolderCopyDuotone(props: SVGProps<SVGSVGElement>) {
             <path
                 stroke="currentColor"
                 d="M13 19.5h.5c1.1046 0 2-.8954 2-2V17M6 19.5h-.5c-1.1046 0-2-.8954-2-2V17M6 7.5h-.5c-1.1046 0-2 .8954-2 2v.5m7.5 9.5H8M3.5 12v3"
+                strokeMiterlimit="1.4142"
+                strokeOpacity=".24"
             />
             <path
                 fill="currentColor"

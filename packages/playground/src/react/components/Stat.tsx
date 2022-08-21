@@ -16,6 +16,7 @@ export function Stat(props: SVGProps<SVGSVGElement>) {
                 y="7"
                 stroke="currentColor"
                 rx="1"
+                strokeLinejoin="round"
             />
             <rect
                 width="4"
@@ -24,6 +25,7 @@ export function Stat(props: SVGProps<SVGSVGElement>) {
                 y="13"
                 stroke="currentColor"
                 rx="1"
+                strokeLinejoin="round"
             />
             <rect
                 width="4"
@@ -32,6 +34,7 @@ export function Stat(props: SVGProps<SVGSVGElement>) {
                 y="9"
                 stroke="currentColor"
                 rx="1"
+                strokeLinejoin="round"
             />
         </svg>
     );

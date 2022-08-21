@@ -16,6 +16,7 @@ export function BellFill(props: SVGProps<SVGSVGElement>) {
             <path
                 stroke="currentColor"
                 d="M10.0681 20.6294c.114.1063.3651.2003.7144.2673.3493.067.7772.1033 1.2175.1033s.8682-.0363 1.2175-.1033c.3493-.067.6004-.161.7144-.2673"
+                strokeWidth="2"
             />
         </svg>
     );

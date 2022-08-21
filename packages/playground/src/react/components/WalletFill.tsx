@@ -13,7 +13,7 @@ export function WalletFill(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 d="M20 5c.5523 0 1-.4477 1-1s-.4477-1-1-1v2ZM5.5 5H20V3H5.5v2Zm0 5h8V8h-8v2ZM4 6.5C4 5.6716 4.6716 5 5.5 5V3C3.567 3 2 4.567 2 6.5h2Zm-2 0C2 8.433 3.567 10 5.5 10V8C4.6716 8 4 7.3284 4 6.5H2Z"
             />
-            <path stroke="currentColor" d="M3 12V6.5" />
+            <path stroke="currentColor" d="M3 12V6.5" strokeWidth="2" />
             <path
                 fill="currentColor"
                 stroke="currentColor"

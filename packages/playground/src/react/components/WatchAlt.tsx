@@ -16,6 +16,7 @@ export function WatchAlt(props: SVGProps<SVGSVGElement>) {
                 y="7"
                 stroke="currentColor"
                 rx="3"
+                strokeWidth="2"
             />
             <path
                 fill="currentColor"

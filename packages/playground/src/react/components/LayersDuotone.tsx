@@ -13,10 +13,16 @@ export function LayersDuotone(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 stroke="currentColor"
                 d="M12 4 5 7l7 3 7-3-7-3Z"
+                fillOpacity=".24"
+                strokeLinejoin="round"
+                strokeWidth="1.2"
             />
             <path
                 fill="currentColor"
                 d="M10.8336 9.4999 12 9.9998l1.1664-.5L19 12l-7 3-7-3 5.8336-2.5001Z"
+                clipRule="evenodd"
+                fillOpacity=".24"
+                fillRule="evenodd"
             />
             <path
                 fill="currentColor"
@@ -25,6 +31,9 @@ export function LayersDuotone(props: SVGProps<SVGSVGElement>) {
             <path
                 fill="currentColor"
                 d="M10.8333 14.5 12 15l1.1667-.5L19 17l-7 3-7-3 5.8333-2.5Z"
+                clipRule="evenodd"
+                fillOpacity=".24"
+                fillRule="evenodd"
             />
             <path
                 fill="currentColor"

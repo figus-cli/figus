@@ -16,6 +16,7 @@ export function SoundMinFill(props: SVGProps<SVGSVGElement>) {
             <path
                 stroke="currentColor"
                 d="M14.5355 8.4645a5 5 0 0 1 .0278 7.0431"
+                strokeWidth="2"
             />
         </svg>
     );

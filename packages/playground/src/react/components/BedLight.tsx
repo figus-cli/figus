@@ -12,6 +12,7 @@ export function BedLight(props: SVGProps<SVGSVGElement>) {
             <path
                 stroke="currentColor"
                 d="M21.5 19.5v-11c0-1.1046-.8954-2-2-2h-4c-1.1046 0-2 .8954-2 2v11"
+                strokeLinejoin="round"
             />
             <path
                 fill="currentColor"

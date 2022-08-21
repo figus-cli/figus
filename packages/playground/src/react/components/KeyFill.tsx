@@ -15,6 +15,7 @@ export function KeyFill(props: SVGProps<SVGSVGElement>) {
                 r="3"
                 fill="currentColor"
                 stroke="currentColor"
+                strokeWidth="2"
             />
             <path
                 fill="currentColor"

@@ -9,11 +9,18 @@ export function AddRing(props: SVGProps<SVGSVGElement>) {
             height="1em"
             {...props}
         >
-            <circle cx="12" cy="12" r="9" stroke="currentColor" />
+            <circle
+                cx="12"
+                cy="12"
+                r="9"
+                stroke="currentColor"
+                strokeWidth="2"
+            />
             <path
                 fill="currentColor"
                 stroke="currentColor"
                 d="M12 15V9m3 3H9"
+                strokeWidth="2"
             />
         </svg>
     );

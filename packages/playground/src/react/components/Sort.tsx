@@ -13,6 +13,7 @@ export function Sort(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 stroke="currentColor"
                 d="M5 7h14M5 12h10M5 17h6"
+                strokeWidth="2"
             />
         </svg>
     );

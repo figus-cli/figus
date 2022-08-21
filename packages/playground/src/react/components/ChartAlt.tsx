@@ -13,6 +13,8 @@ export function ChartAlt(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 stroke="currentColor"
                 d="m17 9-3.0442 4.5662c-.4259.6389-1.383.5793-1.7264-.1075l-.4588-.9174c-.3434-.6868-1.3005-.7464-1.7264-.1075L7 17"
+                strokeLinejoin="round"
+                strokeWidth="2"
             />
             <rect
                 width="18"
@@ -21,6 +23,7 @@ export function ChartAlt(props: SVGProps<SVGSVGElement>) {
                 y="3"
                 stroke="currentColor"
                 rx="2"
+                strokeWidth="2"
             />
         </svg>
     );

@@ -16,6 +16,7 @@ export function BatteryLow(props: SVGProps<SVGSVGElement>) {
                 y="6"
                 stroke="currentColor"
                 rx="2"
+                strokeWidth="2"
             />
             <rect
                 width="6"
@@ -28,6 +29,8 @@ export function BatteryLow(props: SVGProps<SVGSVGElement>) {
             <path
                 fill="currentColor"
                 d="M9.2929 1.2929C9 1.5858 9 2.0572 9 3h6c0-.9428 0-1.4142-.2929-1.7071C14.4142 1 13.9428 1 13 1h-2c-.9428 0-1.4142 0-1.7071.2929Z"
+                clipRule="evenodd"
+                fillRule="evenodd"
             />
         </svg>
     );

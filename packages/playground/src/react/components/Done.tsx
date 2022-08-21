@@ -13,6 +13,7 @@ export function Done(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 stroke="currentColor"
                 d="m5 14 4 3 9-11"
+                strokeWidth="2"
             />
         </svg>
     );

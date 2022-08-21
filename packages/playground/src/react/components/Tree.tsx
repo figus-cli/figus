@@ -9,7 +9,12 @@ export function Tree(props: SVGProps<SVGSVGElement>) {
             height="1em"
             {...props}
         >
-            <path stroke="currentColor" d="M12 17v3" />
+            <path
+                stroke="currentColor"
+                d="M12 17v3"
+                strokeLinejoin="round"
+                strokeWidth="2"
+            />
             <path
                 fill="currentColor"
                 d="M6.2553 15.3861 7.0446 16l-.7893-.6139ZM10.4444 10V9a1 1 0 0 0-.7893.386l.7893.614Zm7.3003 5.3861L16.9554 16l.7893-.6139ZM13.5556 10l.7893-.614A1 1 0 0 0 13.5556 9v1Zm-6.511 6 4.1892-5.3861-1.5787-1.2278-4.1892 5.386L7.0446 16Zm0 0L5.466 14.7721C4.4441 16.0858 5.3803 18 7.0446 18v-2Zm9.9108 0H7.0446v2h9.9108v-2Zm0 0v2c1.6643 0 2.6004-1.9142 1.5787-3.2279L16.9554 16Zm-4.1892-5.3861L16.9554 16l1.5787-1.2279-4.1892-5.386-1.5787 1.2278ZM13.5556 9h-3.1112v2h3.1112V9Z"

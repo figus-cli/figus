@@ -13,6 +13,7 @@ export function ChartPinLight(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 stroke="currentColor"
                 d="m15.5 10.5-3 3-2-2-3 3"
+                strokeLinejoin="round"
             />
             <path
                 fill="currentColor"

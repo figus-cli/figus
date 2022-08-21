@@ -29,6 +29,7 @@ export function RollAltLightLight(props: SVGProps<SVGSVGElement>) {
             <path
                 stroke="currentColor"
                 d="m10 14.5-2.5 2L9 17l1 1.5 2-3 2 3 1-1.5 1.5-.5-2.5-2"
+                strokeLinejoin="round"
             />
         </svg>
     );

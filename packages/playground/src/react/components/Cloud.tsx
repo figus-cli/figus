@@ -16,6 +16,7 @@ export function Cloud(props: SVGProps<SVGSVGElement>) {
             <path
                 stroke="currentColor"
                 d="M17.8785 12.9023a3.9994 3.9994 0 0 0 3.0201-3.0074A4.0002 4.0002 0 0 0 15.2565 5.4 4.0003 4.0003 0 0 0 13 9.0158"
+                strokeWidth="2"
             />
         </svg>
     );

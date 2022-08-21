@@ -16,7 +16,9 @@ export function SubttasksDuotone(props: SVGProps<SVGSVGElement>) {
                 y="9"
                 fill="currentColor"
                 stroke="currentColor"
+                fillOpacity=".24"
                 rx="2"
+                strokeWidth="1.2"
                 transform="rotate(90 18 9)"
             />
             <rect
@@ -26,7 +28,9 @@ export function SubttasksDuotone(props: SVGProps<SVGSVGElement>) {
                 y="17"
                 fill="currentColor"
                 stroke="currentColor"
+                fillOpacity=".24"
                 rx="2"
+                strokeWidth="1.2"
                 transform="rotate(90 18 17)"
             />
             <rect
@@ -36,16 +40,20 @@ export function SubttasksDuotone(props: SVGProps<SVGSVGElement>) {
                 y="7"
                 fill="currentColor"
                 stroke="currentColor"
+                fillOpacity=".24"
                 rx="2"
+                strokeWidth="1.2"
                 transform="rotate(-90 3 7)"
             />
             <path
                 stroke="currentColor"
                 d="M5 8v7c0 1.8856 0 2.8284.5858 3.4142C6.1716 19 7.1144 19 9 19h5"
+                strokeWidth="1.2"
             />
             <path
                 stroke="currentColor"
                 d="M5 7c0 1.8856 0 2.8284.5858 3.4142C6.1716 11 7.1144 11 9 11h5"
+                strokeWidth="1.2"
             />
         </svg>
     );

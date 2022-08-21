@@ -16,6 +16,7 @@ export function BasketAlt_3Light(props: SVGProps<SVGSVGElement>) {
             <path
                 stroke="currentColor"
                 d="M17.5 17.5H8.051c-.1463 0-.2194 0-.2748-.0062-.5876-.0658-.9901-.6243-.8668-1.2025.0117-.0546.0348-.1239.081-.2626.0514-.154.077-.231.1054-.2989a2 2 0 0 1 1.6987-1.2244c.0734-.0054.1546-.0054.3169-.0054H14.5"
+                strokeLinejoin="round"
             />
             <path
                 stroke="currentColor"

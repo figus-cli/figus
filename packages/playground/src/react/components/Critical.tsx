@@ -13,6 +13,7 @@ export function Critical(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 stroke="currentColor"
                 d="M21 16a9.0002 9.0002 0 0 0-9-9 9 9 0 0 0-9 9h5.005a3.995 3.995 0 0 1 6.8199-2.8249A3.9954 3.9954 0 0 1 15.9949 16H21Zm-9-9v5m6.364-2.3643-3 3m-9.728-3L9 13"
+                strokeWidth="2"
             />
         </svg>
     );

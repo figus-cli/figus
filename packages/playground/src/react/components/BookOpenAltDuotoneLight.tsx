@@ -12,6 +12,7 @@ export function BookOpenAltDuotoneLight(props: SVGProps<SVGSVGElement>) {
             <path
                 fill="currentColor"
                 d="M21 19V6s-1-2-4.5-2S12 7 12 7s-1-3-4.5-3S3 6 3 6v13s1-2 4.5-2 4.5 2 4.5 2 1-2 4.5-2 4.5 2 4.5 2Z"
+                fillOpacity=".24"
             />
             <path stroke="currentColor" d="M12 6.5v12m8.5-12v12m-17-12v12" />
             <path

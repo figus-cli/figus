@@ -16,9 +16,15 @@ export function NotebookDuotoneLine(props: SVGProps<SVGSVGElement>) {
                 y="4"
                 fill="currentColor"
                 stroke="currentColor"
+                fillOpacity=".24"
                 rx="2"
+                strokeWidth="1.2"
             />
-            <path stroke="currentColor" d="M15 10V8M4 9h4m-4 4h4m-4 4h4" />
+            <path
+                stroke="currentColor"
+                d="M15 10V8M4 9h4m-4 4h4m-4 4h4"
+                strokeWidth="1.2"
+            />
         </svg>
     );
 }

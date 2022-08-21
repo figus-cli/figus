@@ -16,6 +16,7 @@ export function ChieldDuotone(props: SVGProps<SVGSVGElement>) {
             <path
                 fill="currentColor"
                 d="m15.5453 4.5194 2.8486 1.2208A1 1 0 0 1 19 6.6594V7.85a.15.15 0 0 1-.15.15H5.15A.15.15 0 0 1 5 7.85V6.6594a1 1 0 0 1 .606-.9192l2.8487-1.2208a9 9 0 0 1 7.0906 0Z"
+                fillOpacity=".24"
             />
         </svg>
     );

@@ -16,10 +16,12 @@ export function GiftAlt(props: SVGProps<SVGSVGElement>) {
                 y="10"
                 stroke="currentColor"
                 rx="1.5"
+                strokeWidth="2"
             />
             <path
                 stroke="currentColor"
                 d="M5 13v6.4c0 .5601 0 .8401.109 1.054a1 1 0 0 0 .437.437C5.76 21 6.04 21 6.6 21h8.8c.5601 0 .8401 0 1.054-.109a.9998.9998 0 0 0 .437-.437C17 20.2401 17 19.9601 17 19.4V13"
+                strokeWidth="2"
             />
             <path
                 fill="currentColor"
@@ -29,7 +31,7 @@ export function GiftAlt(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 d="M12 10v1h-1v-1h1Zm-1 0V7.5h2V10h-2Zm3.5 1H12V9h2.5v2ZM18 7.5c0 1.933-1.567 3.5-3.5 3.5V9c.8284 0 1.5-.6716 1.5-1.5h2ZM14.5 4C16.433 4 18 5.567 18 7.5h-2c0-.8284-.6716-1.5-1.5-1.5V4ZM11 7.5C11 5.567 12.567 4 14.5 4v2c-.8284 0-1.5.6716-1.5 1.5h-2Z"
             />
-            <path stroke="currentColor" d="M12 13v8" />
+            <path stroke="currentColor" d="M12 13v8" strokeWidth="2" />
         </svg>
     );
 }

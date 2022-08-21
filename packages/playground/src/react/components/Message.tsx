@@ -16,11 +16,13 @@ export function Message(props: SVGProps<SVGSVGElement>) {
                 y="6"
                 stroke="currentColor"
                 rx="2"
+                strokeWidth="2"
             />
             <path
                 fill="currentColor"
                 stroke="currentColor"
                 d="m4 9 7.1056 3.5528a2 2 0 0 0 1.7888 0L20 9"
+                strokeWidth="2"
             />
         </svg>
     );

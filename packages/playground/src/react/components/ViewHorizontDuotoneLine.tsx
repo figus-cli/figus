@@ -28,6 +28,7 @@ export function ViewHorizontDuotoneLine(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 stroke="currentColor"
                 d="M16.5 12h4m-4-2.5 4-1.5m-4 6.5 4 1.5"
+                strokeOpacity=".24"
             />
         </svg>
     );

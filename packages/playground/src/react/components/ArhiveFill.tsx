@@ -16,6 +16,8 @@ export function ArhiveFill(props: SVGProps<SVGSVGElement>) {
             <path
                 fill="currentColor"
                 d="M4.8787 20.1213C4 19.2426 4 17.8284 4 15v-4h16v4c0 2.8284 0 4.2426-.8787 5.1213C18.2426 21 16.8284 21 14 21h-4c-2.8284 0-4.2426 0-5.1213-.8787ZM10 15c-.5523 0-1 .4477-1 1s.4477 1 1 1h4c.5523 0 1-.4477 1-1s-.4477-1-1-1h-4Z"
+                clipRule="evenodd"
+                fillRule="evenodd"
             />
         </svg>
     );

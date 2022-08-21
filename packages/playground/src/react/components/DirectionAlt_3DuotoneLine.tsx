@@ -12,6 +12,7 @@ export function DirectionAlt_3DuotoneLine(props: SVGProps<SVGSVGElement>) {
             <path
                 stroke="currentColor"
                 d="M16 18.5h2.3c1.1201 0 1.6802 0 2.108-.218a1.9996 1.9996 0 0 0 .874-.874c.218-.4278.218-.9879.218-2.108V8.7c0-1.1201 0-1.6802-.218-2.108a1.9997 1.9997 0 0 0-.874-.874C19.9802 5.5 19.4201 5.5 18.3 5.5H5.7c-1.1201 0-1.6802 0-2.108.218a1.9999 1.9999 0 0 0-.874.874C2.5 7.0198 2.5 7.58 2.5 8.7v6.6c0 1.1201 0 1.6802.218 2.108.1917.3763.4977.6823.874.874.4278.218.9879.218 2.108.218H8"
+                strokeOpacity=".24"
             />
             <path
                 fill="currentColor"
@@ -24,6 +25,7 @@ export function DirectionAlt_3DuotoneLine(props: SVGProps<SVGSVGElement>) {
             <path
                 stroke="currentColor"
                 d="M12 8.5V19m0-10.5L10.5 10M12 8.5l1.5 1.5"
+                strokeLinejoin="round"
             />
         </svg>
     );

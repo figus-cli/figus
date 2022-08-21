@@ -9,7 +9,13 @@ export function ClockDuotoneLine(props: SVGProps<SVGSVGElement>) {
             height="1em"
             {...props}
         >
-            <circle cx="12" cy="12" r="8.5" stroke="currentColor" />
+            <circle
+                cx="12"
+                cy="12"
+                r="8.5"
+                stroke="currentColor"
+                strokeOpacity=".24"
+            />
             <path
                 fill="currentColor"
                 stroke="currentColor"

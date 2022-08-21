@@ -12,6 +12,7 @@ export function Array(props: SVGProps<SVGSVGElement>) {
             <path
                 stroke="currentColor"
                 d="M15 5h5v10c0 1.8856 0 2.8284-.5858 3.4142C18.8284 19 17.8856 19 16 19h-1"
+                strokeWidth="2"
             />
             <path
                 fill="currentColor"

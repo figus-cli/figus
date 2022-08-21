@@ -16,6 +16,7 @@ export function Off(props: SVGProps<SVGSVGElement>) {
                 y="7"
                 stroke="currentColor"
                 rx="2"
+                strokeWidth="2"
             />
             <rect width="5" height="6" x="7" y="9" fill="currentColor" rx="1" />
         </svg>

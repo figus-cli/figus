@@ -13,11 +13,13 @@ export function ShopDuotoneLine(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 stroke="currentColor"
                 d="M5.5 10v7.5c0 .9428 0 1.4142.2929 1.7071.2929.2929.7643.2929 1.7071.2929h9c.9428 0 1.4142 0 1.7071-.2929.2929-.2929.2929-.7643.2929-1.7071V10"
+                strokeOpacity=".24"
             />
             <path
                 fill="currentColor"
                 stroke="currentColor"
                 d="M14.5 19v-4c0-1.1046-.8954-2-2-2h-1c-1.1046 0-2 .8954-2 2v4"
+                strokeLinejoin="round"
             />
             <path
                 fill="currentColor"

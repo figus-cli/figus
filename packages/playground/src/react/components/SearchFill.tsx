@@ -13,7 +13,7 @@ export function SearchFill(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 d="M18 11c0 3.866-3.134 7-7 7s-7-3.134-7-7 3.134-7 7-7 7 3.134 7 7Z"
             />
-            <path stroke="currentColor" d="m20 20-2-2" />
+            <path stroke="currentColor" d="m20 20-2-2" strokeWidth="2" />
         </svg>
     );
 }

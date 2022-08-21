@@ -12,6 +12,7 @@ export function SignInSqureDuotone(props: SVGProps<SVGSVGElement>) {
             <path
                 fill="currentColor"
                 d="m16.6325 6.5442-6.3163-2.1055C9.6687 4.223 9 4.705 9 5.3874v13.2252c0 .6825.6687 1.1645 1.3162.9487l6.3163-2.1055A2 2 0 0 0 18 15.5585v-7.117a2 2 0 0 0-1.3675-1.8973Z"
+                fillOpacity=".24"
             />
             <path
                 fill="currentColor"

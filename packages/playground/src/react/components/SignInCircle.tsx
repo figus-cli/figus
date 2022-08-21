@@ -12,6 +12,7 @@ export function SignInCircle(props: SVGProps<SVGSVGElement>) {
             <path
                 stroke="currentColor"
                 d="M4.929 19.0711a10 10 0 1 0 0-14.1422"
+                strokeWidth="2"
             />
             <path
                 fill="currentColor"

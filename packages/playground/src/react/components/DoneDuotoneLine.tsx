@@ -9,8 +9,14 @@ export function DoneDuotoneLine(props: SVGProps<SVGSVGElement>) {
             height="1em"
             {...props}
         >
-            <circle cx="10" cy="14" r="7" fill="currentColor" />
-            <path stroke="currentColor" d="m6 13 4 3 7-9" />
+            <circle
+                cx="10"
+                cy="14"
+                r="7"
+                fill="currentColor"
+                fillOpacity=".24"
+            />
+            <path stroke="currentColor" d="m6 13 4 3 7-9" strokeWidth="1.2" />
         </svg>
     );
 }

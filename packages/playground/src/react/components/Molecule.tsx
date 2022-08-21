@@ -9,17 +9,51 @@ export function Molecule(props: SVGProps<SVGSVGElement>) {
             height="1em"
             {...props}
         >
-            <circle cx="12" cy="12" r="3" stroke="currentColor" />
-            <path stroke="currentColor" d="m10 14-3 3m3.5-6.5L6 6" />
-            <circle cx="18" cy="19" r="1" stroke="currentColor" />
+            <circle
+                cx="12"
+                cy="12"
+                r="3"
+                stroke="currentColor"
+                strokeWidth="2"
+            />
+            <path
+                stroke="currentColor"
+                d="m10 14-3 3m3.5-6.5L6 6"
+                strokeLinejoin="round"
+                strokeWidth="2"
+            />
+            <circle
+                cx="18"
+                cy="19"
+                r="1"
+                stroke="currentColor"
+                strokeWidth="2"
+            />
             <path
                 fill="currentColor"
                 d="m13.2191 14.6247 4 5 1.5618-1.2494-4-5-1.5618 1.2494Z"
             />
-            <circle cx="19" cy="5" r="2" stroke="currentColor" />
-            <path stroke="currentColor" d="m17 7-3 3" />
+            <circle
+                cx="19"
+                cy="5"
+                r="2"
+                stroke="currentColor"
+                strokeWidth="2"
+            />
+            <path
+                stroke="currentColor"
+                d="m17 7-3 3"
+                strokeLinejoin="round"
+                strokeWidth="2"
+            />
             <circle cx="5.5" cy="5.5" r="2.5" fill="currentColor" />
-            <circle cx="5.5" cy="18.5" r="2.5" stroke="currentColor" />
+            <circle
+                cx="5.5"
+                cy="18.5"
+                r="2.5"
+                stroke="currentColor"
+                strokeWidth="2"
+            />
         </svg>
     );
 }

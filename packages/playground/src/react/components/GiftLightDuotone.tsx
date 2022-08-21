@@ -12,6 +12,7 @@ export function GiftLightDuotone(props: SVGProps<SVGSVGElement>) {
             <path
                 fill="currentColor"
                 d="M5 8h14v8c0 1.8856 0 2.8284-.5858 3.4142C17.8284 20 16.8856 20 15 20H9c-1.8856 0-2.8284 0-3.4142-.5858C5 18.8284 5 17.8856 5 16V8Z"
+                fillOpacity=".24"
             />
             <path
                 stroke="currentColor"

@@ -12,6 +12,9 @@ export function CloudDuotone(props: SVGProps<SVGSVGElement>) {
             <path
                 fill="currentColor"
                 d="M9 19.9909a.0091.0091 0 0 0-.0098-.0091A6.5733 6.5733 0 0 1 8.5 20C4.9101 20 2 17.0899 2 13.5S4.9101 7 8.5 7c2.6608 0 4.9482 1.5988 5.9539 3.8881C14.7306 11.518 15.312 12 16 12c2.2091 0 4 1.7909 4 4 0 2.2091-1.7909 4-4 4H9.0091A.0091.0091 0 0 1 9 19.9909Z"
+                clipRule="evenodd"
+                fillOpacity=".24"
+                fillRule="evenodd"
             />
             <path
                 fill="currentColor"
@@ -20,6 +23,7 @@ export function CloudDuotone(props: SVGProps<SVGSVGElement>) {
             <path
                 stroke="currentColor"
                 d="M18.312 12.7787a4.0001 4.0001 0 0 0 2.4125-5.2376 4.0005 4.0005 0 0 0-3.229-2.5103 4 4 0 0 0-4.481 3.6294"
+                strokeWidth="1.2"
             />
         </svg>
     );

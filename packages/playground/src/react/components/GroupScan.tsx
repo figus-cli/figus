@@ -12,6 +12,7 @@ export function GroupScan(props: SVGProps<SVGSVGElement>) {
             <path
                 stroke="currentColor"
                 d="M17 3h2c1.1046 0 2 .8954 2 2v2m-4 14h2c1.1046 0 2-.8954 2-2v-2M7 3H5c-1.1046 0-2 .8954-2 2v2m4 14H5c-1.1046 0-2-.8954-2-2v-2"
+                strokeWidth="2"
             />
             <path
                 fill="currentColor"
@@ -20,6 +21,7 @@ export function GroupScan(props: SVGProps<SVGSVGElement>) {
             <path
                 stroke="currentColor"
                 d="M12 13c1.8516 0 2.5604 1.1429 2.8317 2.0178.1636.5275-.2794.9822-.8317.9822h-4c-.5523 0-.9953-.4547-.8317-.9822C9.4396 14.1429 10.1484 13 12 13Z"
+                strokeWidth="2"
             />
             <circle cx="12" cy="9" r="2" fill="currentColor" />
             <circle cx="16" cy="9" r="2" fill="currentColor" />

@@ -9,8 +9,19 @@ export function Search(props: SVGProps<SVGSVGElement>) {
             height="1em"
             {...props}
         >
-            <circle cx="11" cy="11" r="7" stroke="currentColor" />
-            <path fill="currentColor" stroke="currentColor" d="m20 20-3-3" />
+            <circle
+                cx="11"
+                cy="11"
+                r="7"
+                stroke="currentColor"
+                strokeWidth="2"
+            />
+            <path
+                fill="currentColor"
+                stroke="currentColor"
+                d="m20 20-3-3"
+                strokeWidth="2"
+            />
         </svg>
     );
 }

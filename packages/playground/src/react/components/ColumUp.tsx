@@ -13,6 +13,7 @@ export function ColumUp(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 stroke="currentColor"
                 d="M21 20H3m7-4v-6c0-1.1046-.8954-2-2-2s-2 .8954-2 2v6m12 0V6c0-1.1046-.8954-2-2-2s-2 .8954-2 2v10"
+                strokeWidth="2"
             />
         </svg>
     );

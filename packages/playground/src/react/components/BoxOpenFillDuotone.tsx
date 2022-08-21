@@ -16,6 +16,9 @@ export function BoxOpenFillDuotone(props: SVGProps<SVGSVGElement>) {
             <path
                 fill="currentColor"
                 d="M2.8153 7.8153 5 10v1h14v-1l2.1847-2.1847c.4303-.4303.3797-1.142-.1071-1.5071L18.566 4.4245a1 1 0 0 0-1.1547-.032L15 6H9L6.5887 4.3925a1 1 0 0 0-1.1547.032L2.9224 6.3082c-.4868.3651-.5374 1.0768-.1071 1.5071ZM8.6 7.2h6.8l1.95 2.6H6.65L8.6 7.2Z"
+                clipRule="evenodd"
+                fillOpacity=".24"
+                fillRule="evenodd"
             />
         </svg>
     );

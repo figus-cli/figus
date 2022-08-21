@@ -39,7 +39,6 @@ export function cleanPaths({
             { name: "convertColors" },
             { name: "convertPathData" },
             { name: "convertTransform" },
-            { name: "removeUnknownsAndDefaults" },
             { name: "removeNonInheritableGroupAttrs" },
             {
                 name: "removeUselessStrokeAndFill",
@@ -138,7 +137,6 @@ export function cleanPaths({
         throw Error("error parsing svg " + svgPath);
     }
 
-    // const jsxResult = svgo.optimize((result as OptimizedSvg).data);
     // Extract the paths from the svg string
     // Clean xml paths
     let paths = (jsxResult as OptimizedSvg).data

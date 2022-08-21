@@ -12,16 +12,20 @@ export function LoadCircleDuotoneLine(props: SVGProps<SVGSVGElement>) {
             <circle
                 r="5"
                 fill="currentColor"
+                fillOpacity=".24"
                 transform="matrix(0 -1 -1 0 12 15)"
             />
             <circle
                 r="5.3"
                 stroke="currentColor"
+                strokeOpacity=".24"
+                strokeWidth=".6"
                 transform="matrix(0 -1 -1 0 12 15)"
             />
             <path
                 stroke="currentColor"
                 d="M5.2385 14.8117a7 7 0 0 0 13.523 0"
+                strokeWidth="1.2"
             />
             <path
                 fill="currentColor"

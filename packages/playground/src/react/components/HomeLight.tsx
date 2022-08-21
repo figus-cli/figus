@@ -18,6 +18,7 @@ export function HomeLight(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 stroke="currentColor"
                 d="M14.5 21v-5c0-.5523-.4477-1-1-1h-3c-.5523 0-1 .4477-1 1v5"
+                strokeLinejoin="round"
             />
         </svg>
     );

@@ -15,6 +15,7 @@ export function MessageAltDuotone(props: SVGProps<SVGSVGElement>) {
                 x="4"
                 y="6"
                 fill="currentColor"
+                fillOpacity=".24"
                 rx="2"
             />
             <path

@@ -18,6 +18,7 @@ export function ChatAltLight(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 stroke="currentColor"
                 d="M9 10h6m-6 4h3"
+                strokeLinejoin="round"
             />
         </svg>
     );

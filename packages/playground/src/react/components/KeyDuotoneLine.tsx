@@ -15,10 +15,13 @@ export function KeyDuotoneLine(props: SVGProps<SVGSVGElement>) {
                 r="4"
                 fill="currentColor"
                 stroke="currentColor"
+                fillOpacity=".24"
+                strokeWidth="1.2"
             />
             <path
                 stroke="currentColor"
                 d="m12 11 3.5-3.5M17 6l-1.5 1.5m0 0L18 10"
+                strokeWidth="1.2"
             />
         </svg>
     );

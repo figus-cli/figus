@@ -13,6 +13,8 @@ export function CloseRound(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 stroke="currentColor"
                 d="M18 6 6 18M6 6l12 12"
+                strokeLinejoin="round"
+                strokeWidth="2"
             />
         </svg>
     );

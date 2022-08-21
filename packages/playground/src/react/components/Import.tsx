@@ -16,6 +16,7 @@ export function Import(props: SVGProps<SVGSVGElement>) {
             <path
                 stroke="currentColor"
                 d="M5 16v1c0 1.1046.8954 2 2 2h10c1.1046 0 2-.8954 2-2v-1"
+                strokeWidth="2"
             />
         </svg>
     );

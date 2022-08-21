@@ -11,6 +11,7 @@ export function SignInCircleDuotoneLine(props: SVGProps<SVGSVGElement>) {
         >
             <ellipse
                 fill="currentColor"
+                fillOpacity=".24"
                 rx="8"
                 ry="8"
                 transform="matrix(0 -1 -1 0 14 12)"
@@ -18,10 +19,13 @@ export function SignInCircleDuotoneLine(props: SVGProps<SVGSVGElement>) {
             <path
                 stroke="currentColor"
                 d="M5.7 12c0-4.584 3.716-8.3 8.3-8.3 4.584 0 8.3 3.716 8.3 8.3 0 4.584-3.716 8.3-8.3 8.3-4.584 0-8.3-3.716-8.3-8.3Z"
+                strokeOpacity=".24"
+                strokeWidth=".6"
             />
             <path
                 stroke="currentColor"
                 d="M4.929 19.0711a10 10 0 1 0 0-14.1422"
+                strokeWidth="1.2"
             />
             <path
                 fill="currentColor"

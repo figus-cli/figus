@@ -12,10 +12,14 @@ export function TargetDuotoneLine(props: SVGProps<SVGSVGElement>) {
             <path
                 stroke="currentColor"
                 d="M7.0503 7.0503 4 4.0003m12.9497 3.05L20 4.0003m0 16-3.0503-3.0505M4.0001 20.0003l3.0502-3.0505"
+                strokeWidth="1.2"
             />
             <path
                 fill="currentColor"
                 d="M12 19c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7Zm0-4c1.6569 0 3-1.3431 3-3s-1.3431-3-3-3-3 1.3431-3 3 1.3431 3 3 3Z"
+                clipRule="evenodd"
+                fillOpacity=".24"
+                fillRule="evenodd"
             />
             <path
                 fill="currentColor"

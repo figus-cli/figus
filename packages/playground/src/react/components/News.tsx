@@ -16,8 +16,14 @@ export function News(props: SVGProps<SVGSVGElement>) {
                 y="5"
                 stroke="currentColor"
                 rx="3"
+                strokeWidth="2"
             />
-            <path fill="currentColor" stroke="currentColor" d="M6 10h12" />
+            <path
+                fill="currentColor"
+                stroke="currentColor"
+                d="M6 10h12"
+                strokeWidth="2"
+            />
         </svg>
     );
 }

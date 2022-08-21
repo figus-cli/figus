@@ -13,6 +13,7 @@ export function OnButton(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 stroke="currentColor"
                 d="M6.3431 6.3431a8 8 0 1 0 11.3138 0M12 8V4"
+                strokeWidth="2"
             />
         </svg>
     );

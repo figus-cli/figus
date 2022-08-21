@@ -16,11 +16,13 @@ export function Calendar(props: SVGProps<SVGSVGElement>) {
                 y="6"
                 stroke="currentColor"
                 rx="2"
+                strokeWidth="2"
             />
             <path
                 fill="currentColor"
                 stroke="currentColor"
                 d="M4 11h16M9 16h6M8 3v4m8-4v4"
+                strokeWidth="2"
             />
         </svg>
     );

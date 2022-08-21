@@ -12,6 +12,7 @@ export function ArhiveAltSmallDuotoneLine(props: SVGProps<SVGSVGElement>) {
             <path
                 fill="currentColor"
                 d="M16.5 11.5h4v4l-1 1h-15l-1-1v-4h4l1 2h7l1-2Z"
+                fillOpacity=".24"
             />
             <path
                 stroke="currentColor"

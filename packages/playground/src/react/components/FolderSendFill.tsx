@@ -16,6 +16,7 @@ export function FolderSendFill(props: SVGProps<SVGSVGElement>) {
             <path
                 stroke="currentColor"
                 d="M7 14h9m0 0-3.5-3.5M16 14l-3.5 3.5"
+                strokeWidth="2"
             />
             <path
                 fill="currentColor"

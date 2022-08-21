@@ -16,11 +16,13 @@ export function Notebook(props: SVGProps<SVGSVGElement>) {
                 y="4"
                 stroke="currentColor"
                 rx="2"
+                strokeWidth="2"
             />
             <path
                 fill="currentColor"
                 stroke="currentColor"
                 d="M15 10V8M4 9h4m-4 4h4m-4 4h4"
+                strokeWidth="2"
             />
         </svg>
     );

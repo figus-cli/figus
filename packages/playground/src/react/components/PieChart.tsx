@@ -9,11 +9,18 @@ export function PieChart(props: SVGProps<SVGSVGElement>) {
             height="1em"
             {...props}
         >
-            <circle cx="12" cy="12" r="9" stroke="currentColor" />
+            <circle
+                cx="12"
+                cy="12"
+                r="9"
+                stroke="currentColor"
+                strokeWidth="2"
+            />
             <path
                 fill="currentColor"
                 stroke="currentColor"
                 d="M12 12h9m-9-9v8.9379c0 .0398.0158.0779.0439.106L18 18"
+                strokeWidth="2"
             />
         </svg>
     );

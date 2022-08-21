@@ -12,6 +12,9 @@ export function MoneyDuotoneLine(props: SVGProps<SVGSVGElement>) {
             <path
                 fill="currentColor"
                 d="M3.5858 6.5858C3 7.1716 3 8.1144 3 10v4c0 1.8856 0 2.8284.5858 3.4142C4.1716 18 5.1144 18 7 18h10c1.8856 0 2.8284 0 3.4142-.5858C21 16.8284 21 15.8856 21 14v-4c0-1.8856 0-2.8284-.5858-3.4142C19.8284 6 18.8856 6 17 6H7c-1.8856 0-2.8284 0-3.4142.5858ZM12 15c1.6569 0 3-1.3431 3-3s-1.3431-3-3-3-3 1.3431-3 3 1.3431 3 3 3Z"
+                clipRule="evenodd"
+                fillOpacity=".24"
+                fillRule="evenodd"
             />
             <rect
                 width="18"
@@ -20,9 +23,16 @@ export function MoneyDuotoneLine(props: SVGProps<SVGSVGElement>) {
                 y="6"
                 stroke="currentColor"
                 rx="2"
+                strokeWidth="1.2"
             />
-            <path stroke="currentColor" d="M6 9h2m8 6h2" />
-            <circle cx="12" cy="12" r="2.4" stroke="currentColor" />
+            <path stroke="currentColor" d="M6 9h2m8 6h2" strokeWidth="1.2" />
+            <circle
+                cx="12"
+                cy="12"
+                r="2.4"
+                stroke="currentColor"
+                strokeWidth="1.2"
+            />
         </svg>
     );
 }

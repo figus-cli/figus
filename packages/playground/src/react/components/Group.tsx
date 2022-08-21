@@ -9,10 +9,17 @@ export function Group(props: SVGProps<SVGSVGElement>) {
             height="1em"
             {...props}
         >
-            <circle cx="12" cy="8" r="3" stroke="currentColor" />
+            <circle
+                cx="12"
+                cy="8"
+                r="3"
+                stroke="currentColor"
+                strokeWidth="2"
+            />
             <path
                 stroke="currentColor"
                 d="M15.2679 8A2.0003 2.0003 0 0 1 18 7.268 2 2 0 1 1 15.2679 8ZM5.268 8a2 2 0 1 1 3.464 2 2 2 0 0 1-3.464-2Z"
+                strokeWidth="2"
             />
             <path
                 fill="currentColor"
@@ -21,6 +28,7 @@ export function Group(props: SVGProps<SVGSVGElement>) {
             <path
                 stroke="currentColor"
                 d="M12 14c3.5715 0 4.5919 2.5512 4.8834 4.0089.1083.5415-.3311.9911-.8834.9911H8c-.5523 0-.9917-.4496-.8834-.9911C7.408 16.5512 8.4285 14 12 14Z"
+                strokeWidth="2"
             />
         </svg>
     );

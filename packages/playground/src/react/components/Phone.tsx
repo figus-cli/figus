@@ -18,7 +18,7 @@ export function Phone(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 maskUnits="userSpaceOnUse"
             >
-                <path d="M7 2h10v6H7z" />
+                <path fill="currentColor" d="M7 2h10v6H7z" />
                 <path d="M13.3333 5h-2.6666c-.155 0-.2325 0-.2961-.017a.5.5 0 0 1-.3536-.3536C10 4.5658 10 4.4884 10 4.3334c0-.0776 0-.1163.0085-.1481a.25.25 0 0 1 .1768-.1768C10.2171 4 10.2558 4 10.3333 4h3.3334c.0775 0 .1162 0 .148.0085a.25.25 0 0 1 .1768.1768c.0085.0318.0085.0705.0085.148 0 .155 0 .2325-.017.2961a.5.5 0 0 1-.3536.3536C13.5658 5 13.4883 5 13.3333 5Z" />
             </mask>
             <path
@@ -33,6 +33,7 @@ export function Phone(props: SVGProps<SVGSVGElement>) {
                 y="3"
                 stroke="currentColor"
                 rx="2"
+                strokeWidth="2"
             />
             <circle cx="12" cy="18" r="1" fill="currentColor" />
         </svg>

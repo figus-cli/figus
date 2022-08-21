@@ -12,6 +12,7 @@ export function LoadCircle(props: SVGProps<SVGSVGElement>) {
             <path
                 stroke="currentColor"
                 d="M5.2385 14.8117a7 7 0 0 0 13.523 0"
+                strokeWidth="2"
             />
             <path
                 fill="currentColor"

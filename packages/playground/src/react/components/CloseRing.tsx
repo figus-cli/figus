@@ -13,6 +13,7 @@ export function CloseRing(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 stroke="currentColor"
                 d="M12 21A8.9999 8.9999 0 0 1 3.685 8.5558a9.0001 9.0001 0 1 1 14.679 9.8082A9.0008 9.0008 0 0 1 12 21ZM9 9l6 6m0-6-6 6"
+                strokeWidth="2"
             />
         </svg>
     );

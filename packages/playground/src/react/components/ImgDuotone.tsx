@@ -13,6 +13,9 @@ export function ImgDuotone(props: SVGProps<SVGSVGElement>) {
             <path
                 fill="currentColor"
                 d="M12.9001 17.5h-8.214c-.9468 0-1.5207-1.0454-1.0123-1.8443l4.814-7.5648c.4715-.741 1.5532-.741 2.0247 0l3.2335 5.0812 1.7941-2.3921c.48-.64 1.44-.64 1.92 0l3.6 4.8c.5933.7911.0288 1.92-.96 1.92h-7.2Z"
+                clipRule="evenodd"
+                fillOpacity=".24"
+                fillRule="evenodd"
             />
             <path
                 fill="currentColor"

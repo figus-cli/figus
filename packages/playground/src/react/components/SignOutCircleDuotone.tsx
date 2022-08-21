@@ -11,6 +11,7 @@ export function SignOutCircleDuotone(props: SVGProps<SVGSVGElement>) {
         >
             <ellipse
                 fill="currentColor"
+                fillOpacity=".24"
                 rx="7"
                 ry="7"
                 transform="matrix(0 -1 -1 0 15 12)"

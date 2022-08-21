@@ -16,6 +16,7 @@ export function MessageAlt(props: SVGProps<SVGSVGElement>) {
                 y="6"
                 stroke="currentColor"
                 rx="2"
+                strokeWidth="2"
             />
             <path
                 fill="currentColor"

@@ -12,6 +12,7 @@ export function FolderDuotoneFill(props: SVGProps<SVGSVGElement>) {
             <path
                 fill="currentColor"
                 d="M3 8c0-.9319 0-1.3978.1522-1.7654a2 2 0 0 1 1.0824-1.0824C4.6022 5 5.0681 5 6 5h2.3431c.8176 0 1.2263 0 1.5938.1522.3676.1523.6566.4413 1.2347 1.0194L13 8v3H3V8Z"
+                fillOpacity=".24"
             />
             <path
                 fill="currentColor"

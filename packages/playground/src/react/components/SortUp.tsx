@@ -13,11 +13,13 @@ export function SortUp(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 stroke="currentColor"
                 d="M5 17h8m-8-5h6M5 7h4"
+                strokeWidth="2"
             />
             <path
                 fill="currentColor"
                 stroke="currentColor"
                 d="m19 6 3 3m-3-3-3 3m3-3v12"
+                strokeWidth="2"
             />
         </svg>
     );

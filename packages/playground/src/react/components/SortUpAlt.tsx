@@ -18,6 +18,7 @@ export function SortUpAlt(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 stroke="currentColor"
                 d="m17.5 9.5 2 2m-2-2-2 2m2-2v6"
+                strokeLinejoin="round"
             />
         </svg>
     );

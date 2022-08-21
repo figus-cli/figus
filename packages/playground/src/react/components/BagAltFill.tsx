@@ -12,6 +12,7 @@ export function BagAltFill(props: SVGProps<SVGSVGElement>) {
             <path
                 stroke="currentColor"
                 d="M8 12V8c0-2.2091 1.7909-4 4-4 2.2091 0 4 1.7909 4 4v4"
+                strokeWidth="2"
             />
             <path
                 fill="currentColor"

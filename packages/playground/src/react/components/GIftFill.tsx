@@ -12,6 +12,8 @@ export function GIftFill(props: SVGProps<SVGSVGElement>) {
             <path
                 fill="currentColor"
                 d="M11 8H5c-.9428 0-1.4142 0-1.7071.2929C3 8.5858 3 9.0572 3 10v1c0 .9428 0 1.4142.2929 1.7071C3.5858 13 4.0572 13 5 13h6V8Zm-5 7v4c0 .9428 0 1.4142.2929 1.7071C6.5858 21 7.0572 21 8 21h3v-6H6Zm7 6h3c.9428 0 1.4142 0 1.7071-.2929C18 20.4142 18 19.9428 18 19v-4h-5v6Zm5-8h1c.9428 0 1.4142 0 1.7071-.2929C21 12.4142 21 11.9428 21 11v-1c0-.9428 0-1.4142-.2929-1.7071C20.4142 8 19.9428 8 19 8h-6v5h5Z"
+                clipRule="evenodd"
+                fillRule="evenodd"
             />
             <path
                 fill="currentColor"

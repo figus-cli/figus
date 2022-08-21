@@ -15,6 +15,7 @@ export function ImportDuotone(props: SVGProps<SVGSVGElement>) {
                 x="5"
                 y="13"
                 fill="currentColor"
+                fillOpacity=".24"
                 rx="2"
             />
             <path

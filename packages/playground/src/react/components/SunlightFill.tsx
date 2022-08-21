@@ -13,6 +13,7 @@ export function SunlightFill(props: SVGProps<SVGSVGElement>) {
             <path
                 stroke="currentColor"
                 d="M12 8V4m0 16v-4M9.1716 9.1712 6.343 6.3428m11.3138 11.3138-2.8284-2.8285M16 12h4M4 12h4m6.8284-2.8288 2.8285-2.8284M6.3432 17.6566l2.8284-2.8285"
+                strokeWidth="2"
             />
         </svg>
     );

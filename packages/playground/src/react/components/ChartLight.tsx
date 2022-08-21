@@ -13,6 +13,7 @@ export function ChartLight(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 stroke="currentColor"
                 d="M8 10v6m4-4v4m4-8v8"
+                strokeLinejoin="round"
             />
             <rect
                 width="18"

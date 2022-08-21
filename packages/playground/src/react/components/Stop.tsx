@@ -16,6 +16,7 @@ export function Stop(props: SVGProps<SVGSVGElement>) {
                 y="5"
                 stroke="currentColor"
                 rx="1"
+                strokeWidth="2"
             />
             <rect
                 width="4"
@@ -24,6 +25,7 @@ export function Stop(props: SVGProps<SVGSVGElement>) {
                 y="5"
                 stroke="currentColor"
                 rx="1"
+                strokeWidth="2"
             />
         </svg>
     );

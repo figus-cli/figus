@@ -13,8 +13,15 @@ export function ChatAltAddDuotoneLine(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 stroke="currentColor"
                 d="M4 12c0-4.4183 3.5817-8 8-8s8 3.5817 8 8v5.0909c0 .8466 0 1.2699-.1261 1.608a1.9996 1.9996 0 0 1-1.175 1.175C18.3608 20 17.9375 20 17.0909 20H12c-4.4183 0-8-3.5817-8-8Z"
+                fillOpacity=".24"
+                strokeWidth="1.2"
             />
-            <path stroke="currentColor" d="M9 12h6m-3-3v6" />
+            <path
+                stroke="currentColor"
+                d="M9 12h6m-3-3v6"
+                strokeLinejoin="round"
+                strokeWidth="1.2"
+            />
         </svg>
     );
 }

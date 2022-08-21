@@ -13,6 +13,7 @@ export function AddLight(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 stroke="currentColor"
                 d="M12 6v12m6-6H6"
+                strokeLinejoin="round"
             />
         </svg>
     );

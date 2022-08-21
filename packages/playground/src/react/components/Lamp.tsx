@@ -16,6 +16,7 @@ export function Lamp(props: SVGProps<SVGSVGElement>) {
             <path
                 stroke="currentColor"
                 d="M14.9923 16c-1.8111 1.2106-4.1732 1.2106-5.9842 0"
+                strokeWidth="2"
             />
         </svg>
     );

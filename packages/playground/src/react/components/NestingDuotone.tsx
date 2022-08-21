@@ -16,7 +16,9 @@ export function NestingDuotone(props: SVGProps<SVGSVGElement>) {
                 y="15"
                 fill="currentColor"
                 stroke="currentColor"
+                fillOpacity=".24"
                 rx="2"
+                strokeWidth="1.2"
                 transform="rotate(90 18 15)"
             />
             <rect
@@ -26,12 +28,15 @@ export function NestingDuotone(props: SVGProps<SVGSVGElement>) {
                 y="8"
                 fill="currentColor"
                 stroke="currentColor"
+                fillOpacity=".24"
                 rx="2"
+                strokeWidth="1.2"
                 transform="rotate(-90 6 8)"
             />
             <path
                 stroke="currentColor"
                 d="M8 8v5c0 1.8856 0 2.8284.5858 3.4142C9.1716 17 10.1144 17 12 17h2"
+                strokeWidth="1.2"
             />
         </svg>
     );

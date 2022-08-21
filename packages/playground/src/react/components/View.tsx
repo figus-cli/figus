@@ -9,11 +9,18 @@ export function View(props: SVGProps<SVGSVGElement>) {
             height="1em"
             {...props}
         >
-            <circle cx="12" cy="12" r="3" stroke="currentColor" />
+            <circle
+                cx="12"
+                cy="12"
+                r="3"
+                stroke="currentColor"
+                strokeWidth="2"
+            />
             <path
                 fill="currentColor"
                 stroke="currentColor"
                 d="M20.188 10.9343c.3882.4713.5823.7069.5823 1.0657 0 .3588-.1941.5944-.5823 1.0657C18.7679 14.7899 15.6357 18 12 18c-3.6357 0-6.768-3.2101-8.188-4.9343-.3882-.4713-.5823-.7069-.5823-1.0657 0-.3588.1941-.5944.5823-1.0657C5.232 9.2101 8.3643 6 12 6c3.6357 0 6.7679 3.2101 8.188 4.9343Z"
+                strokeWidth="2"
             />
         </svg>
     );

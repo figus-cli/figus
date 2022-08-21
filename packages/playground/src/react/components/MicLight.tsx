@@ -16,11 +16,13 @@ export function MicLight(props: SVGProps<SVGSVGElement>) {
                 y="3"
                 stroke="currentColor"
                 rx="3"
+                strokeLinejoin="round"
             />
             <path
                 fill="currentColor"
                 stroke="currentColor"
                 d="M5.5 11a6.5 6.5 0 0 0 13 0M12 21v-2"
+                strokeLinejoin="round"
             />
         </svg>
     );

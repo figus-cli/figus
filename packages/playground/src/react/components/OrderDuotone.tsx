@@ -15,6 +15,7 @@ export function OrderDuotone(props: SVGProps<SVGSVGElement>) {
                 x="5"
                 y="3"
                 fill="currentColor"
+                fillOpacity=".24"
                 rx="2"
             />
             <path stroke="currentColor" d="M9.5 7.5h5m-5 3h3m-3 3h4m-4 3h3" />

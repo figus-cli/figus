@@ -20,6 +20,7 @@ export function Knife(props: SVGProps<SVGSVGElement>) {
             <path
                 stroke="currentColor"
                 d="m4 17 5-5c.8284-.8284 2.1716-.8284 3 0 .8284.8284.8284 2.1716 0 3l-5 5c-.8284.8284-2.1716.8284-3 0-.8284-.8284-.8284-2.1716 0-3Zm8-2-3-3m1.5 4.5-3-3"
+                strokeLinejoin="round"
             />
         </svg>
     );

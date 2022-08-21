@@ -13,6 +13,7 @@ export function CalendarDuotoneLine(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 stroke="currentColor"
                 d="M3 10c0-1.8856 0-2.8284.5858-3.4142C4.1716 6 5.1144 6 7 6h10c1.8856 0 2.8284 0 3.4142.5858C21 7.1716 21 8.1144 21 10v1H3v-1Z"
+                strokeWidth="1.2"
             />
             <rect
                 width="18"
@@ -21,9 +22,21 @@ export function CalendarDuotoneLine(props: SVGProps<SVGSVGElement>) {
                 y="6"
                 stroke="currentColor"
                 rx="2"
+                strokeWidth="1.2"
             />
-            <path fill="currentColor" stroke="currentColor" d="M9 16h6" />
-            <path fill="currentColor" stroke="currentColor" d="M8 3v4m8-4v4" />
+            <path
+                fill="currentColor"
+                stroke="currentColor"
+                d="M9 16h6"
+                strokeOpacity=".24"
+                strokeWidth="1.2"
+            />
+            <path
+                fill="currentColor"
+                stroke="currentColor"
+                d="M8 3v4m8-4v4"
+                strokeWidth="1.2"
+            />
         </svg>
     );
 }

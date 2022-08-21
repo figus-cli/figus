@@ -12,6 +12,9 @@ export function PinAltDuotoneLine(props: SVGProps<SVGSVGElement>) {
             <path
                 fill="currentColor"
                 d="M12.398 17.804C13.881 17.0348 19 14.0163 19 9c0-3.866-3.134-7-7-7S5 5.134 5 9c0 5.0163 5.119 8.0348 6.602 8.804a.8547.8547 0 0 0 .796 0ZM12 12c1.6569 0 3-1.3431 3-3s-1.3431-3-3-3-3 1.3431-3 3 1.3431 3 3 3Z"
+                clipRule="evenodd"
+                fillOpacity=".24"
+                fillRule="evenodd"
             />
             <path
                 fill="currentColor"
@@ -20,6 +23,7 @@ export function PinAltDuotoneLine(props: SVGProps<SVGSVGElement>) {
             <path
                 stroke="currentColor"
                 d="M19.7942 17.5C20.5841 17.9561 21 18.4734 21 19s-.4159 1.0439-1.2058 1.5c-.7899.4561-1.926.8348-3.2942 1.0981-1.3682.2633-2.9202.4019-4.5.4019s-3.1318-.1386-4.5-.4019c-1.3682-.2633-2.5043-.642-3.2942-1.0981C3.4158 20.0439 3 19.5266 3 19s.4159-1.0439 1.2058-1.5"
+                strokeWidth="1.2"
             />
         </svg>
     );

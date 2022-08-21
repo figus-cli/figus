@@ -28,6 +28,8 @@ export function BatteryLowLight(props: SVGProps<SVGSVGElement>) {
             <path
                 fill="currentColor"
                 d="M9.2929 3.2929C9 3.5858 9 4.0572 9 5h6c0-.9428 0-1.4142-.2929-1.7071C14.4142 3 13.9428 3 13 3h-2c-.9428 0-1.4142 0-1.7071.2929Z"
+                clipRule="evenodd"
+                fillRule="evenodd"
             />
         </svg>
     );

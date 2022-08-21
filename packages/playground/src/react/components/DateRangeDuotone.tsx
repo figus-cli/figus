@@ -12,6 +12,7 @@ export function DateRangeDuotone(props: SVGProps<SVGSVGElement>) {
             <path
                 fill="currentColor"
                 d="M3 10c0-1.8856 0-2.8284.5858-3.4142C4.1716 6 5.1144 6 7 6h10c1.8856 0 2.8284 0 3.4142.5858C21 7.1716 21 8.1144 21 10H3Z"
+                fillOpacity=".24"
             />
             <rect
                 width="18"
@@ -20,8 +21,9 @@ export function DateRangeDuotone(props: SVGProps<SVGSVGElement>) {
                 y="6"
                 stroke="currentColor"
                 rx="2"
+                strokeWidth="1.2"
             />
-            <path stroke="currentColor" d="M7 3v3m10-3v3" />
+            <path stroke="currentColor" d="M7 3v3m10-3v3" strokeWidth="1.2" />
             <rect
                 width="4"
                 height="2"

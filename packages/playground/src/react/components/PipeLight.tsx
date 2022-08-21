@@ -12,6 +12,8 @@ export function PipeLight(props: SVGProps<SVGSVGElement>) {
             <path
                 fill="currentColor"
                 d="M5.817 16.2453a7.4989 7.4989 0 0 0 4.8196 3.1301 7.5001 7.5001 0 1 0 1.9482-14.8522l.2772 1.0346a6.4993 6.4993 0 0 1 4.6809 3.0474 6.5002 6.5002 0 0 1-6.7245 9.7869 6.5002 6.5002 0 0 1-3.9668-2.424l-1.0346.2772Z"
+                clipRule="evenodd"
+                fillRule="evenodd"
             />
             <path
                 stroke="currentColor"

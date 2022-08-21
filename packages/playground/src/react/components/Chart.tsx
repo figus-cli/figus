@@ -13,6 +13,8 @@ export function Chart(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 stroke="currentColor"
                 d="M8 10v6m4-4v4m4-8v8"
+                strokeLinejoin="round"
+                strokeWidth="2"
             />
             <rect
                 width="18"
@@ -21,6 +23,7 @@ export function Chart(props: SVGProps<SVGSVGElement>) {
                 y="4"
                 stroke="currentColor"
                 rx="2"
+                strokeWidth="2"
             />
         </svg>
     );

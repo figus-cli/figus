@@ -9,8 +9,14 @@ export function AddRoundDuotone(props: SVGProps<SVGSVGElement>) {
             height="1em"
             {...props}
         >
-            <circle cx="12" cy="12" r="9" fill="currentColor" />
-            <path stroke="currentColor" d="M12 8v8m4-4H8" />
+            <circle
+                cx="12"
+                cy="12"
+                r="9"
+                fill="currentColor"
+                fillOpacity=".24"
+            />
+            <path stroke="currentColor" d="M12 8v8m4-4H8" strokeWidth="1.2" />
         </svg>
     );
 }

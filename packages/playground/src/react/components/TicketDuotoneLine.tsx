@@ -13,6 +13,7 @@ export function TicketDuotoneLine(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 stroke="currentColor"
                 d="M3.5 8.5c0-1.6569 1.3431-3 3-3h11c1.6569 0 3 1.3431 3 3v.25a.75.75 0 0 1-.75.75c-1.2426 0-2.25 1.0074-2.25 2.25v.5c0 1.2426 1.0074 2.25 2.25 2.25a.75.75 0 0 1 .75.75v.25c0 1.6569-1.3431 3-3 3h-11c-1.6569 0-3-1.3431-3-3v-.25a.75.75 0 0 1 .75-.75c1.2426 0 2.25-1.0074 2.25-2.25v-.5c0-1.2426-1.0074-2.25-2.25-2.25a.75.75 0 0 1-.75-.75V8.5Z"
+                strokeOpacity=".24"
             />
             <path
                 fill="currentColor"

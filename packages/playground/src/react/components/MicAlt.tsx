@@ -16,11 +16,15 @@ export function MicAlt(props: SVGProps<SVGSVGElement>) {
                 y="3"
                 stroke="currentColor"
                 rx="6"
+                strokeLinejoin="round"
+                strokeWidth="2"
             />
             <path
                 fill="currentColor"
                 stroke="currentColor"
                 d="M12 22v-3m-2-6H7m11 0h-2m-6-4H7m11 0h-2"
+                strokeLinejoin="round"
+                strokeWidth="2"
             />
         </svg>
     );

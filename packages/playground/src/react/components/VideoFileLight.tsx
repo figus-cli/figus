@@ -18,6 +18,7 @@ export function VideoFileLight(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 stroke="currentColor"
                 d="m13.8553 14.0808-3.1826-1.364C9.8809 12.3775 9 12.9583 9 13.8198v2.3603c0 .8615.8809 1.4424 1.6727 1.103l3.1826-1.364c.8081-.3463.8081-1.4919 0-1.8383Z"
+                strokeLinejoin="round"
             />
             <path
                 fill="currentColor"

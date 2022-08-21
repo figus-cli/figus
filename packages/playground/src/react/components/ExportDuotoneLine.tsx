@@ -16,6 +16,7 @@ export function ExportDuotoneLine(props: SVGProps<SVGSVGElement>) {
             <path
                 stroke="currentColor"
                 d="M5 16v1c0 1.1046.8954 2 2 2h10c1.1046 0 2-.8954 2-2v-1"
+                strokeWidth="1.2"
             />
             <rect
                 width="14"
@@ -23,6 +24,7 @@ export function ExportDuotoneLine(props: SVGProps<SVGSVGElement>) {
                 x="5"
                 y="15"
                 fill="currentColor"
+                fillOpacity=".24"
                 rx="2"
             />
         </svg>

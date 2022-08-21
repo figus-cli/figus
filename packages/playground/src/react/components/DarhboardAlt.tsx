@@ -16,6 +16,7 @@ export function DarhboardAlt(props: SVGProps<SVGSVGElement>) {
                 y="4"
                 stroke="currentColor"
                 rx="1"
+                strokeLinejoin="round"
             />
             <rect
                 width="6"
@@ -24,6 +25,7 @@ export function DarhboardAlt(props: SVGProps<SVGSVGElement>) {
                 y="15"
                 stroke="currentColor"
                 rx="1"
+                strokeLinejoin="round"
             />
             <rect
                 width="6"
@@ -32,6 +34,7 @@ export function DarhboardAlt(props: SVGProps<SVGSVGElement>) {
                 y="4"
                 stroke="currentColor"
                 rx="1"
+                strokeLinejoin="round"
             />
             <rect
                 width="6"
@@ -40,6 +43,7 @@ export function DarhboardAlt(props: SVGProps<SVGSVGElement>) {
                 y="13"
                 stroke="currentColor"
                 rx="1"
+                strokeLinejoin="round"
             />
         </svg>
     );

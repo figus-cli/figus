@@ -20,10 +20,12 @@ export function MortarboardAlt_2Light(props: SVGProps<SVGSVGElement>) {
             <path
                 stroke="currentColor"
                 d="m7.5 8.5-.9796 6.857a.15.15 0 0 0 .1217.1688l5.3311.9693a.1508.1508 0 0 0 .0536 0l5.3311-.9693a.15.15 0 0 0 .1217-.1688L16.5 8.5"
+                strokeLinejoin="round"
             />
             <path
                 stroke="currentColor"
                 d="m6.5 13.5 5.4732.9951a.1508.1508 0 0 0 .0536 0L17.5 13.5"
+                strokeLinejoin="round"
             />
         </svg>
     );

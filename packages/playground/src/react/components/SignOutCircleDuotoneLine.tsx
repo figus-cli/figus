@@ -11,6 +11,7 @@ export function SignOutCircleDuotoneLine(props: SVGProps<SVGSVGElement>) {
         >
             <ellipse
                 fill="currentColor"
+                fillOpacity=".24"
                 rx="6"
                 ry="6"
                 transform="matrix(0 -1 -1 0 14 12)"
@@ -18,10 +19,13 @@ export function SignOutCircleDuotoneLine(props: SVGProps<SVGSVGElement>) {
             <path
                 stroke="currentColor"
                 d="M7.7 12c0-3.4794 2.8206-6.3 6.3-6.3 3.4794 0 6.3 2.8206 6.3 6.3 0 3.4794-2.8206 6.3-6.3 6.3-3.4794 0-6.3-2.8206-6.3-6.3Z"
+                strokeOpacity=".24"
+                strokeWidth=".6"
             />
             <path
                 stroke="currentColor"
                 d="M8 18.9282a8.0005 8.0005 0 0 0 8 0A8.0006 8.0006 0 0 0 18.9282 8 7.9993 7.9993 0 0 0 12 4a8 8 0 0 0-4 1.0718"
+                strokeWidth="1.2"
             />
             <path
                 fill="currentColor"

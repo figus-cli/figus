@@ -16,6 +16,7 @@ export function BoxRefreshAltRight(props: SVGProps<SVGSVGElement>) {
             <path
                 stroke="currentColor"
                 d="M13 8h4m-1 8H8c-2.2091 0-4-1.7909-4-4 0-2.2091 1.7909-4 4-4h1"
+                strokeWidth="2"
             />
         </svg>
     );

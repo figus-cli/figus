@@ -16,9 +16,21 @@ export function Money(props: SVGProps<SVGSVGElement>) {
                 y="6"
                 stroke="currentColor"
                 rx="2"
+                strokeWidth="2"
             />
-            <path fill="currentColor" stroke="currentColor" d="M6 9h2m8 6h2" />
-            <circle cx="12" cy="12" r="2" stroke="currentColor" />
+            <path
+                fill="currentColor"
+                stroke="currentColor"
+                d="M6 9h2m8 6h2"
+                strokeWidth="2"
+            />
+            <circle
+                cx="12"
+                cy="12"
+                r="2"
+                stroke="currentColor"
+                strokeWidth="2"
+            />
         </svg>
     );
 }

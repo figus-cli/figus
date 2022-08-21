@@ -16,6 +16,8 @@ export function SignInSqureDuotoneLine(props: SVGProps<SVGSVGElement>) {
             <path
                 stroke="currentColor"
                 d="M8.5 9V4.7198c0-.631.5773-1.1043 1.1961-.9806l8 1.6a1 1 0 0 1 .8039.9806v11.3604a1 1 0 0 1-.8039.9806l-8 1.6c-.6188.1237-1.1961-.3496-1.1961-.9806V15"
+                strokeLinejoin="round"
+                strokeOpacity=".24"
             />
         </svg>
     );

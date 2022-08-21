@@ -12,6 +12,8 @@ export function FolderCopyFill(props: SVGProps<SVGSVGElement>) {
             <path
                 stroke="currentColor"
                 d="M6 7H5c-1.1046 0-2 .8954-2 2v1m3 10H5c-1.1046 0-2-.8954-2-2v-1m10 3h1c1.1046 0 2-.8954 2-2v-1m-5 3H8m-5-8v3"
+                strokeMiterlimit="1.4142"
+                strokeWidth="2"
             />
             <path
                 fill="currentColor"

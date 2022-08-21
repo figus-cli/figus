@@ -18,6 +18,8 @@ export function LightningDuotoneLine(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 stroke="currentColor"
                 d="M18.5 4 17 6h2l-1.5 2m-11 8L5 18h2l-1.5 2"
+                strokeLinejoin="round"
+                strokeOpacity=".24"
             />
         </svg>
     );

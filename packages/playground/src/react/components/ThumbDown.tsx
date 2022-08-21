@@ -20,6 +20,7 @@ export function ThumbDown(props: SVGProps<SVGSVGElement>) {
             <path
                 stroke="currentColor"
                 d="M13 13h4.7655c1.192 0 2.1194-1.0361 1.9877-2.2209l-.5555-5C19.0851 4.7663 18.229 4 17.2099 4h-3.7957a1 1 0 0 0-.7071.2929l-.4142.4142A1 1 0 0 1 11.5858 5H9"
+                strokeWidth="2"
             />
         </svg>
     );

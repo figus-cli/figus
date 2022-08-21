@@ -24,6 +24,7 @@ export function DirectionAlt_3Light(props: SVGProps<SVGSVGElement>) {
             <path
                 stroke="currentColor"
                 d="M12 8.5V19m0-10.5L10.5 10M12 8.5l1.5 1.5"
+                strokeLinejoin="round"
             />
         </svg>
     );

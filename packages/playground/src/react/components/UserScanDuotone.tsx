@@ -13,6 +13,9 @@ export function UserScanDuotone(props: SVGProps<SVGSVGElement>) {
             <path
                 fill="currentColor"
                 d="M17.4514 15.9084a.2366.2366 0 0 1-.0671.3041C15.8828 17.3352 14.0191 18 12.0001 18c-2.019 0-3.8828-.6649-5.3843-1.7876a.2366.2366 0 0 1-.0671-.3041C7.4988 14.1915 9.5824 13 12 13c2.4176 0 4.5012 1.1915 5.4514 2.9084Z"
+                clipRule="evenodd"
+                fillOpacity=".24"
+                fillRule="evenodd"
             />
             <path
                 stroke="currentColor"

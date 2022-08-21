@@ -16,6 +16,7 @@ export function CompassNorth(props: SVGProps<SVGSVGElement>) {
             <path
                 stroke="currentColor"
                 d="M9 9V3.1207a.05.05 0 0 1 .0854-.0353l5.8292 5.8293A.05.05 0 0 0 15 8.8793V3"
+                strokeWidth="2"
             />
         </svg>
     );

@@ -16,6 +16,7 @@ export function CloudAlt(props: SVGProps<SVGSVGElement>) {
             <path
                 stroke="currentColor"
                 d="M16.3177 17.8535a5.9997 5.9997 0 0 0 4.3464-7.833 6.0004 6.0004 0 0 0-8.2793-3.4206A5.9999 5.9999 0 0 0 9 12.0236"
+                strokeWidth="2"
             />
         </svg>
     );

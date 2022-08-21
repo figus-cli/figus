@@ -13,6 +13,7 @@ export function TransferLongTop(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 stroke="currentColor"
                 d="M10 22V10H6.4348c-.1708 0-.263-.2004-.1518-.3302L12 3l5.717 6.6698c.1112.1298.019.3302-.1518.3302H14v12"
+                strokeWidth="2"
             />
         </svg>
     );

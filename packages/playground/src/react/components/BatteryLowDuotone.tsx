@@ -15,6 +15,7 @@ export function BatteryLowDuotone(props: SVGProps<SVGSVGElement>) {
                 x="7"
                 y="6"
                 fill="currentColor"
+                fillOpacity=".24"
                 rx="1.5"
             />
             <rect
@@ -25,7 +26,15 @@ export function BatteryLowDuotone(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 rx="1"
             />
-            <rect width="6" height="2" x="9" y="3" fill="currentColor" rx="1" />
+            <rect
+                width="6"
+                height="2"
+                x="9"
+                y="3"
+                fill="currentColor"
+                fillOpacity=".24"
+                rx="1"
+            />
         </svg>
     );
 }

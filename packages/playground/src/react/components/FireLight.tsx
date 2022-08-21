@@ -12,6 +12,7 @@ export function FireLight(props: SVGProps<SVGSVGElement>) {
             <path
                 stroke="currentColor"
                 d="M18.5 12c0 3.5899-2.9101 6.5-6.5 6.5S5.5 15.5899 5.5 12c0-5.6335 5.7303-9.0632 6.4302-9.461a.1397.1397 0 0 1 .1396 0C12.7697 2.9368 18.5 6.3664 18.5 12Z"
+                strokeLinejoin="round"
             />
             <path
                 fill="currentColor"

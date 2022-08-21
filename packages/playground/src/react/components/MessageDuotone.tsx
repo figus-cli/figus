@@ -16,6 +16,7 @@ export function MessageDuotone(props: SVGProps<SVGSVGElement>) {
             <path
                 fill="currentColor"
                 d="M4 8v.9073a.15.15 0 0 0 .083.1342l6.5754 3.2877a2.9998 2.9998 0 0 0 2.6832 0l6.5755-3.2877A.15.15 0 0 0 20 8.9073V8c0-1.1046-.8954-2-2-2H6c-1.1046 0-2 .8954-2 2Z"
+                fillOpacity=".24"
             />
         </svg>
     );

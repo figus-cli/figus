@@ -15,6 +15,7 @@ export function FolderFileDuotoneFill(props: SVGProps<SVGSVGElement>) {
                 x="6"
                 y="3"
                 fill="currentColor"
+                fillOpacity=".24"
                 rx="2"
             />
             <path

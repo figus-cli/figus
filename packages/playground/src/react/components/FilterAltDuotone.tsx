@@ -12,6 +12,9 @@ export function FilterAltDuotone(props: SVGProps<SVGSVGElement>) {
             <path
                 fill="currentColor"
                 d="M20 5c0-.5523-.4477-1-1-1H5c-.5523 0-1 .4477-1 1v1.5858a1 1 0 0 0 .2929.707l4.4142 4.4143A1 1 0 0 1 9 12.4142v6.8921c0 .3413.3343.5823.6581.4743l5-1.6666A.5001.5001 0 0 0 15 17.6396v-5.2254c0-.2652.1054-.5196.2929-.7071l4.4142-4.4142A1.0001 1.0001 0 0 0 20 6.5858V5Z"
+                clipRule="evenodd"
+                fillOpacity=".24"
+                fillRule="evenodd"
             />
             <path
                 fill="currentColor"

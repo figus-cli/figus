@@ -9,7 +9,12 @@ export function FolderLineLight(props: SVGProps<SVGSVGElement>) {
             height="1em"
             {...props}
         >
-            <path fill="currentColor" stroke="currentColor" d="M4.5 11.5h15" />
+            <path
+                fill="currentColor"
+                stroke="currentColor"
+                d="M4.5 11.5h15"
+                strokeMiterlimit="1.4142"
+            />
             <path
                 fill="currentColor"
                 stroke="currentColor"

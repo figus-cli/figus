@@ -13,8 +13,16 @@ export function Video(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 stroke="currentColor"
                 d="M16.2111 11.1056 9.7367 7.8683C8.9387 7.4693 8 8.0496 8 8.9416v6.1168c0 .892.9388 1.4722 1.7367 1.0733l6.4744-3.2373c.7371-.3685.7371-1.4203 0-1.7888Z"
+                strokeLinejoin="round"
+                strokeWidth="2"
             />
-            <circle cx="12" cy="12" r="9" stroke="currentColor" />
+            <circle
+                cx="12"
+                cy="12"
+                r="9"
+                stroke="currentColor"
+                strokeWidth="2"
+            />
         </svg>
     );
 }

@@ -15,6 +15,7 @@ export function CancelDuotone(props: SVGProps<SVGSVGElement>) {
                 r="8.5"
                 fill="currentColor"
                 stroke="currentColor"
+                fillOpacity=".24"
             />
             <path stroke="currentColor" d="M18 18 6 6" />
         </svg>

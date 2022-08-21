@@ -13,6 +13,7 @@ export function PyramidChart(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 stroke="currentColor"
                 d="M11.8658 3.2683 3.1085 20.783a.15.15 0 0 0 .1342.217h17.5146a.15.15 0 0 0 .1342-.2171L12.1342 3.2683c-.0553-.1105-.2131-.1105-.2684 0ZM19 17H5m12-4H7m8-4H9"
+                strokeWidth="2"
             />
         </svg>
     );

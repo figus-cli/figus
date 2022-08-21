@@ -13,6 +13,7 @@ export function NavigateDuotoneLine(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 stroke="currentColor"
                 d="m8.5 10.5 3.4752 1.9858a.0499.0499 0 0 0 .0496 0L15.5 10.5"
+                strokeOpacity=".24"
             />
             <path
                 fill="currentColor"

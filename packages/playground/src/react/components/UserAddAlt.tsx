@@ -9,11 +9,18 @@ export function UserAddAlt(props: SVGProps<SVGSVGElement>) {
             height="1em"
             {...props}
         >
-            <circle cx="10" cy="8" r="4" stroke="currentColor" />
+            <circle
+                cx="10"
+                cy="8"
+                r="4"
+                stroke="currentColor"
+                strokeWidth="2"
+            />
             <path
                 fill="currentColor"
                 stroke="currentColor"
                 d="M15.7956 20.4471A6.0004 6.0004 0 0 0 10 16a5.9998 5.9998 0 0 0-5.7956 4.4471M19 10v6m3-3h-6"
+                strokeWidth="2"
             />
         </svg>
     );

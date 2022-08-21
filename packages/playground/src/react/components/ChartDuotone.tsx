@@ -15,9 +15,15 @@ export function ChartDuotone(props: SVGProps<SVGSVGElement>) {
                 x="3"
                 y="4"
                 fill="currentColor"
+                fillOpacity=".24"
                 rx="2"
             />
-            <path stroke="currentColor" d="M8 10v6m4-4v4m4-8v8" />
+            <path
+                stroke="currentColor"
+                d="M8 10v6m4-4v4m4-8v8"
+                strokeLinejoin="round"
+                strokeWidth="1.2"
+            />
         </svg>
     );
 }

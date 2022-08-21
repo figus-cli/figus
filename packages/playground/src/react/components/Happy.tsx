@@ -9,10 +9,17 @@ export function Happy(props: SVGProps<SVGSVGElement>) {
             height="1em"
             {...props}
         >
-            <circle cx="12" cy="12" r="10" stroke="currentColor" />
+            <circle
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                strokeWidth="2"
+            />
             <path
                 stroke="currentColor"
                 d="M9.402 13.5A2.9994 2.9994 0 0 0 12 15a3.0002 3.0002 0 0 0 2.5981-1.5"
+                strokeWidth="2"
             />
             <rect
                 width="3.25"
@@ -22,6 +29,7 @@ export function Happy(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 stroke="currentColor"
                 rx="1.125"
+                strokeWidth=".25"
             />
             <rect
                 width="3.25"
@@ -31,6 +39,7 @@ export function Happy(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 stroke="currentColor"
                 rx="1.125"
+                strokeWidth=".25"
             />
         </svg>
     );

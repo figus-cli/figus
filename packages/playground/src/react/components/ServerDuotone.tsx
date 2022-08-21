@@ -12,6 +12,9 @@ export function ServerDuotone(props: SVGProps<SVGSVGElement>) {
             <path
                 fill="currentColor"
                 d="M16.975 8.5008c.0276.2748.2489.4992.525.4992 1.933 0 3.5 1.567 3.5 3.5S19.433 16 17.5 16c-.4659 0-.6989 0-.8827-.0761a1.0002 1.0002 0 0 1-.5412-.5412C16 15.1989 16 14.9659 16 14.5v-1.4444c0-1.1046-.8954-2-2-2h-4c-1.1046 0-2 .8954-2 2V14.5c0 .4659 0 .6989-.0761.8827a1.0001 1.0001 0 0 1-.5412.5412C7.1989 16 6.9659 16 6.5 16 4.567 16 3 14.433 3 12.5S4.567 9 6.5 9c.2761 0 .4974-.2244.525-.4992a5.0009 5.0009 0 0 1 1.0082-2.5446 5 5 0 0 1 8.9418 2.5446Z"
+                clipRule="evenodd"
+                fillOpacity=".24"
+                fillRule="evenodd"
             />
             <path
                 fill="currentColor"
@@ -24,8 +27,9 @@ export function ServerDuotone(props: SVGProps<SVGSVGElement>) {
                 y="11"
                 stroke="currentColor"
                 rx="2"
+                strokeWidth="1.2"
             />
-            <path stroke="currentColor" d="M11.5 16h1" />
+            <path stroke="currentColor" d="M11.5 16h1" strokeWidth="1.2" />
         </svg>
     );
 }

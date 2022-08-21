@@ -9,11 +9,19 @@ export function DellDuotoneLine(props: SVGProps<SVGSVGElement>) {
             height="1em"
             {...props}
         >
-            <circle cx="12" cy="12" r="8.4" stroke="currentColor" />
+            <circle
+                cx="12"
+                cy="12"
+                r="8.4"
+                stroke="currentColor"
+                strokeOpacity=".24"
+                strokeWidth="1.2"
+            />
             <path
                 fill="currentColor"
                 stroke="currentColor"
                 d="m9 14.9997 6.0001-6M15 15 9 9"
+                strokeWidth="1.2"
             />
         </svg>
     );

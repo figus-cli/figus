@@ -16,6 +16,7 @@ export function Watch(props: SVGProps<SVGSVGElement>) {
                 y="5"
                 stroke="currentColor"
                 rx="3"
+                strokeWidth="2"
             />
             <path
                 fill="currentColor"

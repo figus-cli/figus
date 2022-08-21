@@ -16,7 +16,10 @@ export function HeadphonesFillDuotone(props: SVGProps<SVGSVGElement>) {
                 y="12"
                 fill="currentColor"
                 stroke="currentColor"
+                fillOpacity=".24"
                 rx="2"
+                strokeLinejoin="round"
+                strokeWidth="1.2"
             />
             <rect
                 width="4"
@@ -25,11 +28,16 @@ export function HeadphonesFillDuotone(props: SVGProps<SVGSVGElement>) {
                 y="12"
                 fill="currentColor"
                 stroke="currentColor"
+                fillOpacity=".24"
                 rx="2"
+                strokeLinejoin="round"
+                strokeWidth="1.2"
             />
             <path
                 stroke="currentColor"
                 d="M4 13v3m16-3v3m0-3c0-2.3869-.8429-4.6761-2.3431-6.364C16.1566 4.9482 14.1217 4 12 4s-4.1566.9482-5.6569 2.636C4.843 8.324 4 10.6131 4 13"
+                strokeLinejoin="round"
+                strokeWidth="1.2"
             />
         </svg>
     );

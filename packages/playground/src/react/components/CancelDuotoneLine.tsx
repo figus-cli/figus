@@ -9,8 +9,20 @@ export function CancelDuotoneLine(props: SVGProps<SVGSVGElement>) {
             height="1em"
             {...props}
         >
-            <circle cx="12" cy="12" r="9" stroke="currentColor" />
-            <path fill="currentColor" stroke="currentColor" d="M16 16 8 8" />
+            <circle
+                cx="12"
+                cy="12"
+                r="9"
+                stroke="currentColor"
+                strokeOpacity=".24"
+                strokeWidth="1.2"
+            />
+            <path
+                fill="currentColor"
+                stroke="currentColor"
+                d="M16 16 8 8"
+                strokeWidth="1.2"
+            />
         </svg>
     );
 }

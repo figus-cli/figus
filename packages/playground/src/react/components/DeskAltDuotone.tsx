@@ -15,6 +15,7 @@ export function DeskAltDuotone(props: SVGProps<SVGSVGElement>) {
                 x="6"
                 y="5"
                 fill="currentColor"
+                fillOpacity=".24"
                 rx="2"
             />
             <path stroke="currentColor" d="M9.5 9.5h5m-5 3h5m-5 3h5" />

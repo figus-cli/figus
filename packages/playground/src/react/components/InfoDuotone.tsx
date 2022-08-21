@@ -9,7 +9,13 @@ export function InfoDuotone(props: SVGProps<SVGSVGElement>) {
             height="1em"
             {...props}
         >
-            <circle cx="12" cy="12" r="9" fill="currentColor" />
+            <circle
+                cx="12"
+                cy="12"
+                r="9"
+                fill="currentColor"
+                fillOpacity=".24"
+            />
             <path
                 fill="currentColor"
                 d="M13 7c0 .5523-.4477 1-1 1s-1-.4477-1-1 .4477-1 1-1 1 .4477 1 1Z"

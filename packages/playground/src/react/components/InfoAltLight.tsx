@@ -13,6 +13,7 @@ export function InfoAltLight(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 stroke="currentColor"
                 d="M11 10.5h.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 0 .5.5h.5m-1-7h.01"
+                strokeLinejoin="round"
             />
             <path
                 fill="currentColor"

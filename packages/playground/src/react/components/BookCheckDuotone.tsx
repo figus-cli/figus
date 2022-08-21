@@ -15,6 +15,7 @@ export function BookCheckDuotone(props: SVGProps<SVGSVGElement>) {
                 x="4"
                 y="3"
                 fill="currentColor"
+                fillOpacity=".24"
                 rx="2"
             />
             <path
@@ -24,6 +25,7 @@ export function BookCheckDuotone(props: SVGProps<SVGSVGElement>) {
             <path
                 stroke="currentColor"
                 d="m9.5 10.5 1.8939 1.8939a.15.15 0 0 0 .2122 0L15.5 8.5"
+                strokeWidth="1.2"
             />
         </svg>
     );

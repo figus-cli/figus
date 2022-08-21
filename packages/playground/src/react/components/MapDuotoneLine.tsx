@@ -12,6 +12,7 @@ export function MapDuotoneLine(props: SVGProps<SVGSVGElement>) {
             <path
                 fill="currentColor"
                 d="m4.5 7.5 4-2v10l-3 1.5h-1V7.5Zm15 8-4 2v-10l3-1.5h1v9.5Z"
+                fillOpacity=".24"
             />
             <path
                 stroke="currentColor"

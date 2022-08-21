@@ -18,6 +18,7 @@ export function RoadAltDuotoneLine(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 stroke="currentColor"
                 d="m20.5 18.5-4-15m-13 15 4-15m4.5 7v-2m0-3v-2"
+                strokeOpacity=".24"
             />
         </svg>
     );

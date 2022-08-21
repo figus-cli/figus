@@ -15,8 +15,10 @@ export function SearchDuotoneLine(props: SVGProps<SVGSVGElement>) {
                 r="6"
                 fill="currentColor"
                 stroke="currentColor"
+                fillOpacity=".24"
+                strokeWidth="1.2"
             />
-            <path stroke="currentColor" d="m20 20-3-3" />
+            <path stroke="currentColor" d="m20 20-3-3" strokeWidth="1.2" />
         </svg>
     );
 }

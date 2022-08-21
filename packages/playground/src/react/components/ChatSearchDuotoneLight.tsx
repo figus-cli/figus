@@ -18,6 +18,9 @@ export function ChatSearchDuotoneLight(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 stroke="currentColor"
                 d="M7.5 10.5h7m-7 3h5"
+                strokeLinejoin="round"
+                strokeOpacity=".24"
+                strokeWidth="1.2"
             />
             <circle cx="16.5" cy="15.5" r="2" stroke="currentColor" />
             <path

@@ -13,11 +13,14 @@ export function CloseRingDuotoneLine(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 stroke="currentColor"
                 d="M12 20.4a8.4007 8.4007 0 0 1-5.9397-2.4603A8.3994 8.3994 0 0 1 3.6 12a8.4 8.4 0 1 1 8.4 8.4Z"
+                strokeOpacity=".24"
+                strokeWidth="1.2"
             />
             <path
                 fill="currentColor"
                 stroke="currentColor"
                 d="m9 9 6 6m0-6-6 6"
+                strokeWidth="1.2"
             />
         </svg>
     );

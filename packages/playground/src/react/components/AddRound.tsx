@@ -13,6 +13,7 @@ export function AddRound(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 stroke="currentColor"
                 d="M12 6v12m6-6H6"
+                strokeWidth="2"
             />
         </svg>
     );

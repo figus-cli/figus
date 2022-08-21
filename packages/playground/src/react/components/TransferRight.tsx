@@ -13,6 +13,7 @@ export function TransferRight(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 stroke="currentColor"
                 d="M5 9h7V5.4828c0-.1781.2154-.2674.3414-.1414L19 12l-6.6586 6.6586c-.126.126-.3414.0367-.3414-.1414V15H5"
+                strokeWidth="2"
             />
         </svg>
     );

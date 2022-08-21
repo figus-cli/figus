@@ -15,6 +15,7 @@ export function BookDuotone(props: SVGProps<SVGSVGElement>) {
                 x="4"
                 y="3"
                 fill="currentColor"
+                fillOpacity=".24"
                 rx="2"
             />
             <path stroke="currentColor" d="M8.5 6.5h7m-7 3h4m-4 3h6" />

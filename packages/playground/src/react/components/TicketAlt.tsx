@@ -13,11 +13,14 @@ export function TicketAlt(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 stroke="currentColor"
                 d="M18 21V3l-3 2-3-2-3 2-3-2v18l3-1.5 3 1.5 3-1.5 3 1.5Z"
+                strokeLinejoin="round"
+                strokeWidth="2"
             />
             <path
                 fill="currentColor"
                 stroke="currentColor"
                 d="M10 9h4m-4 6h4m-4-3h4"
+                strokeWidth="2"
             />
         </svg>
     );

@@ -13,6 +13,7 @@ export function WinterFill(props: SVGProps<SVGSVGElement>) {
             <path
                 stroke="currentColor"
                 d="M12 9V7m0-3v3m0 0L9 5m3 2 3-2m.5 7.5h2m3 0h-3m0 0 2-3m-2 3 2 3M12 16v2m0 3v-3m0 0-3 2m3-2 3 2m-6.5-7.5h-2m-3 0h3m0 0-2-3m2 3-2 3"
+                strokeWidth="2"
             />
         </svg>
     );

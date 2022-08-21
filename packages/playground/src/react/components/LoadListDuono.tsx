@@ -12,6 +12,7 @@ export function LoadListDuono(props: SVGProps<SVGSVGElement>) {
             <path
                 fill="currentColor"
                 d="M2 4.5a.5.5 0 0 1 .5-.5h19a.5.5 0 0 1 0 1h-1.3605A.1395.1395 0 0 0 20 5.1395V18c0 1.1046-.8954 2-2 2H6c-1.1046 0-2-.8954-2-2V5.1395A.1395.1395 0 0 0 3.8605 5H2.5a.5.5 0 0 1-.5-.5Z"
+                fillOpacity=".24"
             />
             <path
                 stroke="currentColor"

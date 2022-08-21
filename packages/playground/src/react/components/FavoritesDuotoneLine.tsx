@@ -13,6 +13,7 @@ export function FavoritesDuotoneLine(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 stroke="currentColor"
                 d="M19.5 11c0 5.018-5.4883 8.4027-7.0751 9.2764-.2681.1476-.5817.1476-.8498 0C9.9883 19.4027 4.5 16.018 4.5 11c0-4.5 3.634-7.5 7.5-7.5 4 0 7.5 3 7.5 7.5Z"
+                strokeOpacity=".24"
             />
             <path
                 fill="currentColor"

@@ -21,6 +21,7 @@ export function RoadFinishLight(props: SVGProps<SVGSVGElement>) {
             <path
                 stroke="currentColor"
                 d="M12 7.5V4c0-.2357 0-.3535.0732-.4268.0732-.0732.1911-.0732.4268-.0732h6l-2 2 2 2H12Zm0 0V12"
+                strokeLinejoin="round"
             />
         </svg>
     );

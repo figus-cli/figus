@@ -16,11 +16,13 @@ export function Creditcard(props: SVGProps<SVGSVGElement>) {
                 y="6"
                 stroke="currentColor"
                 rx="2"
+                strokeWidth="2"
             />
             <path
                 fill="currentColor"
                 stroke="currentColor"
                 d="M7 15h.01M4 11h17"
+                strokeWidth="2"
             />
         </svg>
     );

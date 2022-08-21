@@ -16,6 +16,7 @@ export function Refresh_2(props: SVGProps<SVGSVGElement>) {
             <path
                 stroke="currentColor"
                 d="M18.0622 8.5a6.9996 6.9996 0 0 1 0 7A6.9995 6.9995 0 0 1 12 19"
+                strokeWidth="2"
             />
             <path
                 fill="currentColor"
@@ -24,6 +25,7 @@ export function Refresh_2(props: SVGProps<SVGSVGElement>) {
             <path
                 stroke="currentColor"
                 d="M5.9378 15.5A6.9998 6.9998 0 0 1 8.5 5.9378 6.9998 6.9998 0 0 1 12 5"
+                strokeWidth="2"
             />
         </svg>
     );

@@ -9,7 +9,12 @@ export function MortarboardAlt(props: SVGProps<SVGSVGElement>) {
             height="1em"
             {...props}
         >
-            <path stroke="currentColor" d="m6 13-3-2 9-5 9 5-3 2" />
+            <path
+                stroke="currentColor"
+                d="m6 13-3-2 9-5 9 5-3 2"
+                strokeLinejoin="round"
+                strokeWidth="2"
+            />
             <path
                 fill="currentColor"
                 d="M13 14c0 .5523.4477 1 1 1s1-.4477 1-1h-2Zm0-7v7h2V7h-2Z"

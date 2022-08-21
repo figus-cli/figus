@@ -16,6 +16,7 @@ export function SoundMaxFill(props: SVGProps<SVGSVGElement>) {
             <path
                 stroke="currentColor"
                 d="M14.5355 8.4645a5 5 0 0 1 .0278 7.0431m4.0936-9.1645a8.0002 8.0002 0 0 1 .0443 11.269"
+                strokeWidth="2"
             />
         </svg>
     );

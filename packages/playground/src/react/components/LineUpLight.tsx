@@ -13,6 +13,7 @@ export function LineUpLight(props: SVGProps<SVGSVGElement>) {
                 fill="currentColor"
                 stroke="currentColor"
                 d="m21 6-5.2929 5.2929c-.3905.3905-1.0237.3905-1.4142 0l-1.5858-1.5858c-.3905-.3905-1.0237-.3905-1.4142 0L7 14"
+                strokeLinejoin="round"
             />
             <path
                 fill="currentColor"
