@@ -57,10 +57,10 @@ export default defineConfig({
                 },
             ],
         },
-        // algolia: {
-        //     appId: "2B4GEQO30Z",
-        //     apiKey: "e80b007bfc55b0f64f7970cdafd7f306",
-        //     indexName: "figus",
-        // },
+        algolia: {
+            appId: "F5JGFXSL83",
+            apiKey: "cb99f444d020ace695e8ec7892deb0b6",
+            indexName: "figus",
+        },
     },
 });
