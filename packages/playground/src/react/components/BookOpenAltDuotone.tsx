@@ -21,7 +21,6 @@ export function BookOpenAltDuotone(props: SVGProps<SVGSVGElement>) {
                 x="3"
                 y="4"
                 maskUnits="userSpaceOnUse"
-                style="mask-type:alpha"
             >
                 <path
                     fill="currentColor"

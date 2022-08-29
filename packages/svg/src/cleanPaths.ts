@@ -74,7 +74,7 @@ export function cleanPaths({
             {
                 name: "removeAttrs",
                 params: {
-                    attrs: "stroke-linecap",
+                    attrs: "(stroke-linecap|style)",
                 },
             },
             { name: "removeElementsByAttr" },

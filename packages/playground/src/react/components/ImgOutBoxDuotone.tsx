@@ -16,7 +16,6 @@ export function ImgOutBoxDuotone(props: SVGProps<SVGSVGElement>) {
                 x="3"
                 y="3"
                 maskUnits="userSpaceOnUse"
-                style="mask-type:alpha"
             >
                 <path
                     fill="currentColor"
