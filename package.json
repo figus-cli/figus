@@ -1,5 +1,5 @@
 {
-  "version": "2.0.7",
+  "version": "2.0.8",
   "scripts": {
     "build": "pnpm -r --filter=./packages/** run build",
     "docs:dev": "pnpm -r --filter=./packages/** run docs:dev",
