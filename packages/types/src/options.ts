@@ -50,4 +50,9 @@ export interface Options {
      * whether to download icons when executing default command
      */
     download?: boolean;
+
+    /**
+     * Figma page name contains the icons
+     */
+    pageName?: string;
 }

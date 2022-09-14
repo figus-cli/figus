@@ -1,3 +1,5 @@
+import { pascalCase } from "pascal-case";
+
 /*
  * Return path to write file to inside outputDir.
  * @param {object} svgPathObj
@@ -10,29 +12,14 @@
  * @param {object} options
  * @returns {string} output file dest relative to outputDir
  */
-export function defaultDestRewriter(svgPathObj, innerPath, options) {
+export function defaultDestRewriter(svgPathObj: any) {
     let fileName = svgPathObj.base;
-    if (options.fileSuffix) {
-        fileName.replace(options.fileSuffix, ".svg");
-    } else {
-        fileName = fileName.replace(".svg", ".vue");
-    }
-
+    fileName = fileName.replace(".svg", "");
     // remove any @ in the file name
     fileName = fileName.replace(/@.*\./g, ".");
-    fileName = fileName.replace("-", " ");
-    fileName = camelize(fileName);
-    fileName = fileName.replace("Vue", "vue");
+    fileName = pascalCase(fileName);
     // remove any spaces in the file name
     fileName = fileName.replace(/\s+/g, "");
-    // add Size to end of the File, example:
-    // Close.tsx -> Close16.tsx
+    fileName += ".vue";
     return fileName;
-}
-
-function camelize(str) {
-    return str.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, function (match, index) {
-        if (+match === 0) return ""; // or if (/\s+/.test(match)) for white spaces
-        return index === 0 ? match.toUpperCase() : match.toUpperCase();
-    });
 }

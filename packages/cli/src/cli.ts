@@ -384,7 +384,7 @@ cli.version(version)
         "-f --font-name <font>",
         "font name, if provided will generate fonts from the svg"
     )
-    .option("-t, --token <token>", "Figma token")
+    .option("-t, --token [token]", "Figma token")
     .option("-i, --iconify [iconify]", "Generate in Iconify format");
 
 cli.command(

@@ -19,7 +19,7 @@ export default defineConfig({
     framework: "${framework.toLowerCase()}",
     ${fontName && "font:" + fontName + ","}
     figma: {
-        ${figma?.pageName && "pageName: " + figma.pageName + ","}
+        ${figma?.pageName && "pageName: " + '"' + figma.pageName + '"' + ","}
         fileKey: "${figma?.fileKey}",
     }
 }) 
