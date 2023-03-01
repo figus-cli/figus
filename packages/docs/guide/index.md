@@ -13,13 +13,13 @@ It supports React, React Material UI and Vue
 
 ```bash
 # with npm
-npm install -D @ficus/cli
+npm install -D @figus/cli
 
 # or with yarn
-yarn add -D @ficus/cli
+yarn add -D @figus/cli
 
 # or with pnpm
-pnpm add -D @ficus/cli
+pnpm add -D @figus/cli
 ```
 
 :::tip
@@ -36,9 +36,4 @@ See the list of config options in the [Config Reference](../config/app-configs.m
 
 ## Command Line Interface
 
-In a project where Figus is installed, you can use the `figus` binary in your npm scripts, or run it directly with `npx @figus/cli`.
-
 To download and generate icons, just run: `figus`
-
-
-## Examples
