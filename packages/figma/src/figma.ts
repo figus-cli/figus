@@ -182,9 +182,6 @@ async function getComponents({
                 .toLowerCase()
                 .includes(figma.pageName!.toLowerCase())
         )
-        .filter((item) => {
-            return item.containing_frame?.name === "ironSource UI";
-        })
         .map((item) => {
             return {
                 node_id: item.node_id,
