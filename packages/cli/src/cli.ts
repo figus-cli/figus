@@ -204,6 +204,8 @@ async function getConfig(options: Options & FigmaOptions): Promise<Options> {
             iconify: options.iconify || config.iconify,
             output: options.output || config.output,
             path: options.path || config.path,
+            getComponentName:
+                options.getComponentName || config.getComponentName,
             download: options.download || config.download,
             framework: options.framework || config.framework,
             getFileName: config.getFileName,
