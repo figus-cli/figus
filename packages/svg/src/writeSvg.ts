@@ -2,7 +2,7 @@ import path, { ParsedPath } from "path";
 import fse from "fs-extra";
 import Mustache from "mustache";
 import { cleanPaths } from "./cleanPaths";
-import { Frameworks, Options } from "@figus/types";
+import { Frameworks, Options, Size } from "@figus/types";
 import { formatFile } from "@figus/utils";
 import { getComponentName as getComponentNameVue } from "@figus/vue";
 import { getComponentName as getComponentNameReact } from "@figus/react";
@@ -17,6 +17,7 @@ export type RenameFilter = (
 export interface WorkerOptions {
     svgPath: string;
     iconify?: boolean;
+    size?: Size;
     svgDir: string;
     framework: Frameworks;
     output: string;
@@ -30,6 +31,7 @@ export async function writeSvg({
     svgDir,
     iconify,
     output,
+    size,
     getComponentNameConfig,
     renameFilter,
     framework,
@@ -71,6 +73,7 @@ export async function writeSvg({
         const fileString = Mustache.render(template, {
             paths,
             componentName,
+            size,
         });
 
         const absDestPath = path.join(output, destPath);

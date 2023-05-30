@@ -1,6 +1,7 @@
 import { FigmaOptions } from "@figus/figma";
 import { RenameFilter } from "@figus/svg";
 import { Frameworks } from "./frameworks";
+import { Size } from "./size";
 
 export interface Options {
     /**
@@ -13,6 +14,11 @@ export interface Options {
      *
      */
     template?: string;
+
+    /**
+     * the size of the icon, 16 or 24 (default 24)
+     */
+    size?: Size;
 
     /**
      * if provided will generate web-font icon kits from the svgs

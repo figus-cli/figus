@@ -89,7 +89,8 @@ export default function App() {
     const [icons, setIcons] = useState<Icon[]>([]);
     const [results, setResults] = useState<Icon[]>([]);
     const [query, setQuery] = useState("");
-    const [fontName, setFontName] = useState();
+    const [size, setSize] = useState(24);
+    const [fontName, setFontName] = useState("");
     useEffect(() => {
         const res = matchSorter(icons, query, { keys: ["name"] });
         setResults(res);
@@ -98,6 +99,7 @@ export default function App() {
         axios.get("http://localhost:3000/").then((response) => {
             setIcons(response.data.icons);
             setFontName(response.data.fontName);
+            setSize(response.data.size);
         });
     }, []);
 
@@ -160,7 +162,7 @@ export default function App() {
                                             tabIndex={-1}
                                         >
                                             <svg
-                                                viewBox="0 0 24 24"
+                                                viewBox={`0 0 ${size} ${size}`}
                                                 dangerouslySetInnerHTML={{
                                                     __html: item.body,
                                                 }}
@@ -186,7 +188,7 @@ export default function App() {
                         <Grid container justifyContent="center">
                             <CanvasComponent>
                                 <svg
-                                    viewBox="0 0 24 24"
+                                    viewBox={`0 0 ${size} ${size}`}
                                     dangerouslySetInnerHTML={{
                                         __html: selectedIcon?.body || "",
                                     }}

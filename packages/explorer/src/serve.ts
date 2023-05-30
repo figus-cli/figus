@@ -29,10 +29,12 @@ export function printServerUrls(
 export async function serve({
     path: outputPath,
     fontName,
+    size,
     icons,
 }: {
     path: string;
     fontName?: string;
+    size?: number;
     icons: { body: string; filename: string; name: string }[];
 }) {
     const app = express();
@@ -45,6 +47,7 @@ export async function serve({
     app.get("/", (req, res) => {
         res.send({
             icons,
+            size,
             fontName,
         });
     });

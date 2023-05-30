@@ -1,7 +1,7 @@
 export function template() {
     return `
 <template>
-<svg fill="currentColor" viewBox="0 0 24 24" width="1em" height="1em" v-bind="$attrs">
+<svg fill="currentColor" viewBox="0 0 {{size}} {{size}}" width="1em" height="1em" v-bind="$attrs">
 {{{paths}}}
 </svg>
 </template>

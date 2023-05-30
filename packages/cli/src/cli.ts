@@ -47,6 +47,7 @@ async function worker({
     renameFilter,
     framework,
     template,
+    size,
 }: WorkerOptions) {
     logger(`starting to generate icons for ${framework}`, {
         svgPath,
@@ -57,6 +58,7 @@ async function worker({
         svgPath,
         svgDir,
         iconify,
+        size,
         getComponentNameConfig,
         output,
         renameFilter,
@@ -99,6 +101,7 @@ export async function handler(
         getFileName,
         iconify,
         path,
+        size,
         fontName,
         template: templateFile,
     } = await getConfig(options);
@@ -122,6 +125,7 @@ export async function handler(
                 svgPath,
                 svgDir: path,
                 framework,
+                size,
                 output,
                 iconify,
                 renameFilter: getFileName || renameFilter,
@@ -215,6 +219,7 @@ async function getConfig(options: Options & FigmaOptions): Promise<Options> {
             iconify: options.iconify || config.iconify,
             output: options.output || config.output,
             path: options.path || config.path,
+            size: options.size || config.size || 24,
             getComponentName:
                 options.getComponentName || config.getComponentName,
             download: options.download || config.download,
@@ -362,6 +367,7 @@ async function startServer(options: Options) {
     const {
         path: pathOutput,
         framework,
+        size,
         iconify,
         fontName,
     } = await getConfig(options);
@@ -383,16 +389,20 @@ async function startServer(options: Options) {
             filename: item,
         };
     });
-    await serve({ icons, path: pathOutput, fontName });
+    await serve({ icons, path: pathOutput, fontName, size });
 }
 
 const cli = cac("figus");
 
 cli.version(version)
     .option("-s, --svg-dir <svgDir>", "Output of downloaded files")
-    .option("-fk, --file-key <fileKey>", "figma file key")
+    .option("-fk, --file-key <fileKey>", "Figma file key")
     .option("-t --template <template>", "Mustache template file")
-    .option("-p, --page-name <pageName>", "figma page name")
+    .option(
+        "-sz --size <size>",
+        "Size of the icons in px (16 or 24), default 24"
+    )
+    .option("-p, --page-name <pageName>", "Figma page name")
     .option(
         "-f --font-name <font>",
         "font name, if provided will generate fonts from the svg"
