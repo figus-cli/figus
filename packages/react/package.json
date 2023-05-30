@@ -9,6 +9,7 @@
   "license": "ISC",
   "devDependencies": {
     "handlebars": "^4.7.7",
+    "fast-glob": "^3.2.12",
     "@types/change-case": "^2.3.1",
     "change-case": "^4.1.2",
     "param-case": "^3.0.4",

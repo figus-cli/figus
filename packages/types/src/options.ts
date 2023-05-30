@@ -44,7 +44,7 @@ export interface Options {
     /**
      * Whether to generate in Iconify format
      */
-    iconify: boolean;
+    iconify?: boolean;
 
     /**
      * whether to download icons when executing default command

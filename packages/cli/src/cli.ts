@@ -133,7 +133,13 @@ export async function handler(
     queue.push(svgPaths);
     const logger = getLogger();
     await queue.wait({ empty: true });
-    await generateIndex({ output, framework, components, iconify });
+    await generateIndex({
+        output,
+        framework,
+        components,
+        iconify,
+        getComponentName,
+    });
     spinner.stop();
     if (fontName) {
         spinner.stop();
@@ -154,6 +160,7 @@ async function generateIndex({
     output,
     framework = "vue",
     iconify,
+    getComponentName,
     components,
 }: Partial<Options> & {
     components?: { componentName?: string; paths?: string }[];
@@ -162,7 +169,11 @@ async function generateIndex({
         return await generateIndexIconify({ output, components, framework });
     }
     if (framework.startsWith("react")) {
-        return await generateIndexReact({ output });
+        return await generateIndexReact({
+            output,
+            getComponentName: getComponentName,
+            framework,
+        });
     }
     if (framework === "vue") {
         return await generateIndexVue({ output });
