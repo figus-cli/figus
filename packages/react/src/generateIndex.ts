@@ -3,6 +3,7 @@ import fse from "fs-extra";
 import globAsync from "fast-glob";
 import { Options } from "@figus/types";
 import { getComponentName } from "@figus/svg";
+import { formatFile } from "@figus/utils";
 
 // { output: Options["output"], getComponentNameConfig: Options['getComponentName'] }
 export async function generateIndex({
@@ -20,7 +21,6 @@ export async function generateIndex({
                 framework,
                 false
             )(path.basename(file));
-            console.log(componentName);
             if (getComponentNameConfig) {
                 componentName = getComponentNameConfig(componentName);
             }
@@ -28,6 +28,7 @@ export async function generateIndex({
             return `export { default as ${componentName} } from './${typename}';\n`;
         })
         .join("");
-
-    await fse.writeFile(path.join(output, "index.ts"), index);
+    const indexFileName = path.join(output, "index.ts");
+    await fse.writeFile(indexFileName, index);
+    await formatFile(indexFileName);
 }
