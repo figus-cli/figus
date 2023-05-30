@@ -1,4 +1,4 @@
-import { pascalCase } from "pascal-case";
+import { pascalCase } from "change-case";
 
 /*
  * Return path to write file to inside outputDir.

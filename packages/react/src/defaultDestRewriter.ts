@@ -11,7 +11,7 @@
  * @returns {string} output file dest relative to outputDir
  */
 import { ParsedPath } from "path";
-import { pascalCase } from "change-case";
+import { pascalCase } from "pascal-case";
 
 export function defaultDestRewriter(svgPathObj: ParsedPath) {
     let fileName = svgPathObj.base;
