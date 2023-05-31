@@ -112,7 +112,6 @@ export function cleanPaths({
                 type: "visitor",
                 name: "svgo-jsx-target",
                 fn: () => {
-                    return;
                     if (framework !== "react" || fromServe) {
                         return;
                     }

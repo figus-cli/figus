@@ -135,6 +135,7 @@ async function optimizeAssets(framework: Frameworks, dir?: string) {
                 framework,
                 svgPath: item,
                 data,
+                fromServe: true,
                 removeSvgNode: true,
             });
             return await fse.writeFile(item, paths);
