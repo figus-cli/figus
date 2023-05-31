@@ -1,5 +1,5 @@
 {
-  "version": "2.0.21",
+  "version": "2.0.22",
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
