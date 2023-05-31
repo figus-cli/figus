@@ -7,11 +7,13 @@ import { Frameworks } from "@figus/types";
 export function cleanPaths({
     svgPath,
     data,
+    fromServe,
     framework,
     removeSvgNode = true,
 }: {
     removeSvgNode?: boolean;
     framework: Frameworks;
+    fromServe?: boolean;
     svgPath: string;
     data: string;
 }) {
@@ -110,7 +112,7 @@ export function cleanPaths({
                 type: "visitor",
                 name: "svgo-jsx-target",
                 fn: () => {
-                    if (framework !== "react") {
+                    if (framework !== "react" || fromServe) {
                         return;
                     }
                     return {
@@ -125,6 +127,7 @@ export function cleanPaths({
                                     newAttributes[mappings[name] || name] =
                                         value;
                                 }
+
                                 node.attributes = newAttributes;
                             },
                         },

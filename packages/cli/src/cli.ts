@@ -379,6 +379,7 @@ async function startServer(options: Options) {
         return {
             body: cleanPaths({
                 framework,
+                fromServe: true,
                 data: fse.readFileSync(item, "utf-8"),
                 svgPath: item,
             }),
