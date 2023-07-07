@@ -39,4 +39,4 @@ npx @figus/cli --token="figma token"
 
 ## License
 
-[MIT](../../LICENSE) License © 2021-Present [Omri Katz](https://github.com/omridevk)
+[MIT](LICENSE) License © 2021-Present [Omri Katz](https://github.com/omridevk)
