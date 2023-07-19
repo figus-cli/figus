@@ -13,7 +13,6 @@ All options can also be passed as CLI options:
 npx @figus/cli --figma.token="token" figma.fileKey="zz" --figma.pageName="Icons" --output="src/components" 
 ```
 
-
 Figus have one config object [App Configs](./app-configs). 
 
 
@@ -40,4 +39,33 @@ import { defineConfig } from '@figus/cli'
 export default defineConfig({
   // ...
 })
+```
+
+## Example config 
+
+[CB Insights](https://www.cbinsights.com/) heavily customizes the config for their use case:
+
+```js
+import { defineConfig } from '@figus/cli';
+import dotenv from 'dotenv';
+import { pascalCase } from 'change-case';
+
+dotenv.config();
+
+export default defineConfig({
+  getFileName: (svgPathObj) => {
+    return `${pascalCase(svgPathObj.name)}Icon.tsx`;
+  },
+  output: 'packages/cbicons/src/components',
+  template: 'packages/cbicons/src/icon.mustache',
+  framework: 'react',
+  getComponentName: (name) => `${name}Icon`,
+  path: './packages/cbicons/src/assets',
+  figma: {
+    fileKey: 'qEm8vdvuoqzn51sx1JOngS',
+    // Create a .env file and put your token there
+    token: process.env.FIGMA_API_TOKEN,
+  },
+  iconify: false,
+});
 ```

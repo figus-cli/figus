@@ -4,12 +4,13 @@ title: Features | CLI
 
 # CLI
 
+In a project where Figus is installed, you can use the `figus` binary in your npm scripts, or run it directly with `npx @figus/cli`.
+
 Figus comes with a built-in command line interface that accepts the same config as [App Config](../config/app-configs.md)
 All configuration can be passed as arguments, for example:
 ```bash
 npx @figus/cli --path './src/assets' --output './src/icons' --token "figma token" --page-name "figma page name" --file-key "figma file key"
 ```
-
 
 ## Commands
 

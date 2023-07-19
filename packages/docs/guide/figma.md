@@ -1,4 +1,6 @@
-# Reserving Figma file-key and page name
+# Figma features
+
+## Retrieving Figma file-key and page name
 
 1. Open the page that contains the icons
 2. Open the Developer console (Cmd + Option + I / Ctrl + Shift + I)
@@ -10,4 +12,9 @@
 5. The page name will be available by writing `figma.currentPage.name`
 
 ![Page name](../assets/pageName.png)
+
+
+## Figma file examples
+
+- [CB Insights](https://www.cbinsights.com/) (cbicons): https://www.figma.com/file/qEm8vdvuoqzn51sx1JOngS/cbicons
 
