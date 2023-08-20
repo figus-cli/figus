@@ -1,10 +1,10 @@
 # Figma Configs
 
-Figma configs are where you can define figma settings for Figus. Figma configs define fundamental settings that are required in order to integrate with Figma's REST API
+Figma configs allow you to specify Figma settings for Figus. These configurations are essential to seamlessly integrate with Figma's REST API.
 
 ```ts
 export default {
-    // These are figma level configs.
+    // These are Figma-specific configs.
     ...,
     figma: {
         pageName: "Icon",
@@ -17,12 +17,10 @@ export default {
 
 ## pageName
 
-- Type: `string`
-- Required: `false`
+- **Type**: `string`
+- **Required**: `false`
 
-The page name where the icons library sits in Figma. [See how to](../guide/figma.md) find that information in Figma
-Optional as some of Figma pages have only icons, so no need to filter by page name
-Try first without page name and if there are too many icons or no icons at all, add the page name.
+This is the name of the page in Figma where the icon library is located. To learn how to find this information in Figma, check [here](../guide/figma.md). This configuration is optional since some Figma pages consist solely of icons, eliminating the need to filter by page name. Start by leaving the `pageName` undefined. If you find too many icons or none at all, specify the page name.
 
 ```ts
 export default {
@@ -34,10 +32,10 @@ export default {
 
 ## fileKey
 
-- Type: `string`
-- Required: `true`
+- **Type**: `string`
+- **Required**: `true`
 
-The file key name where the icons library sits in Figma. [See how to](../guide/figma.md) find that information in Figma
+The `fileKey` represents the identifier for the specific Figma file where the icon library is housed. Learn how to determine this key in Figma [here](../guide/figma.md).
 
 ```ts
 export default {
@@ -47,11 +45,10 @@ export default {
 
 ## token
 
-- Type: `string`
-- Required: `true`
+- **Type**: `string`
+- **Required**: `true`
 
-We must have a Figma token to integrate with the API, to get a new token, follow [these instructions](https://www.figma.com/developers/api)
-Login to Figma, then you can click on `Get personal access token`
+To integrate with Figma's API, a token is essential. To obtain a new token, follow the instructions provided [here](https://www.figma.com/developers/api). Once you're logged into Figma, you can obtain your `personal access token`.
 
 ```ts
 export default {
