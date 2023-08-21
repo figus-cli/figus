@@ -1,6 +1,6 @@
 # App Configs
 
-App configs are where you can define the global settings for Figus. App configs define fundamental settings that are not only limited to the figma settings such as configuration for "output path", or the "framework" to generate components for.
+App configs are the central configuration files where you specify global settings for Figus. Beyond just Figma-specific settings, app configs allow you to define fundamental parameters such as the "output path" or the specific "framework" you wish to generate components for.
 
 ```ts
 export default {
@@ -14,10 +14,10 @@ export default {
 
 ## output
 
-- Type: `string`
-- Required: `true`
+- **Type**: `string`
+- **Required**: `true`
 
-Where to save the components to
+Defines the directory where the components will be saved.
 
 ```ts
 export default {
@@ -27,10 +27,10 @@ export default {
 
 ## framework
 
-- Type: `vue | react | react-mui`
-- Required: `true`
+- **Type**: `vue | react | react-mui`
+- **Required**: `true`
 
-The framework which we want to generate components for, i.e Vue, React, or React-Mui
+Specifies the framework for which components should be generated: Vue, React, or React-MUI.
 
 ```ts
 export default {
@@ -40,10 +40,10 @@ export default {
 
 ## path
 
-- Type: `string`
-- Required: `true`
+- **Type**: `string`
+- **Required**: `true`
 
-Used by `figus generate` when we only want to generate components, without downloading from figma. the path will indicate where the svgs are located
+This is used by `figus generate` when you only want to generate components without downloading from Figma. The path indicates the location of the SVGs.
 
 ```ts
 export default {
@@ -53,11 +53,10 @@ export default {
 
 ## Iconify
 
-- Type: `boolean`
-- Required: `false`
+- **Type**: `boolean`
+- **Required**: `false`
 
-When provided, the generator will create iconify icon collection, can directly be used with iconfiy
-More info [here](https://docs.iconify.design/icon-components/bundles/wrapper.html)
+When set to `true`, the generator will create an Iconify icon collection. The generated collection can then be used directly with Iconify. For more details, click [here](https://docs.iconify.design/icon-components/bundles/wrapper.html).
 
 ```ts
 export default {
@@ -67,11 +66,10 @@ export default {
 
 ## template
 
-- Type: `string`
-- Required: `false` (only required when React framework is used)
+- **Type**: `string`
+- **Required**: `false` (only required when the React framework is selected)
 
-Provide a mustache template file, will be used to generate components in either of the supported frameworks.
-
+Allows you to provide a mustache template file which will then be used to generate components for any of the supported frameworks.
 
 ```ts
 export default {
@@ -79,7 +77,7 @@ export default {
 }
 ```
 
-example of mustache file:
+Example of a mustache template:
 
 ```js
 const {{{componentName}}} = () => {
@@ -87,18 +85,18 @@ const {{{componentName}}} = () => {
         {{{paths}}}
     </>
 }
-
 ```
 
-available Mustache variables:
-- `componentName` - the component name, will default to the icon name, or if component name function is in the config, the result will be used.
-- `paths` - the SVG paths, includes the `<svg>` element
+Available Mustache variables:
+- `componentName`: Defaults to the icon's name. If a component name function is provided in the config, the result will be utilized.
+- `paths`: Represents the SVG paths, including the `<svg>` element.
+
 ## getComponentName
 
-- Type: `(svgObject: ParsedPath, innerPath: string, options: Options) => string`
-- Required: `false`
+- **Type**: `(svgObject: ParsedPath, innerPath: string, options: Options) => string`
+- **Required**: `false`
 
-The function should return the component name (`string`) to allow customizing the output components name
+This function should return a string that defines the component name, allowing you to customize the naming of the output components.
 
 ```ts
 export default {
@@ -107,5 +105,3 @@ export default {
     }
 }
 ```
-
-
