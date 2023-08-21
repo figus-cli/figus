@@ -13,13 +13,13 @@ It offers support for React, React Material UI, and Vue.
 
 ```bash
 # Using npm
-npm install -D @ficus/cli
+npm install -D @figus/cli
 
 # Using yarn
-yarn add -D @ficus/cli
+yarn add -D @figus/cli
 
 # Using pnpm
-pnpm add -D @ficus/cli
+pnpm add -D @figus/cli
 ```
 
 :::tip
